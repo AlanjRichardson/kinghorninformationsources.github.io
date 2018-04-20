@@ -1,0 +1,88 @@
+
+<body>
+
+
+
+header, footer, main,{
+    display: block;
+}
+
+header	{
+		position: top;
+		margin: auto;
+		text-align:center;
+		width: 96%;
+		font-size:25px;
+		color: black;
+		}
+		
+	
+main {
+	margin: auto;
+	border: solid;  border-color: pink;
+	width: 96%;
+    padding:10px;
+	font-size:16px;
+	background-color:#FFFFE0;
+	
+	}
+	
+	
+footer {
+    
+	margin: auto;
+	padding-left: 10px;
+	width: 96%;
+	color:black;
+	height:18px;
+	font-size:12px;
+    text-align:left;
+	clear: both;
+
+	}
+	
+	
+body {font-family: "Verdana", Geneva, sans-serif; font-size: 100%;}
+	
+h1	{}
+
+
+	
+h2	{
+	font-size: 18px;
+	color: #0000ff;
+	text-align: center;
+	}
+		
+h3	{text-align:left;
+	font-size:18px;
+	color:black;}		
+		
+h4	{
+	font-size: 18px;
+	text-align: left;
+	}	
+
+h5	{font-style:bold;
+	font-size: 14px;}	
+		
+ul 	{
+	list-style-type: none;
+	font-size: 16px;
+	color: #0000ff;
+    margin: 0;
+    padding: 0;
+	text-align: center;
+	font-style:bold;
+	
+	}
+
+ul, li{list-style-type: none;}	
+
+
+
+
+
+
+	
+</body>
