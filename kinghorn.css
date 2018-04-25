@@ -57,18 +57,18 @@ form {
 /* Style the text boxes */
 input, textarea {
 	width:439px;
-	height:2px;
+	height:3px;
 	background:#efefef;
 	border:1px solid #dedede;
 	padding:10px;
-	margin-top:3px;
+	margin-top:4px;
 	font-size:0.9em;
 	color:#3a3a3a;
 }
 
 textarea {
 	height:213px;
-	background:#efefef;
+	background-color:#efefef;
 }
 	
 body {font-family: "Verdana", Geneva, sans-serif; font-size: 100%;}
