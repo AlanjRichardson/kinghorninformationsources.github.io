@@ -57,7 +57,7 @@ form {
 /* Style the text boxes */
 input, textarea {
 	width:439px;
-	height:213px;
+	height:2px;
 	background:#efefef;
 	border:1px solid #dedede;
 	padding:10px;
@@ -66,7 +66,10 @@ input, textarea {
 	color:#3a3a3a;
 }
 
-
+textarea {
+	height:213px;
+	background:#efefef;
+}
 	
 body {font-family: "Verdana", Geneva, sans-serif; font-size: 100%;}
 	
