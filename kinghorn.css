@@ -41,6 +41,11 @@ footer {
 
 	}
 	
+	label {
+    display:block;
+    margin-top:20px;
+    letter-spacing:2px;
+}
 	
 body {font-family: "Verdana", Geneva, sans-serif; font-size: 100%;}
 	
