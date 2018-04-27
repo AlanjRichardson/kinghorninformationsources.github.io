@@ -85,7 +85,7 @@ ul 	{
 ul, li{list-style-type: none;}	
 
 label {
-    display:block;
+    display:inline;
     margin-top:20px;
     letter-spacing:2px;
 }
