@@ -1,14 +1,17 @@
 
 <body>
 
-label, {display: block;
+label 	{
+		display: block;
 		margin-top: 20px;
 		letter-spacing: 2px;
-}
+		
+		}
 
-header, footer, main,{
+header, footer, main,
+		{
     display: block;
-}
+		}
 
 header	{
 		position: top;
