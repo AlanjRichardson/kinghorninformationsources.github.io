@@ -62,16 +62,18 @@ form {
     width:459px;
 }
 
-/* Style the text boxes */
 input, textarea {
-	width:439px;
-	height:27px;
-	background:#efefef;
-	border:1px solid #dedede;
-	padding:10px;
-	margin-top:3px;
-	font-size:0.9em;
-	color:#3a3a3a;
+    width:439px;
+    height:29px;
+    background:#efefef;
+    border:1px solid #dedede;
+    padding:10px;
+    margin-top:3px;
+    font-size:0.9em;
+    color:#3a3a3a;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
 }
 
 textarea {
