@@ -59,12 +59,12 @@ footer {
 /* Centre the form within the page */
 form {
     margin:0 auto;
-    width:459px;
+    width:306px;
 }
 
 input, textarea {
-    width:439px;
-    height:29px;
+    width:293px;
+    height:27px;
     background:#efefef;
     border:1px solid #dedede;
     padding:10px;
