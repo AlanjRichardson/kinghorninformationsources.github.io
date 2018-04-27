@@ -1,7 +1,10 @@
 
 <body>
 
-
+label, {display: block;
+		margin-top: 20px;
+		letter-spacing: 2px;
+}
 
 header, footer, main,{
     display: block;
@@ -84,11 +87,7 @@ ul 	{
 
 ul, li{list-style-type: none;}	
 
-label {
-    display:inline;
-    margin-top:20px;
-    letter-spacing:2px;
-}
+
 
 
 
