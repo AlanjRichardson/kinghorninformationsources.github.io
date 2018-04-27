@@ -41,11 +41,7 @@ footer {
 
 	}
 	
-label {
-    display:block;
-    margin-top:20px;
-    letter-spacing:2px;
-}	
+	
 
 
 
@@ -88,7 +84,11 @@ ul 	{
 
 ul, li{list-style-type: none;}	
 
-
+label {
+    display:block;
+    margin-top:20px;
+    letter-spacing:2px;
+}
 
 
 
