@@ -1,17 +1,15 @@
 
 <body>
 
-label 	{
-		display: block;
-		margin-top: 20px;
-		letter-spacing: 2px;
-		
-		}
+label {
+    display:block;
+    margin-top:20px;
+    letter-spacing:2px;
+}
 
-header, footer, main,
-		{
-    display: block;
-		}
+header, footer, main	{
+						display: block;
+						}
 
 header	{
 		position: top;
