@@ -102,9 +102,11 @@ h4	{
 	text-align: left;
 	}	
 
-h5	{font-style:bold;
+h5	{
 	font-size: 14px;
-	color:blue;}	
+	text-align: left;
+	color:blue;
+	}	
 		
 ul 	{
 	list-style-type: none;
