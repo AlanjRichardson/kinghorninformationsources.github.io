@@ -15,12 +15,12 @@ label	{
 		}				
 
 header	{
-		font: Times New Roman em;
+		font: Times New Roman bold;
 		position: top;
 		margin: auto;
 		text-align:center;
 		width: 96%;
-		font-size:25px;
+		font-size:30px;
 		color: Pink;
 	
 		
