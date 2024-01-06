@@ -15,7 +15,7 @@ label	{
 		}				
 
 header	{
-		font: Times New Roman bold;
+		font: bold 1.0em times new roman, helvetica, sans serif;
 		position: top;
 		margin: auto;
 		text-align:center;
