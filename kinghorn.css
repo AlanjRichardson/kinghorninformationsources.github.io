@@ -20,10 +20,11 @@ header	{
 		margin: auto;
 		text-align:center;
 		width: 96%;
-		font-size:30px;
+		font-size:25px;
 		color: Pink;
-		background-color:#FFFFE0
-			
+		background-color:#FFFFE0;
+		border: solid;
+		border-color: pink;
 		}
 		
 	
