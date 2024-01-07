@@ -15,7 +15,7 @@ label	{
 		}				
 
 header	{
-		font: bold 1.0em times new roman, helvetica, sans serif;
+		font: bold 2.0em times new roman, helvetica, sans serif;
 		position: top;
 		margin: auto;
 		text-align:center;
@@ -23,7 +23,7 @@ header	{
 		font-size:25px;
 		color: Pink;
 		background-color:#FFFFE0;
-		border: solid;
+		border-top: solid; border-left: solid; border-right: solid;
 		border-color: pink;
 		}
 		
