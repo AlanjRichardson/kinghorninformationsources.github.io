@@ -21,7 +21,7 @@ header	{
 		text-align:center;
 		width: 96%;
 		font-size:25px;
-		color: Pink;
+		color: Gray;
 		background-color:#FFFFE0;
 		border-top: solid; border-left: solid; border-right: solid;
 		border-color: pink;
@@ -101,10 +101,10 @@ h3	{text-align:left;
 	font-size:18px;
 	color:black;}		
 		
-h4	{
-	font-size: 20px;
+h4	{font: bold 2.5em times new roman, helvetica, serif;
+	font-size: 18px;
 	color: black;
-	text-align: centre;
+	text-align: left;
 	}	
 
 h5	{
