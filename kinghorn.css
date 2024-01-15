@@ -92,9 +92,9 @@ h1	{}
 
 	
 h2	{
-	font-size: 18px;
+	font-size: 14px;
 	color: #0000ff;
-	text-align: center;
+	text-align: left;
 	}
 		
 h3	{text-align:left;
@@ -102,15 +102,15 @@ h3	{text-align:left;
 	color:black;}		
 		
 h4	{font-weight: bold;
-	font-size: 18px;
-	color: blue;
+	font-size: 14px;
+	color: black;
 	text-align: left;
 	}	
 
-h5	{
+h5	{font-weight: bold;
 	font-size: 14px;
 	text-align: left;
-	color:blue;
+	color:black;
 	}	
 		
 ul 	{
