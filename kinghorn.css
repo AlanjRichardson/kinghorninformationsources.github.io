@@ -87,39 +87,37 @@ textarea {
 
 body {font-family: "Times New Roman", Helvetica, serif; font-size: 100%;}
 	
-h1	{}
+h1	{font-size; 3em}
 
 
 	
 h2	{
-	font-size: 14px;
-	color: #0000ff;
+	font-size: 2.5em;
+	color: black;
 	text-align: left;
 	}
 		
 h3	{text-align:left;
-	font-size:18px;
+	font-size:2em;
 	color:black;}		
 		
 h4	{font-weight: bold;
-	font-size: 14px;
+	font-size: 1.5em;
 	color: black;
 	text-align: left;
 	}	
 
 h5	{font-weight: bold;
-	font-size: 14px;
+	font-size: 1em;
 	text-align: left;
 	color:black;
 	}	
 		
 ul 	{
-	list-style-type: none;
-	font-size: 14px;
-	color: #0000ff;
-    margin: 0;
-    padding: 0;
-	text-align: center;
+	
+	font-size: 0.5em;
+	color: black;
+	text-align: left;
 	font-style:bold;
 	
 	}
