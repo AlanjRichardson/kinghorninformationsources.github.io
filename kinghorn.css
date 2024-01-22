@@ -42,13 +42,13 @@ main {
 footer {
     
 	margin: auto;
-	padding-left: 10px;
+	padding-left: 1em;
 	width: 96%;
 	color:black;
-	height:18px;
-	font-size:12px;
-    text-align:left;
-	clear: both;
+	height:1.5em;
+	font-size:1em;
+    text-align: centre;
+
 
 	}
 	
@@ -103,9 +103,9 @@ h3	{text-align:left;
 	font-size:2em;
 	color:black;}		
 		
-h4	{font-weight: bold;
+h4	{font-weight: 3em;
 	font-size: 1.5em;
-	color: black;
+	color: darkgreen;
 	text-align: left;
 	}	
 
