@@ -127,14 +127,14 @@ ul 	{
 a {
   position: relative;
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 a[title]:hover::after {
   content: attr(title);
   position: absolute;
   top: -100%;
-  left: 0;
+  right: auto;
 }	
             
 
