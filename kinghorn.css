@@ -132,7 +132,7 @@ a {
 
 a[title]:hover::after {
   content: attr(title);
-  position: absolute;
+  position: relative;
   top: -100%;
   right: auto;
 }	
