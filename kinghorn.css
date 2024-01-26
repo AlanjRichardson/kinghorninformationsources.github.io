@@ -124,11 +124,18 @@ ul 	{
 	
 	}
 	
-title  {font-weight: bold;
-	   font-size: 1em;
-	   text-align: left;
-	   color:black;
-	}	
+a {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+a[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -100%;
+  left: 0;
+}	
             
 
 
