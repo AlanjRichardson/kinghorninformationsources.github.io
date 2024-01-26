@@ -123,21 +123,7 @@ ul 	{
 	font-style:bold;
 	
 	}
-	
-a {
-  position: relative;
-  display: contents
-  margin-top: 1em;
-}
-
-a[title]:hover::after {
-  content: attr(title);
-  position: relative;
-  top: -100%;
-  right: auto;
-}	
-            
-
+	            
 
 ul, li{list-style-type: none;}	
 
