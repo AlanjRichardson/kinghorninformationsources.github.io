@@ -126,8 +126,8 @@ ul 	{
 	
 a {
   position: relative;
-  display: inline-block;
-  margin-top: 10px;
+  display: contents
+  margin-top: 1em;
 }
 
 a[title]:hover::after {
