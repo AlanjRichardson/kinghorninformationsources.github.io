@@ -128,7 +128,7 @@ ul 	{
 ul, li{list-style-type: none;}	
 
 /* ============================= */
-/* Hover image link beside text  */
+/* Responsive hover image link   */
 /* ============================= */
 .hover-image-link {
   position: relative;
@@ -142,7 +142,7 @@ ul, li{list-style-type: none;}
 .hover-image-link span {
   position: absolute;
   top: 50%;
-  left: 110%;  /* image appears beside text */
+  left: 110%;  /* image appears to the right of text */
   transform: translateY(-50%);
   visibility: hidden;
   opacity: 0;
@@ -157,14 +157,34 @@ ul, li{list-style-type: none;}
 }
 
 .hover-image-link span img {
-  display: block;           /* ensures image doesn't affect text layout */
-  width: 300px;             /* adjust as needed */
+  display: block;
+  max-width: 40vw;   /* scale relative to viewport width */
+  height: auto;
   border: 2px solid pink;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   background-color: #FFFFE0;
 }
 
+/* Tweak for tablets */
+@media (max-width: 1024px) {
+  .hover-image-link span img {
+    max-width: 50vw;
+  }
+}
+
+/* Tweak for mobiles */
+@media (max-width: 600px) {
+  .hover-image-link span {
+    left: 0;
+    top: 110%;  /* move below the link for small screens */
+    transform: translateY(0);
+  }
+
+  .hover-image-link span img {
+    max-width: 80vw;
+  }
+}
 
 
 
