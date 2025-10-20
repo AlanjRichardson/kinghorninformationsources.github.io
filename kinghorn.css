@@ -1,8 +1,8 @@
 /* ===================== */
 /* Header colors & fonts */
 header {
-    background-color: #FFFFE0;
-    border-bottom: 2px solid pink;
+    background-color: #333333;  /* Dark grey header */
+    border-bottom: 2px solid pink; 
     text-align: center;
     padding: 10px 0;
     position: fixed;
@@ -15,7 +15,7 @@ header h1 {
     margin: 0;
     font-size: 1.8em;
     font-weight: bold;
-    color: gray;
+    color: #FFFFFF;  /* White text for contrast */
 }
 
 /* Navbar links desktop */
@@ -30,7 +30,7 @@ header h1 {
 
 .navbar-nav li a {
     text-decoration: none;
-    color: blue;
+    color: #00BFFF;  /* Link-style blue */
     font-weight: bold;
 }
 
@@ -49,13 +49,14 @@ header h1 {
         background: none;
         border: none;
         cursor: pointer;
+        color: #FFFFFF;  /* Hamburger icon white for contrast */
     }
 
     .navbar-nav {
         display: none;
         flex-direction: column;
         align-items: flex-end;
-        background: rgba(255, 255, 240, 0.97);
+        background: rgba(51, 51, 51, 0.97); /* Slightly transparent dark grey */
         border-left: 1px solid pink;
         border-bottom-left-radius: 10px;
         box-shadow: -3px 3px 10px rgba(0,0,0,0.2);
@@ -75,5 +76,11 @@ header h1 {
         margin: 0.3rem 0;
     }
 
+    .navbar-nav li a {
+        color: #00BFFF;  /* Maintain link-style blue in mobile menu */
+    }
+
     body.menu-active {
-        filter: brightness(0
+        filter: brightness(0.6);
+    }
+}
