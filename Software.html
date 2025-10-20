@@ -29,20 +29,20 @@
 
 
 <header>
-
-Kinghorn - Information Sources
-
-<ul class="nav nav-tabs">
-<li><a href="index.html">Home</a>
-<li><a href="kinghorn_history.html">Historical</a></li>
-<li><a href="industryhistory.html">Industrial</a></li>
-<li><a href="naturalhistory.html">Natural</a></li>
-<li><a href="maps.html">Old-Maps</a></li>
-<li><a href="documents.html">Documents</a></li>
-<li><a href="Software.html">Software</a></li>
-<li><a href="Culture.html">People</a></li>
-</ul>
-
+  <h1>Kinghorn - Information Sources</h1>
+  <button class="navbar-toggler" aria-label="Toggle menu">☰</button>
+  <nav>
+    <ul class="navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="kinghorn_history.html">Historical</a></li>
+      <li><a href="industryhistory.html">Industrial</a></li>
+      <li><a href="naturalhistory.html">Natural</a></li>
+      <li><a href="maps.html">Old-Maps</a></li>
+      <li><a href="documents.html">Documents</a></li>
+      <li><a href="Software.html">Software</a></li>
+      <li><a href="Culture.html">People</a></li>
+    </ul>
+  </nav>
 </header>
 
 <body>
@@ -81,6 +81,18 @@ Editor: Alan Richardson    <a href="ContactForm.html">Contact me by email</a>
 
 </footer>
 
+<script>
+  const toggler = document.querySelector('.navbar-toggler');
+  const navMenu = document.querySelector('.navbar-nav');
+  const body = document.body;
+
+  if (toggler && navMenu) {
+    toggler.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+      body.classList.toggle('menu-active');
+    });
+  }
+</script>
 
 
 
