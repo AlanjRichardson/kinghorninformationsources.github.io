@@ -5,46 +5,154 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-20KZGF4994"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-20KZGF4994');
-  </script>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- External CSS -->
-  <link rel="stylesheet" type="text/css" href="kinghorn.css">
+  <link rel="stylesheet" href="kinghorn.css">
 
-  <!-- Bootstrap (optional for nav styling) -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <style>
+    body {
+      padding-top: 90px;
+      transition: opacity 0.3s ease;
+    }
 
+    /* Fixed header */
+    header.navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1040;
+      background-color: #FFFFE0;
+      border-bottom: 1px solid pink;
+      transition: all 0.3s ease;
+      padding: 12px 16px;
+    }
+    
+    /* Smaller font for mobile menu links */
+@media (max-width: 992px) {
+  .navbar-nav .nav-link {
+    font-size: 0.85em; /* slightly smaller than desktop */
+    text-align: right;
+    padding-right: 1rem; /* optional: add spacing from edge */
+  }
+}
+
+
+    header.shrink {
+      padding: 4px 16px !important;
+      background-color: #fdf5c4;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.1em;
+      color: gray !important;
+    }
+
+    /* Navbar text smaller & left aligned on desktop */
+    .navbar-nav .nav-link {
+      font-size: 0.95em;
+      color: #333 !important;
+    }
+    .navbar-nav .nav-link:hover {
+      color: darkblue !important;
+      text-decoration: underline;
+    }
+
+    /* Overlay behind menu when open */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 1030;
+    }
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Main content */
+    main {
+      padding: 20px;
+      background-color: #FFFFE0;
+      border: solid pink;
+      margin: auto;
+      width: 96%;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      border-top: 1px solid pink;
+      width: 96%;
+      margin: auto;
+    }
+
+    /* Fade body when menu is open */
+    body.menu-active main,
+    body.menu-active footer {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    /* Right-align menu items under hamburger on small screens */
+    @media (max-width: 992px) {
+      .navbar-collapse {
+        text-align: right;
+      }
+      .navbar-nav {
+        justify-content: flex-end;
+      }
+      .navbar-nav .nav-link {
+        text-align: right;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Fixed header -->
-  <header id="pageHeader">
-    Kinghorn - Information Sources
+  <!-- Overlay -->
+  <div class="overlay" id="menuOverlay"></div>
 
-    <ul class="nav nav-tabs">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="kinghorn_history.html">Historical</a></li>
-      <li><a href="industryhistory.html">Industrial</a></li>
-      <li><a href="naturalhistory.html">Natural</a></li>
-      <li><a href="maps.html">Old-Maps</a></li>
-      <li><a href="documents.html">Documents</a></li>
-      <li><a href="Software.html">Software</a></li>
-      <li><a href="Culture.html">People</a></li>
-    </ul>
+  <!-- Header -->
+  <header class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Kinghorn - Information Sources</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="kinghorn_history.html">Historical</a></li>
+          <li class="nav-item"><a class="nav-link" href="industryhistory.html">Industrial</a></li>
+          <li class="nav-item"><a class="nav-link" href="naturalhistory.html">Natural</a></li>
+          <li class="nav-item"><a class="nav-link" href="maps.html">Old-Maps</a></li>
+          <li class="nav-item"><a class="nav-link" href="documents.html">Documents</a></li>
+          <li class="nav-item"><a class="nav-link" href="Software.html">Software</a></li>
+          <li class="nav-item"><a class="nav-link" href="Culture.html">People</a></li>
+        </ul>
+      </div>
+    </div>
   </header>
 
-  <!-- Main content -->
-  <main id="pageContent">
-
+  <!-- Main Content -->
+  <main>
     <h4>Home</h4>
 
     <blockquote>
@@ -77,25 +185,44 @@
     <p>You can message me using my <a href="ContactForm.html">Contact Form</a>.</p> 
     <p>Thanks for your help.</p>
     <p>Alan</p>
-
   </main>
 
   <footer>
     Editor: Alan Richardson — <a href="ContactForm.html">Contact me by email</a>
   </footer>
 
-  <!-- JavaScript for header fade/shrink -->
+  <!-- JS for header shrink and fade overlay -->
   <script>
-    const header = document.getElementById("pageHeader");
-    window.addEventListener("scroll", () => {
+    const header = document.querySelector('header');
+    const overlay = document.getElementById('menuOverlay');
+    const body = document.body;
+    const navbarCollapse = document.getElementById('navbarNav');
+
+    // Header shrink on scroll
+    window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
-        header.classList.add("shrink");
+        header.classList.add('shrink');
       } else {
-        header.classList.remove("shrink");
+        header.classList.remove('shrink');
       }
+    });
+
+    // Fade background when menu opens/closes
+    navbarCollapse.addEventListener('show.bs.collapse', () => {
+      overlay.classList.add('active');
+      body.classList.add('menu-active');
+    });
+    navbarCollapse.addEventListener('hide.bs.collapse', () => {
+      overlay.classList.remove('active');
+      body.classList.remove('menu-active');
+    });
+
+    // Close menu when overlay clicked
+    overlay.addEventListener('click', () => {
+      const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+      bsCollapse.hide();
     });
   </script>
 
 </body>
 </html>
-
