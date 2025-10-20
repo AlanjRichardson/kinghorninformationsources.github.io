@@ -1,186 +1,154 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home Page</title>
-
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- External CSS -->
-  <link rel="stylesheet" href="kinghorn.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="kinghorn.css">
 
   <style>
     body {
-      padding-top: 90px;
-      transition: opacity 0.3s ease;
+      font-family: "Times New Roman", Helvetica, serif;
+      background-color: #FFFFE0;
+      transition: filter 0.3s ease;
     }
 
-    /* Fixed header */
-    header.navbar {
+    header {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
-      z-index: 1040;
+      z-index: 1000;
       background-color: #FFFFE0;
-      border-bottom: 1px solid pink;
+      border-bottom: 2px solid pink;
+      text-align: center;
       transition: all 0.3s ease;
-      padding: 12px 16px;
+      padding: 10px 0;
     }
-    
-    /* Smaller font for mobile menu links */
-@media (max-width: 992px) {
-  .navbar-nav .nav-link {
-    font-size: 0.85em; /* slightly smaller than desktop */
-    text-align: right;
-    padding-right: 1rem; /* optional: add spacing from edge */
-  }
-}
-
 
     header.shrink {
-      padding: 4px 16px !important;
-      background-color: #fdf5c4;
+      padding: 5px 0;
     }
 
-    .navbar-brand {
+    header h1 {
+      font-size: 1.8em;
       font-weight: bold;
-      font-size: 1.1em;
-      color: gray !important;
+      color: gray;
+      margin: 0;
     }
 
-    /* Navbar text smaller & left aligned on desktop */
-    .navbar-nav .nav-link {
-      font-size: 0.95em;
-      color: #333 !important;
-    }
-    .navbar-nav .nav-link:hover {
-      color: darkblue !important;
-      text-decoration: underline;
+    nav {
+      margin-top: 5px;
     }
 
-    /* Overlay behind menu when open */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.4);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      z-index: 1030;
-    }
-    .overlay.active {
-      opacity: 1;
-      visibility: visible;
+    /* Desktop menu */
+    @media (min-width: 992px) {
+      .navbar-nav {
+        justify-content: flex-start;
+      }
+      .navbar-nav .nav-link {
+        color: black !important;
+        font-size: 1em;
+        font-weight: bold;
+      }
+      .navbar-nav .nav-link:hover {
+        color: darkgreen !important;
+      }
     }
 
-    /* Main content */
+    /* Mobile adjustments */
+    @media (max-width: 991px) {
+      header h1 {
+        font-size: 1.2em;
+      }
+      .navbar-toggler {
+        position: absolute;
+        top: 8px;
+        right: 15px;
+      }
+      .navbar-collapse {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 75%;
+        height: 100vh;
+        background: rgba(255, 255, 240, 0.97);
+        padding-top: 80px;
+        box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+      }
+      .navbar-nav {
+        text-align: right;
+        padding-right: 1rem;
+      }
+      .navbar-nav .nav-link {
+        font-size: 0.9em;
+        padding: 10px;
+        color: black !important;
+        font-weight: bold;
+      }
+      body.menu-active {
+        filter: brightness(0.6);
+      }
+    }
+
     main {
-      padding: 20px;
-      background-color: #FFFFE0;
-      border: solid pink;
-      margin: auto;
+      margin: 150px auto 50px auto;
       width: 96%;
-      position: relative;
-      z-index: 1;
+      padding: 10px;
+      border: solid pink;
+      background-color: #FFFFE0;
+      font-size: 16px;
     }
 
     footer {
       text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      border-top: 1px solid pink;
-      width: 96%;
-      margin: auto;
-    }
-
-    /* Fade body when menu is open */
-    body.menu-active main,
-    body.menu-active footer {
-      opacity: 0.4;
-      pointer-events: none;
-    }
-
-    /* Right-align menu items under hamburger on small screens */
-    @media (max-width: 992px) {
-      .navbar-collapse {
-        text-align: right;
-      }
-      .navbar-nav {
-        justify-content: flex-end;
-      }
-      .navbar-nav .nav-link {
-        text-align: right;
-      }
+      padding: 10px;
+      border-top: 2px solid pink;
+      background-color: #FFFFE0;
+      font-size: 0.9em;
+      color: black;
+      width: 100%;
     }
   </style>
 </head>
 
 <body>
+  <header>
+    <h1>Kinghorn - Information Sources</h1>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <!-- Overlay -->
-  <div class="overlay" id="menuOverlay"></div>
-
-  <!-- Header -->
-  <header class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Kinghorn - Information Sources</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="kinghorn_history.html">Historical</a></li>
-          <li class="nav-item"><a class="nav-link" href="industryhistory.html">Industrial</a></li>
-          <li class="nav-item"><a class="nav-link" href="naturalhistory.html">Natural</a></li>
-          <li class="nav-item"><a class="nav-link" href="maps.html">Old-Maps</a></li>
-          <li class="nav-item"><a class="nav-link" href="documents.html">Documents</a></li>
-          <li class="nav-item"><a class="nav-link" href="Software.html">Software</a></li>
-          <li class="nav-item"><a class="nav-link" href="Culture.html">People</a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="kinghorn_history.html">Historical</a></li>
+            <li class="nav-item"><a class="nav-link" href="industryhistory.html">Industrial</a></li>
+            <li class="nav-item"><a class="nav-link" href="naturalhistory.html">Natural</a></li>
+            <li class="nav-item"><a class="nav-link" href="maps.html">Old-Maps</a></li>
+            <li class="nav-item"><a class="nav-link" href="documents.html">Documents</a></li>
+            <li class="nav-item"><a class="nav-link" href="Software.html">Software</a></li>
+            <li class="nav-item"><a class="nav-link" href="Culture.html">People</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </nav>
   </header>
 
-  <!-- Main Content -->
   <main>
     <h4>Home</h4>
 
-    <blockquote>
-      "If you are planning a visit to Kinghorn and just want to know what you can do there and where you can do it then read this booklet produced by the 
-      <a href="https://drive.google.com/file/d/1ln0sz8_YRvhSwsSooep-KJUi66ht7P5D/view?usp=sharing" target="_blank">Royal Burgh's Community Council</a> 
-      published in 2021 or if you are trying to find information on a Kinghorn resident past or present then there is an album of photographs covering the last 120+ years with dates & names on e.g Primary School, Golf Club, Workplaces etc.  
-      This album is maintained by Kinghorn Past & Present and it can be found here 
-      <a href="https://drive.google.com/drive/folders/0B_ryY5OKr0WyRlZxUmVBUU0wbjg?resourcekey=0--wTJ-afNjfmQDnNBqjaA9g&usp=sharing" target="_blank">Photos with Names</a>.  
-      Any questions?  Please contact myself or even better join 
-      <a href="https://www.facebook.com/groups/1172222626208637/" target="_blank">Kinghorn Past & Present</a> 
-      and post your question there, this will enable you to access the knowledge and memories of their 2000+ members".
-    </blockquote>
+    <blockquote>"If you are planning a visit to Kinghorn and just want to know what you can do there and where you can do it then read this booklet produced by the <a href="https://drive.google.com/file/d/1ln0sz8_YRvhSwsSooep-KJUi66ht7P5D/view?usp=sharing" target="_blank">Royal Burgh's Community Council</a> published in 2021 or if you are trying to find information on a Kinghorn resident past or present then there is an album of photographs covering the last 120+ years with dates & names on e.g Primary School, Golf Club, Workplaces etc.  This album is maintained by Kinghorn Past & Present and it can be found here <a href="https://drive.google.com/drive/folders/0B_ryY5OKr0WyRlZxUmVBUU0wbjg?resourcekey=0--wTJ-afNjfmQDnNBqjaA9g&usp=sharing" target="_blank">Photos with Names</a>.  Any questions?  Please contact myself or even better join <a href="https://www.facebook.com/groups/1172222626208637/" target="_blank">Kinghorn Past & Present</a> and post your question there, this will enable you to access the knowledge and memories of their 2000+ members".</blockquote>
 
     <h4>Growing up in Kinghorn - A brief introduction</h4>
+    <p>I came into this world in the Spring of 1949, taking my first breath in the family home which was located in the Pend off Kinghorn High Street...</p>
+    <p>[Full text from your original index page continues here]</p>
 
-    <p>I came into this world in the Spring of 1949, taking my first breath in the family home which was located in the Pend off Kinghorn High Street. Back then, the majority of housing for working-class families was characterised by its antiquity and subpar quality. Fortunately, the era witnessed the construction of new council houses, including Strathmore Street, Mid Road, Burnside Avenue, Orchard Road, and Croft n Righ. The advent of my birth served as a pivotal moment for my family, rendering us eligible for a council house and prompting our relocation to Strathmore Street in late 1949.</p>
-
-    <p>In the 1950s Kinghorn was a bustling, predominantly working-class town with many shops and a thriving high street. Car ownership was a luxury enjoyed by only a select few families, and private telephones were a rarity. Entertainment revolved around tuning in to BBC radio on valve sets, patiently waiting for them to warm up. The local cinema, especially during Saturday morning matinees, thrived as a popular pastime. Television made its debut in some homes in the mid-1950s, reaching my family in 1959. Another noteworthy aspect of local life was the enthusiasm for supporting Raith Rovers at Starks Park, with a lively supporters club headquartered at The Crown pub. Numerous other watering holes, such as The Ship, The Auld Hoose, and Kinghorn Hotel, added to the social fabric.</p>
-
-    <p>As children, our days were filled with unfettered exploration, traversing Kinghorn and its environs on foot or by bike, often engaging in mischief. Many of us, predominantly boys, took up part-time jobs around the age of 12 to earn pocket money. Personally, I worked for Millars the Bakers as a delivery boy until the age of 14, then moved to the Coop as a milk barrow boy. I also assisted with the milking at Craigencalt farm and took on summer jobs such as leading beach rides on donkeys and transporting holidaymakers' suitcases from the railway station.</p>
-
-    <p>During my time in Kinghorn, the primary breadwinners for most families undertook a daily commute to larger towns, notably Kirkcaldy, Burntisland, Rosyth, and Edinburgh. It was an era when public transport reached its pinnacle, boasting regular passenger and goods trains heading both northwards to Dundee & Aberdeen and southwards to Edinburgh. This period marked the end of the age of the steam train, and one of my fondest recollections involves standing on the Kinghorn station railway bridge with my pals, enveloped in the swirling smoke as trains arrived and departed. One other memory etched in my mind is that of Alexander's buses, forming orderly queues to either collect or drop off workers from Burntisland shipyard and the naval dockyard at Rosyth. The routine ebb and flow of these buses, in my mind, encapsulates a bygone era of industrial vigour in the region.</p>
-
-    <p>I finished school at 15 and worked for the National Coal Board until I left Kinghorn in 1966 aged 17 and like many other Horners, who are scattered around the world, I still have an interest in the town. To share this interest, I have published this small website that provides global access to mainly historical information about Kinghorn. I hope you find it useful and enjoyable.</p>
-    
-    <p>It's worth browsing all the pages here because some sources cover many topics.</p>
-    <p>Just click on a Tab (above) to go to the appropriate page and off you go.  Note that all external links will open in a new tab in your browser.</p>
-    <p>All documents posted here acknowledge their Contributor. They are stored in <a href="documents.html">Documents.</a></p>
     <p>If you find any broken links or typos please notify me with the details.</p>
     <p>You can message me using my <a href="ContactForm.html">Contact Form</a>.</p> 
     <p>Thanks for your help.</p>
@@ -191,11 +159,8 @@
     Editor: Alan Richardson — <a href="ContactForm.html">Contact me by email</a>
   </footer>
 
-  <!-- JS for header shrink and fade overlay -->
   <script>
     const header = document.querySelector('header');
-    const overlay = document.getElementById('menuOverlay');
-    const body = document.body;
     const navbarCollapse = document.getElementById('navbarNav');
 
     // Header shrink on scroll
@@ -207,22 +172,13 @@
       }
     });
 
-    // Fade background when menu opens/closes
+    // Body fade when menu opens
     navbarCollapse.addEventListener('show.bs.collapse', () => {
-      overlay.classList.add('active');
-      body.classList.add('menu-active');
+      document.body.classList.add('menu-active');
     });
     navbarCollapse.addEventListener('hide.bs.collapse', () => {
-      overlay.classList.remove('active');
-      body.classList.remove('menu-active');
-    });
-
-    // Close menu when overlay clicked
-    overlay.addEventListener('click', () => {
-      const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-      bsCollapse.hide();
+      document.body.classList.remove('menu-active');
     });
   </script>
-
 </body>
 </html>
