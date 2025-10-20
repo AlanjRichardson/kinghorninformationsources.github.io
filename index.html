@@ -1,6 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
    "http://www.w3.org/TR/html4/strict.dtd">
-
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
@@ -14,158 +13,171 @@
 
   <title>Home Page</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link rel="stylesheet" type="text/css" href="kinghorn.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- HTML5 Shiv for IE < 9 -->
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   <style>
-    /* ---- Fixed header ---- */
+    body {
+      font-family: "Times New Roman", Helvetica, serif;
+      font-size: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFE0;
+      transition: filter 0.3s ease;
+    }
+
+    body.menu-active {
+      filter: brightness(0.5);
+    }
+
     header {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
-      z-index: 1000;
       background-color: #FFFFE0;
       border-bottom: 2px solid pink;
       text-align: center;
-      padding: 0.3em 0 0.5em;
+      z-index: 1000;
+      padding: 0.5em 0.5em 0.2em 0.5em;
     }
 
     header h1 {
+      margin: 0;
       font-size: 1.8em;
       color: gray;
-      margin: 0;
+      font-weight: bold;
     }
 
-    body {
-      font-family: "Times New Roman", Helvetica, serif;
-      margin: 0;
-      padding-top: 130px; /* leave space for header */
-      background: #FFFFE0;
-    }
-
-    main {
-      width: 96%;
-      margin: auto;
-      border: solid pink;
-      padding: 10px;
-      background: #FFFFE0;
-    }
-
-    footer {
-      width: 96%;
-      margin: auto;
-      padding-left: 1em;
-      font-size: 1em;
-      color: black;
-      text-align: center;
-    }
-
-    /* Desktop nav */
-    .navbar {
-      justify-content: center;
-      padding: 0;
-      background: none;
-      border: none;
+    nav {
+      margin-top: 0.5em;
     }
 
     .navbar-nav {
-      flex-direction: row;
+      margin: 0;
+      padding: 0;
+      display: flex;
       justify-content: center;
-      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .navbar-nav .nav-link {
-      color: darkblue !important;
+    .navbar-nav li {
+      list-style: none;
+      margin: 0 0.5em;
+    }
+
+    .navbar-nav a {
+      color: blue !important;
+      text-decoration: none;
       font-weight: bold;
       font-size: 1em;
     }
 
-    /* Mobile layout */
+    .navbar-nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      margin: 7em auto 2em auto;
+      width: 96%;
+      border: solid pink;
+      padding: 1em;
+      background-color: #FFFFE0;
+      font-size: 16px;
+    }
+
+    footer {
+      margin: 2em auto;
+      width: 96%;
+      color: black;
+      font-size: 1em;
+      text-align: center;
+    }
+
+    /* Mobile adjustments */
     @media (max-width: 991px) {
+      header {
+        text-align: left;
+        padding: 0.5em 1em;
+      }
+
       header h1 {
         font-size: 1.2em;
+        text-align: center;
+        margin-bottom: 0.5em;
       }
+
       .navbar-toggler {
         position: absolute;
-        top: 8px;
-        right: 15px;
+        top: 0.6em;
+        right: 1em;
+        border: none;
+        background: none;
+        font-size: 1.5em;
       }
+
       .navbar-collapse {
+        display: none;
         position: absolute;
         top: 100%;
-        right: 10px;
+        right: 1em;
         width: auto;
         background: rgba(255, 255, 240, 0.97);
         border: 1px solid pink;
-        border-radius: 10px;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        border-radius: 0 0 8px 8px;
+        box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
         padding: 0.5em 1em;
       }
+
+      .navbar-collapse.show {
+        display: block;
+      }
+
       .navbar-nav {
-        flex-direction: column;
-        align-items: flex-end;
+        display: block;
         text-align: right;
       }
-      .navbar-nav .nav-link {
-        color: darkblue !important;
-        font-size: 0.9em;
-        padding: 5px 0;
-      }
-      body.menu-active {
-        filter: brightness(0.6);
-      }
-    }
 
-    /* Fade overlay */
-    .fade-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.3);
-      z-index: 500;
-    }
-    body.menu-active .fade-overlay {
-      display: block;
+      .navbar-nav li {
+        margin: 0.3em 0;
+      }
+
+      .navbar-nav a {
+        font-size: 0.9em;
+        color: blue !important;
+      }
     }
   </style>
 </head>
 
-
-
-  <div class="fade-overlay"></div>
+<body>
 
   <header>
     <h1>Kinghorn - Information Sources</h1>
-    <nav class="navbar navbar-expand-lg">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="kinghorn_history.html">Historical</a></li>
-          <li class="nav-item"><a class="nav-link" href="industryhistory.html">Industrial</a></li>
-          <li class="nav-item"><a class="nav-link" href="naturalhistory.html">Natural</a></li>
-          <li class="nav-item"><a class="nav-link" href="maps.html">Old-Maps</a></li>
-          <li class="nav-item"><a class="nav-link" href="documents.html">Documents</a></li>
-          <li class="nav-item"><a class="nav-link" href="Software.html">Software</a></li>
-          <li class="nav-item"><a class="nav-link" href="Culture.html">People</a></li>
-        </ul>
-      </div>
+    <button class="navbar-toggler">&#9776;</button>
+    <nav class="navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="kinghorn_history.html">Historical</a></li>
+        <li><a href="industryhistory.html">Industrial</a></li>
+        <li><a href="naturalhistory.html">Natural</a></li>
+        <li><a href="maps.html">Old-Maps</a></li>
+        <li><a href="documents.html">Documents</a></li>
+        <li><a href="Software.html">Software</a></li>
+        <li><a href="Culture.html">People</a></li>
+      </ul>
     </nav>
   </header>
-<body>
-  
+
   <main>
 
     <h4>Home</h4>
@@ -208,10 +220,12 @@
   </footer>
 
   <script>
-    // Dim body when mobile menu opens
     const toggler = document.querySelector('.navbar-toggler');
+    const nav = document.querySelector('#navbarNav');
     const body = document.body;
+
     toggler.addEventListener('click', () => {
+      nav.classList.toggle('show');
       body.classList.toggle('menu-active');
     });
   </script>
