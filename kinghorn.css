@@ -255,3 +255,82 @@ textarea {
     width: 80vw;
   }
 }
+/* ===================== */
+/* Header colors & fonts */
+header {
+    background-color: #FFFFE0;
+    border-bottom: 2px solid pink;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: gray;
+}
+
+/* Navbar links desktop */
+.navbar-nav {
+    list-style: none;
+    margin: 5px 0 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.navbar-nav li a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 991px) {
+    header h1 {
+        font-size: 1.3em;
+    }
+
+    .navbar-toggler {
+        display: block;
+        position: absolute;
+        top: 12px;
+        right: 15px;
+        font-size: 1.5em;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .navbar-nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        background: rgba(255, 255, 240, 0.97);
+        border-left: 1px solid pink;
+        border-bottom-left-radius: 10px;
+        box-shadow: -3px 3px 10px rgba(0,0,0,0.2);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: auto;
+        padding: 0.5rem 1rem;
+        z-index: 999;
+    }
+
+    .navbar-nav.show {
+        display: flex;
+    }
+
+    .navbar-nav li {
+        margin: 0.3rem 0;
+    }
+
+    body.menu-active {
+        filter: brightness(0
