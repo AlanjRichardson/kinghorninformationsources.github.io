@@ -1,185 +1,143 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-20KZGF4994"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-20KZGF4994');
-  </script>
-
-  <title>Home Page</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="kinghorn.css">
-
-  <!-- HTML5 Shiv for IE < 9 -->
-  <!--[if lt IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kinghorn - Information Sources</title>
+  <link rel="stylesheet" href="kinghorn.css">
   <style>
     body {
-      font-family: "Times New Roman", Helvetica, serif;
-      font-size: 100%;
       margin: 0;
-      padding: 0;
-      background-color: #FFFFE0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
       transition: filter 0.3s ease;
-    }
-
-    body.menu-active {
-      filter: brightness(0.5);
     }
 
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: #FFFFE0;
-      border-bottom: 2px solid pink;
+      background: #fdfdf5;
+      border-bottom: 1px solid #ccc;
       text-align: center;
       z-index: 1000;
-      padding: 0.5em 0.5em 0.2em 0.5em;
+      padding: 10px 0;
     }
 
     header h1 {
-      margin: 0;
       font-size: 1.8em;
-      color: gray;
-      font-weight: bold;
+      margin: 0;
     }
 
     nav {
-      margin-top: 0.5em;
+      margin-top: 5px;
     }
 
     .navbar-nav {
-      margin: 0;
+      list-style: none;
       padding: 0;
+      margin: 0;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
 
-    .navbar-nav li {
-      list-style: none;
-      margin: 0 0.5em;
-    }
-
-    .navbar-nav a {
-      color: blue !important;
+    .navbar-nav li a {
       text-decoration: none;
+      color: #0056b3;
       font-weight: bold;
-      font-size: 1em;
     }
 
-    .navbar-nav a:hover {
-      text-decoration: underline;
+    .navbar-toggler {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5em;
+      position: absolute;
+      top: 12px;
+      right: 15px;
     }
 
     main {
-      margin: 7em auto 2em auto;
-      width: 96%;
-      border: solid pink;
-      padding: 1em;
-      background-color: #FFFFE0;
-      font-size: 16px;
+      padding: 120px 15px 50px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     footer {
-      margin: 2em auto;
-      width: 96%;
-      color: black;
-      font-size: 1em;
       text-align: center;
+      padding: 15px;
+      background: #f0f0e0;
+      border-top: 1px solid #ccc;
+      font-size: 0.9em;
     }
 
-    /* Mobile adjustments */
+    /* MOBILE STYLES */
     @media (max-width: 991px) {
-      header {
-        text-align: left;
-        padding: 0.5em 1em;
-      }
-
       header h1 {
-        font-size: 1.2em;
-        text-align: center;
-        margin-bottom: 0.5em;
+        font-size: 1.3em;
       }
 
       .navbar-toggler {
-        position: absolute;
-        top: 0.6em;
-        right: 1em;
-        border: none;
-        background: none;
-        font-size: 1.5em;
-      }
-
-      .navbar-collapse {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 1em;
-        width: auto;
-        background: rgba(255, 255, 240, 0.97);
-        border: 1px solid pink;
-        border-radius: 0 0 8px 8px;
-        box-shadow: -2px 2px 10px rgba(0,0,0,0.2);
-        padding: 0.5em 1em;
-      }
-
-      .navbar-collapse.show {
         display: block;
+      }
+
+      nav {
+        position: relative;
       }
 
       .navbar-nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        background: rgba(255, 255, 240, 0.97);
+        border-left: 1px solid #ccc;
+        box-shadow: -3px 0 10px rgba(0, 0, 0, 0.2);
+        border-bottom-left-radius: 10px;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: auto;
+        padding: 0.5rem 1rem;
+      }
+
+      .navbar-nav.show {
+        display: flex;
+      }
+
+      .navbar-nav li a {
         display: block;
-        text-align: right;
+        padding: 8px 0;
+        font-size: 0.95em;
+        color: #0056b3;
+        font-weight: bold;
       }
 
-      .navbar-nav li {
-        margin: 0.3em 0;
-      }
-
-      .navbar-nav a {
-        font-size: 0.9em;
-        color: blue !important;
+      body.menu-active {
+        filter: brightness(0.6);
       }
     }
   </style>
 </head>
 
 <body>
-
   <header>
     <h1>Kinghorn - Information Sources</h1>
-    <button class="navbar-toggler">&#9776;</button>
-    <nav class="navbar-collapse" id="navbarNav">
+    <button class="navbar-toggler" aria-label="Toggle menu">☰</button>
+    <nav>
       <ul class="navbar-nav">
         <li><a href="index.html">Home</a></li>
-        <li><a href="kinghorn_history.html">Historical</a></li>
-        <li><a href="industryhistory.html">Industrial</a></li>
-        <li><a href="naturalhistory.html">Natural</a></li>
-        <li><a href="maps.html">Old-Maps</a></li>
         <li><a href="documents.html">Documents</a></li>
-        <li><a href="Software.html">Software</a></li>
-        <li><a href="Culture.html">People</a></li>
+        <li><a href="photos.html">Photos</a></li>
+        <li><a href="maps.html">Maps</a></li>
+        <li><a href="ContactForm.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-
     <h4>Home</h4>
 
     <blockquote>
@@ -212,7 +170,6 @@
     <p>You can message me using my <a href="ContactForm.html">Contact Form</a>.</p> 
     <p>Thanks for your help.</p>
     <p>Alan</p>
-
   </main>
 
   <footer>
@@ -221,14 +178,13 @@
 
   <script>
     const toggler = document.querySelector('.navbar-toggler');
-    const nav = document.querySelector('#navbarNav');
+    const navMenu = document.querySelector('.navbar-nav');
     const body = document.body;
 
     toggler.addEventListener('click', () => {
-      nav.classList.toggle('show');
+      navMenu.classList.toggle('show');
       body.classList.toggle('menu-active');
     });
   </script>
-
 </body>
 </html>
