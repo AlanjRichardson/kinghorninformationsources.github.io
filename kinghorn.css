@@ -5,12 +5,40 @@ body {
     font-size: 100%;
     margin: 0;
     padding: 0;
+    background-color: #FFFFE0;
 }
 
-/* DIM BODY WHEN MOBILE MENU ACTIVE */
-body.menu-active main,
-body.menu-active footer {
-    filter: brightness(0.6);
+/* MAIN CONTENT */
+main {
+    margin-top: 80px; /* space for header */
+    padding: 10px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFE0;
+    border: 1px solid pink;
+    box-sizing: border-box; /* include padding in width */
+}
+
+/* FOOTER */
+footer {
+    margin: 0 auto;
+    padding: 1em;
+    width: 95%;
+    color: black;
+    font-size: 1em;
+    text-align: center;
+    border-top: 2px solid pink;
+}
+
+/* LINKS */
+a {
+    color: #00BFFF; /* link-style blue */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 /* ===================== */
@@ -55,36 +83,21 @@ header h1 {
     font-weight: bold;
 }
 
-/* MAIN CONTENT BELOW HEADER */
-main {
-    margin-top: 80px; /* space for header */
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 960px;
-    padding: 10px;
-    background-color: #FFFFE0;
-    border: 1px solid pink;
-}
-
-/* FOOTER */
-footer {
-    margin: 0 auto;
-    padding: 1em;
-    max-width: 960px;
-    color: black;
-    font-size: 1em;
-    text-align: center;
+/* HIDE MOBILE HAMBURGER ON DESKTOP */
+.navbar-toggler {
+    display: none;
 }
 
 /* ===================== */
 /* MOBILE STYLES */
 @media (max-width: 991px) {
+
     /* Smaller header title */
     header h1 {
         font-size: 1.3em;
     }
 
-    /* HAMBURGER BUTTON */
+    /* SHOW HAMBURGER BUTTON */
     .navbar-toggler {
         display: block;
         position: absolute;
@@ -119,11 +132,144 @@ footer {
         display: flex;
     }
 
+    /* Menu item spacing */
     .navbar-nav li {
         margin: 0.3rem 0;
     }
 
     .navbar-nav li a {
-        color: #00BFFF; /* maintain link blue */
+        color: #00BFFF; /* link blue */
     }
+
+    /* Dim body when menu active */
+    body.menu-active main,
+    body.menu-active footer {
+        filter: brightness(0.6);
+    }
+
+}
+
+/* ===================== */
+/* HEADINGS */
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: black;
+    text-align: left;
+}
+
+h3 {
+    font-size: 2em;
+    text-align: left;
+    color: black;
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: darkgreen;
+    text-align: left;
+}
+
+h5 {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color: black;
+}
+
+/* ===================== */
+/* LIST STYLING */
+ul, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    color: black;
+}
+
+/* ===================== */
+/* FORM STYLING */
+label {
+    display: block;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+input, textarea {
+    width: 100%;
+    max-width: 400px;
+    background: #efefef;
+    border: 1px solid #dedede;
+    padding: 10px;
+    margin-top: 3px;
+    font-size: 0.9em;
+    color: #3a3a3a;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 213px;
+}
+
+/* ===================== */
+/* HOVER IMAGE LINK */
+.hover-image-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: darkblue;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hover-image-link span {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  transform: translateY(-50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hover-image-link:hover span {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
+}
+
+.hover-image-link span img {
+  display: block;
+  width: min(40vw, 500px);
+  height: auto;
+  border: 2px solid pink;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background-color: #FFFFE0;
+}
+
+@media (max-width: 1024px) {
+  .hover-image-link span img {
+    width: min(50vw, 450px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hover-image-link span {
+    left: 0;
+    top: 110%;
+    transform: translateY(0);
+  }
+
+  .hover-image-link span img {
+    width: 80vw;
+  }
 }
