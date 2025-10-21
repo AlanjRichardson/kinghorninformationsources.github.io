@@ -34,7 +34,7 @@ footer {
 
 /* LINKS */
 a {
-    color: #0000EE; /* standard link blue */
+    color: #0645AD; /* standard blue */
     text-decoration: none;
 }
 
@@ -45,7 +45,7 @@ a:hover {
 /* ===================== */
 /* HEADER STYLES */
 header {
-    background-color: #444444;  /* light charcoal grey */
+    background-color: #4B4B4B;  /* light charcoal grey */
     border-bottom: 2px solid pink;
     text-align: center;
     padding: 10px 0;
@@ -66,23 +66,24 @@ header h1 {
     color: #FFFFFF;
 }
 
+/* ===================== */
 /* DESKTOP NAVIGATION MENU */
 .navbar-nav {
     list-style: none;
     margin: 5px 0 0 0;
     padding: 0;
     display: flex;
-    justify-content: flex-start; /* left-aligned */
-    gap: 2rem; /* spacing between items */
+    justify-content: flex-start; /* left align desktop menu items */
+    gap: 1.5rem; /* increased spacing */
     width: 100%;
     max-width: 960px;
 }
 
 .navbar-nav li a {
     text-decoration: none;
-    color: #FFFFFF; /* desktop links white */
+    color: #FFFFFF; /* white for desktop menu */
     font-weight: bold;
-    font-size: 1.1em; /* increased font size */
+    font-size: 1.2em; /* larger font */
 }
 
 /* HIDE MOBILE HAMBURGER ON DESKTOP */
@@ -117,7 +118,7 @@ header h1 {
         display: none;
         flex-direction: column;
         align-items: flex-end;
-        background: #444444; /* light charcoal grey */
+        background: #4B4B4B; /* light charcoal grey */
         border-left: 1px solid pink;
         border-bottom-left-radius: 10px;
         box-shadow: -3px 3px 10px rgba(0,0,0,0.2);
@@ -140,24 +141,42 @@ header h1 {
     }
 
     .navbar-nav li a {
-        color: #FFFFFF; /* mobile links white */
-    }
-
-    /* Remove dimming from main content */
-    body.menu-active main,
-    body.menu-active footer {
-        filter: none;
+        color: #FFFFFF; /* white for mobile dropdown menu */
     }
 
 }
 
 /* ===================== */
 /* HEADINGS */
-h1 { font-size: 3em; }
-h2 { font-size: 2.5em; color: black; text-align: left; }
-h3 { font-size: 2em; text-align: left; color: black; }
-h4 { font-weight: bold; font-size: 1.5em; color: black; text-align: left; }
-h5 { font-weight: bold; font-size: 1em; text-align: left; color: black; }
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: black;
+    text-align: left;
+}
+
+h3 {
+    font-size: 2em;
+    text-align: left;
+    color: black;
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    text-align: left;
+}
+
+h5 {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color: black;
+}
 
 /* ===================== */
 /* LIST STYLING */
@@ -171,7 +190,11 @@ ul, li {
 
 /* ===================== */
 /* FORM STYLING */
-label { display: block; margin-top: 20px; letter-spacing: 2px; }
+label {
+    display: block;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
 
 input, textarea {
     width: 100%;
@@ -185,72 +208,95 @@ input, textarea {
     border-radius: 5px;
 }
 
-textarea { height: 213px; }
+textarea {
+    height: 213px;
+}
+
+/* ===================== */
+/* IMAGE RESPONSIVENESS */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* FIGURE AND CAPTION */
+figure {
+    margin: 1em 0;
+    text-align: center;
+}
+
+figcaption {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 0.5em;
+}
 
 /* ===================== */
 /* HOVER IMAGE LINK */
 .hover-image-link {
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
-    color: darkblue;
-    font-weight: bold;
-    cursor: pointer;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: darkblue;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .hover-image-link span {
-    position: absolute;
-    top: 50%;
-    left: calc(100% + 10px);
-    transform: translateY(-50%);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
-    z-index: 10;
-    pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  transform: translateY(-50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  z-index: 10;
+  pointer-events: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
-    .hover-image-link:hover span {
-        visibility: visible;
-        opacity: 1;
-        transition-delay: 0s;
-    }
+  .hover-image-link:hover span {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+  }
 }
 
 .hover-image-link span img {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border: 2px solid pink;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    background-color: #FFFFE0;
-    margin-bottom: 5px;
-}
-
-.hover-image-link span figcaption {
-    text-align: center;
-    font-size: 0.9em;
-    color: black;
+  display: block;
+  width: min(40vw, 500px);
+  height: auto;
+  border: 2px solid pink;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  background-color: #FFFFE0;
 }
 
 @media (max-width: 1024px) {
-    .hover-image-link span img { max-width: 450px; }
+  .hover-image-link span img {
+    width: min(50vw, 450px);
+  }
 }
 
 @media (max-width: 600px) {
-    .hover-image-link span {
-        left: 0;
-        top: 110%;
-        transform: translateY(0);
-    }
-    .hover-image-link span img { width: 80vw; }
+  .hover-image-link span {
+    left: 0;
+    top: 110%;
+    transform: translateY(0);
+  }
+
+  .hover-image-link span img {
+    width: 80vw;
+  }
 }
 
 /* ===================== */
-/* TOC AND CONTENT READABILITY */
+/* NEW STYLES FOR TABLE OF CONTENTS AND CONTENT READABILITY */
+
+/* TOC container */
 #toc {
     border: 2px solid pink;
     padding: 15px;
@@ -259,6 +305,7 @@ textarea { height: 213px; }
     border-radius: 10px;
 }
 
+/* TOC title */
 #toc h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
@@ -266,11 +313,21 @@ textarea { height: 213px; }
     color: #333333;
 }
 
-#toc ul { padding-left: 20px; }
-#toc ul li { margin: 5px 0; }
+/* TOC list items */
+#toc ul {
+    padding-left: 20px;
+}
 
-main p { margin: 0 0 1em 0; }
+#toc ul li {
+    margin: 5px 0;
+}
 
+/* Paragraph spacing */
+main p {
+    margin: 0 0 1em 0;
+}
+
+/* Blockquote styling */
 main blockquote {
     margin: 10px 0 10px 20px;
     padding: 10px 15px;
@@ -279,6 +336,7 @@ main blockquote {
     font-style: italic;
 }
 
+/* Code and pre formatting */
 main pre, main code {
     background-color: #efefef;
     border: 1px solid #dedede;
@@ -288,16 +346,8 @@ main pre, main code {
     overflow-x: auto;
 }
 
-small { font-size: 0.85em; color: #555; }
-
-/* ===================== */
-/* FIGCAPTION STYLING FOR ALL IMAGES */
-figure {
-    text-align: center;
-}
-
-figcaption {
-    font-size: 0.9em;
-    color: black;
-    margin-top: 5px;
+/* Small text */
+small {
+    font-size: 0.85em;
+    color: #555;
 }
