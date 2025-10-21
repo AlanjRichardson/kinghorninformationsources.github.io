@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="kinghorn.css">
 </head>
 
+<body>  
 
 <header>
   <h1>Kinghorn - Information Sources</h1>
@@ -25,20 +26,9 @@
   </nav>
 </header>
 
- <script>
-  const toggler = document.querySelector('.navbar-toggler');
-  const navMenu = document.querySelector('.navbar-nav');
-  const body = document.body;
-
-  if (toggler && navMenu) {
-    toggler.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
-      body.classList.toggle('menu-active');
-    });
-  }
-</script>
+ 
    
-<body>
+
 
 
 
@@ -213,7 +203,7 @@
     <p><a href="https://drive.google.com/file/d/1x58DRBMcfcRogQMSfak8S0KK-jFG4ZW1/view?usp=sharing" target="_blank">Sandhills</a> - A short history of one of Scotland's oldest caravan parks.
     </p>
   
-  
+  </section>
 
 </main>
 
@@ -223,7 +213,24 @@ Editor: Alan Richardson    <a href="ContactForm.html">Contact me by email</a>
 
 </footer>
 
+<footer>
+    Editor: Alan Richardson <a href="ContactForm.html">Contact me by email</a>
+  </footer>
 
+  
+  
+  <script>
+  const toggler = document.querySelector('.navbar-toggler');
+  const navMenu = document.querySelector('.navbar-nav');
+  const body = document.body;
+
+  if (toggler && navMenu) {
+    toggler.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+      body.classList.toggle('menu-active');
+    });
+  }
+</script>
 
 </body>
 
