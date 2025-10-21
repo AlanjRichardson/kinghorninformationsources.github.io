@@ -6,18 +6,19 @@ body {
     margin: 0;
     padding: 0;
     background-color: #FFFFE0;
+    line-height: 1.6; /* readability */
 }
 
 /* MAIN CONTENT */
 main {
-    margin-top: 80px; /* space for header */
+    margin-top: 80px; /* space for fixed header */
     padding: 10px;
     width: 95%;
     margin-left: auto;
     margin-right: auto;
     background-color: #FFFFE0;
     border: 1px solid pink;
-    box-sizing: border-box; /* include padding in width */
+    box-sizing: border-box;
 }
 
 /* FOOTER */
@@ -31,9 +32,10 @@ footer {
     border-top: 2px solid pink;
 }
 
+/* ===================== */
 /* LINKS */
 a {
-    color: #00BFFF; /* link-style blue */
+    color: #0000EE; /* standard blue shade for main text */
     text-decoration: none;
 }
 
@@ -44,7 +46,7 @@ a:hover {
 /* ===================== */
 /* HEADER STYLES */
 header {
-    background-color: #333333;  /* Dark grey */
+    background-color: #444444;  /* light charcoal grey */
     border-bottom: 2px solid pink;
     text-align: center;
     padding: 10px 0;
@@ -62,7 +64,7 @@ header h1 {
     margin: 0;
     font-size: 1.8em;
     font-weight: bold;
-    color: #FFFFFF;
+    color: #FFFFFF; /* white */
 }
 
 /* DESKTOP NAVIGATION MENU */
@@ -79,7 +81,7 @@ header h1 {
 
 .navbar-nav li a {
     text-decoration: none;
-    color: #00BFFF; /* link-style blue */
+    color: #FFFFFF; /* desktop links white */
     font-weight: bold;
 }
 
@@ -92,12 +94,10 @@ header h1 {
 /* MOBILE STYLES */
 @media (max-width: 991px) {
 
-    /* Smaller header title */
     header h1 {
         font-size: 1.3em;
     }
 
-    /* SHOW HAMBURGER BUTTON */
     .navbar-toggler {
         display: block;
         position: absolute;
@@ -107,15 +107,14 @@ header h1 {
         background: none;
         border: none;
         cursor: pointer;
-        color: #FFFFFF;
+        color: #FFFFFF; /* white */
     }
 
-    /* MOBILE MENU DROPDOWN */
     .navbar-nav {
         display: none;
         flex-direction: column;
         align-items: flex-end;
-        background: rgba(51, 51, 51, 0.97); /* dark grey overlay */
+        background: #444444; /* light charcoal grey */
         border-left: 1px solid pink;
         border-bottom-left-radius: 10px;
         box-shadow: -3px 3px 10px rgba(0,0,0,0.2);
@@ -127,59 +126,31 @@ header h1 {
         z-index: 999;
     }
 
-    /* SHOW MENU WHEN TOGGLER CLICKED */
     .navbar-nav.show {
         display: flex;
     }
 
-    /* Menu item spacing */
     .navbar-nav li {
         margin: 0.3rem 0;
     }
 
     .navbar-nav li a {
-        color: #00BFFF; /* link blue */
+        color: #FFFFFF; /* mobile menu links white */
     }
 
-    /* Dim body when menu active */
     body.menu-active main,
     body.menu-active footer {
-        filter: brightness(0.6);
+        filter: none; /* remove dim/fade */
     }
-
 }
 
 /* ===================== */
 /* HEADINGS */
-h1 {
-    font-size: 3em;
-}
-
-h2 {
-    font-size: 2.5em;
-    color: black;
-    text-align: left;
-}
-
-h3 {
-    font-size: 2em;
-    text-align: left;
-    color: black;
-}
-
-h4 {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: black;
-    text-align: left;
-}
-
-h5 {
-    font-weight: bold;
-    font-size: 1em;
-    text-align: left;
-    color: black;
-}
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; color: black; text-align: left; }
+h3 { font-size: 2em; text-align: left; color: black; }
+h4 { font-weight: bold; font-size: 1.5em; color: black; text-align: left; }
+h5 { font-weight: bold; font-size: 1em; text-align: left; color: black; }
 
 /* ===================== */
 /* LIST STYLING */
@@ -211,9 +182,7 @@ input, textarea {
     border-radius: 5px;
 }
 
-textarea {
-    height: 213px;
-}
+textarea { height: 213px; }
 
 /* ===================== */
 /* HOVER IMAGE LINK */
@@ -248,18 +217,18 @@ textarea {
 
 .hover-image-link span img {
   display: block;
-  width: min(40vw, 500px);
+  max-width: 100%;
   height: auto;
   border: 2px solid pink;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   background-color: #FFFFE0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media (max-width: 1024px) {
-  .hover-image-link span img {
-    width: min(50vw, 450px);
-  }
+  .hover-image-link span img { width: min(50vw, 450px); }
 }
 
 @media (max-width: 600px) {
@@ -268,8 +237,75 @@ textarea {
     top: 110%;
     transform: translateY(0);
   }
-
-  .hover-image-link span img {
-    width: 80vw;
-  }
+  .hover-image-link span img { width: 80vw; }
 }
+
+/* ===================== */
+/* RESPONSIVE IMAGES & FIGCAPTIONS */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure {
+    margin: 1em 0;
+    text-align: center;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: 0.3em;
+    color: #333333;
+}
+
+/* ===================== */
+/* TABLE OF CONTENTS */
+#toc {
+    border: 2px solid pink;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #FFF8DC;
+    border-radius: 10px;
+}
+
+#toc h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333333;
+}
+
+#toc ul { padding-left: 20px; }
+#toc ul li { margin: 5px 0; }
+
+/* ===================== */
+/* PARAGRAPH SPACING & BLOCKQUOTE */
+main p { margin: 0 0 1em 0; }
+
+main blockquote {
+    margin: 10px 0 10px 20px;
+    padding: 10px 15px;
+    background-color: #FFF0F5;
+    border-left: 5px solid pink;
+    font-style: italic;
+}
+
+/* ===================== */
+/* CODE STYLING */
+main pre, main code {
+    background-color: #efefef;
+    border: 1px solid #dedede;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* ===================== */
+/* SMALL TEXT */
+small { font-size: 0.85em; color: #555; }
