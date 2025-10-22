@@ -45,7 +45,7 @@ a:hover {
 /* ===================== */
 /* HEADER STYLES */
 header {
-    background-color: #C0C0C0;  /* grey */
+    background-color: #a47864;  /* grey */
     border-bottom: 2px solid pink;
     text-align: center;
     padding: 10px 0;
@@ -118,7 +118,7 @@ header h1 {
         display: none;
         flex-direction: column;
         align-items: flex-end;
-        background: #C0C0C0; /* grey */
+        background: #a47864; /* grey */
         border-left: 1px solid pink;
         border-bottom-left-radius: 10px;
         box-shadow: -3px 3px 10px rgba(0,0,0,0.2);
