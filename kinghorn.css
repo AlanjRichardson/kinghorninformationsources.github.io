@@ -21,6 +21,15 @@ main {
     box-sizing: border-box; /* include padding in width */
 }
 
+/* Divider line for section separation */
+.divider {
+  width: 80%;
+  margin: 2em auto;               /* centers and adds vertical spacing */
+  border: none;
+  border-top: 1px solid #b68c7b;  /* a softer version of #a47864 */
+  opacity: 0.6;                   /* keeps it light and refined */
+}
+
 /* FOOTER */
 footer {
     margin: 0 auto;
