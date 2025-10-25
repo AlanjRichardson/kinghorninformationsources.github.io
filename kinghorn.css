@@ -47,6 +47,31 @@ a {
     text-decoration: none;
 }
 
+.hover-image-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.hover-image-link span {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  padding-top: 8px;
+}
+
+.hover-image-link:hover span {
+  display: block;
+}
+
+.hover-image-link span img {
+  max-width: 300px; /* adjust as needed */
+  height: auto;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
 a:hover {
     text-decoration: underline;
 }
