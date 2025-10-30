@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alanjrichardson.github.io/kinghorninformationsources.github.io/sitemap.xml
