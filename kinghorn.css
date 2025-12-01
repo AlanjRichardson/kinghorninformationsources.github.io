@@ -141,9 +141,21 @@ header h1 {
 /* MOBILE STYLES */
 @media (max-width: 991px) {
 
-    /* Smaller header title */
     header h1 {
-        font-size: 1.3em;
+        padding-right: 3em;  /* space for the ☰ icon */
+    }
+
+    .navbar-toggler {
+        display: block;
+        position: absolute;
+        top: 12px;
+        right: 15px;
+        font-size: 1.5em;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #FFFFFF;
+    
     }
 
     /* SHOW HAMBURGER BUTTON */
@@ -440,4 +452,9 @@ small {
 
 #resultsArea tr:nth-child(odd) {
   background-color: #fffdf4;
+}
+/* Always keep header title on ONE line and auto-shrink */
+header h1 {
+    white-space: nowrap;              /* never wrap to a second line */
+    font-size: clamp(14px, 4vw, 32px);
 }
