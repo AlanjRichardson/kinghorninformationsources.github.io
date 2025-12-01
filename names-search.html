@@ -82,6 +82,10 @@
 
     <div id="resultsArea"></div>
   </main>
+  
+  <footer>
+    Editor: Alan Richardson <a href="ContactForm.html">Contact me by email</a>
+  </footer>
 
 	<!-- Existing menu toggler script -->
   <script>
@@ -137,8 +141,7 @@
               '<th>Photo file</th>' +
               '</tr></thead><tbody>';
 
-      // If your photos are web-visible, set a base path here, otherwise leave as "" to show filenames only.
-      // Example: const imgBase = "images/KinghornPhotos/";
+      
       const imgBase = "";
 
       matches.forEach(p => {
@@ -147,13 +150,7 @@
         const photo = escapeHtml(p.photoFile || '');
 
         let photoCell = photo;
-        // To make photo filenames clickable, uncomment this block:
-        /*
-        if (photo) {
-          const url = imgBase + encodeURIComponent(p.photoFile);
-          photoCell = '<a href="' + url + '" target="_blank">' + photo + '</a>';
-        }
-        */
+      
 
         html += '<tr>' +
                 '<td>' + surname + '</td>' +
@@ -195,14 +192,8 @@
 </body>
 </html>
 
- 
 
-  <footer>
-    Editor: Alan Richardson <a href="ContactForm.html">Contact me by email</a>
-  </footer>
 
-  
-  
   <script>
   const toggler = document.querySelector('.navbar-toggler');
   const navMenu = document.querySelector('.navbar-nav');
