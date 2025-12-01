@@ -397,3 +397,47 @@ small {
     font-size: 0.85em;
     color: #555;
 }
+/* ==========================================================
+   PHOTO NAME SEARCH PAGE
+   (names-search.html)
+   ========================================================== */
+
+#name-search-panel {
+  border: 2px solid pink;
+  background-color: #FFF8DC;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin: 20px 0;
+}
+
+#resultsInfo {
+  margin-top: 0.5em;
+  font-size: 0.9em;
+  color: #555;
+}
+
+#resultsArea table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.95em;
+}
+
+#resultsArea th,
+#resultsArea td {
+  border: 1px solid #dedede;
+  padding: 4px 6px;
+  text-align: left;
+}
+
+#resultsArea th {
+  background-color: #FFF8DC;
+}
+
+#resultsArea tr:nth-child(even) {
+  background-color: #faf3e5;
+}
+
+#resultsArea tr:nth-child(odd) {
+  background-color: #fffdf4;
+}

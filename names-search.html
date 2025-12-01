@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-20KZGF4994"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-20KZGF4994');
+</script>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="kinghorn.css">
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-20KZGF4994"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-20KZGF4994');
+  </script>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Name Search</title>
+  <link rel="stylesheet" href="kinghorn.css">
+
+  
+  <script src="people-data.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Kinghorn - Information Sources</h1>
+    <button class="navbar-toggler" aria-label="Toggle menu">☰</button>
+    <nav>
+      <ul class="navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="kinghorn_history.html">Historical</a></li>
+        <li><a href="industryhistory.html">Industrial</a></li>
+        <li><a href="naturalhistory.html">Natural</a></li>
+        <li><a href="maps.html">Old-Maps</a></li>
+        <li><a href="documents.html">Documents</a></li>
+        <li><a href="Software.html">Software</a></li>
+        <li><a href="Culture.html">People</a></li>
+        <li><a href="names-search.html">Name Search</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Photo Name Search</h2>
+    <p>
+      Use this page to search the Kinghorn photographic collection by surname.
+      Enter the first few letters of a surname (for example, <strong>ABB</strong> for Abbie)
+      to see the people and the photo file(s) they appear in.
+    </p>
+
+    <div id="name-search-panel">
+      <label for="surnameInput">
+        Surname (first 3 letters or more):
+      </label>
+      <input type="text"
+             id="surnameInput"
+             maxlength="20"
+             placeholder="e.g. ABB">
+      <button type="button" onclick="performSearch()">Search</button>
+      <button type="button" onclick="clearSearch()">Clear</button>
+      <div id="resultsInfo"></div>
+    </div>
+
+    <div id="resultsArea"></div>
+  </main>
+
+  <footer>
+    Editor: Alan Richardson <a href="ContactForm.html">Contact me by email</a>
+  </footer>
+
+  <!-- Existing menu toggler script -->
+  <script>
+    const toggler = document.querySelector('.navbar-toggler');
+    const navMenu = document.querySelector('.navbar-nav');
+    const body = document.body;
+
+    if (toggler && navMenu) {
+      toggler.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+        body.classList.toggle('menu-active');
+      });
+    }
+  </script>
+
+  <!-- Search logic -->
+  <script>
+    function performSearch() {
+      const input = document.getElementById('surnameInput');
+      const prefix = input.value.trim().toLowerCase();
+      const resultsArea = document.getElementById('resultsArea');
+      const resultsInfo = document.getElementById('resultsInfo');
+
+      resultsArea.innerHTML = '';
+      resultsInfo.textContent = '';
+
+      if (prefix.length < 3) {
+        resultsInfo.textContent = 'Please enter at least 3 letters of a surname.';
+        return;
+      }
+
+      // Filter people by surname prefix (case-insensitive)
+      const matches = people.filter(p =>
+        p.surname && p.surname.toLowerCase().startsWith(prefix)
+      );
+
+      if (matches.length === 0) {
+        resultsInfo.textContent = 'No matches found.';
+        resultsArea.innerHTML =
+          '<p><em>No people found with that surname prefix.</em></p>';
+        return;
+      }
+
+      resultsInfo.textContent =
+        matches.length + ' result' + (matches.length === 1 ? '' : 's') + ' found.';
+
+      // Build results table
+      let html = '';
+      html += '<table>';
+      html += '<thead><tr>' +
+              '<th>Surname</th>' +
+              '<th>Full name</th>' +
+              '<th>Photo file</th>' +
+              '</tr></thead><tbody>';
+
+      // If your photos are web-visible, set a base path here, otherwise leave as "" to show filenames only.
+      // Example: const imgBase = "images/KinghornPhotos/";
+      const imgBase = "";
+
+      matches.forEach(p => {
+        const surname = escapeHtml(p.surname || '');
+        const fullName = escapeHtml(p.fullName || '');
+        const photo = escapeHtml(p.photoFile || '');
+
+        let photoCell = photo;
+        // To make photo filenames clickable, uncomment this block:
+        /*
+        if (photo) {
+          const url = imgBase + encodeURIComponent(p.photoFile);
+          photoCell = '<a href="' + url + '" target="_blank">' + photo + '</a>';
+        }
+        */
+
+        html += '<tr>' +
+                '<td>' + surname + '</td>' +
+                '<td>' + fullName + '</td>' +
+                '<td>' + photoCell + '</td>' +
+                '</tr>';
+      });
+
+      html += '</tbody></table>';
+      resultsArea.innerHTML = html;
+    }
+
+    function clearSearch() {
+      document.getElementById('surnameInput').value = '';
+      document.getElementById('resultsArea').innerHTML = '';
+      document.getElementById('resultsInfo').textContent = '';
+      document.getElementById('surnameInput').focus();
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Allow Enter key to trigger the search
+    document.getElementById('surnameInput').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        performSearch();
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+ 
+
+  <footer>
+    Editor: Alan Richardson <a href="ContactForm.html">Contact me by email</a>
+  </footer>
+
+  
+  
+  <script>
+  const toggler = document.querySelector('.navbar-toggler');
+  const navMenu = document.querySelector('.navbar-nav');
+  const body = document.body;
+
+  if (toggler && navMenu) {
+    toggler.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+      body.classList.toggle('menu-active');
+    });
+  }
+</script>
+
+ 
+  
+</body>
+</html>
