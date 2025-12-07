@@ -92,14 +92,14 @@ body > header {
     align-items: center;
 }
 
-/* HEADER TITLE */
+/* MAIN HEADER TITLE ("Kinghorn Information Sources") */
 body > header h1 {
     margin: 0;
-    font-size: 1.8em;
     font-weight: bold;
     color: #FFFFFF;
+    white-space: nowrap;                         /* no wrapping by default on larger screens */
+    font-size: clamp(18px, 4.2vw, 36px);        /* auto-shrink/grow between 18px and 36px */
 }
-
 
 /* ===================== */
 /* DESKTOP NAVIGATION MENU */
@@ -142,24 +142,11 @@ body > header h1 {
 /* MOBILE STYLES */
 @media (max-width: 991px) {
 
-    header h1 {
+    /* Only affect the main site header title */
+    body > header h1 {
         padding-right: 3em;  /* space for the ☰ icon */
     }
 
-    .navbar-toggler {
-        display: block;
-        position: absolute;
-        top: 12px;
-        right: 15px;
-        font-size: 1.5em;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #FFFFFF;
-    
-    }
-
-    /* SHOW HAMBURGER BUTTON */
     .navbar-toggler {
         display: block;
         position: absolute;
@@ -202,7 +189,17 @@ body > header h1 {
     .navbar-nav li a {
         color: #FFFFFF; /* white for mobile dropdown menu */
     }
+}
 
+/* Extra tweak for smaller phones: allow wrapping and reserve icon space */
+@media (max-width: 600px) {
+    body > header h1 {
+        white-space: normal;                 /* allow wrapping on small screens */
+        font-size: 1.35em;                  /* slightly smaller, more compact */
+        line-height: 1.15;
+        padding: 0.2em 3em 0.2em 0.6em;     /* reserve space for hamburger on right */
+        text-align: center;
+    }
 }
 
 /* ===================== */
@@ -410,6 +407,7 @@ small {
     font-size: 0.85em;
     color: #555;
 }
+
 /* ==========================================================
    PHOTO NAME SEARCH PAGE
    (names-search.html)
@@ -454,11 +452,7 @@ small {
 #resultsArea tr:nth-child(odd) {
   background-color: #fffdf4;
 }
-/* Always keep header title on ONE line and auto-shrink */
-header h1 {
-    white-space: nowrap;              /* never wrap to a second line */
-    font-size: clamp(14px, 4vw, 32px);
-}
+
 /* ==========================================================
    REMEMBRANCE PAGES (e.g. Private John Braid)
    ========================================================== */
