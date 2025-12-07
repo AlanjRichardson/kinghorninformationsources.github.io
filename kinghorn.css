@@ -77,8 +77,8 @@ a:hover {
 }
 
 /* ===================== */
-/* HEADER STYLES */
-header {
+/* HEADER STYLES – only the main site header */
+body > header {
     background-color: #a47864;  /* Mocha */
     border-bottom: 2px solid pink;
     text-align: center;
@@ -93,12 +93,13 @@ header {
 }
 
 /* HEADER TITLE */
-header h1 {
+body > header h1 {
     margin: 0;
     font-size: 1.8em;
     font-weight: bold;
     color: #FFFFFF;
 }
+
 
 /* ===================== */
 /* DESKTOP NAVIGATION MENU */
