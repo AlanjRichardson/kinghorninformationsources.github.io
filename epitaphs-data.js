@@ -7,7 +7,7 @@ const EPITAPHS = {
     unit: "Black Watch",
     conflict: "Korean War (1950–1953)",
     subtitle: "Black Watch · Killed in action, Korea, July 1952, aged 19",
-    image: "images/johnBraid.jpg",
+    image: "images/JohnBraid.jpg",
     imageCaption: "Private John Braid, Black Watch",
     shortQuote: "From the moment we met we became great friends and he always looked after me.",
     quoteSource: "Bill War, childhood friend",
