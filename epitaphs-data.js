@@ -25,31 +25,24 @@ const EPITAPHS = {
       "One other Kinghorn lad was on the same ship as John: Alex (“Ali”) Edmiston. He survived and came back with three stripes and a few medals. He returned to play goalkeeper for Dundee United. He was a real local character.",
       "John’s name can be seen on our local War Memorial, all on its own at the back nearest the church. I often think about him and how his life would have been – or how it should have been – if it hadn’t been for a silly war."
     ]
- "john-morrison": {
-  fullName: "CSM John Thomas Morrison DCM",
-  rank: "Company Sergeant Major",
-  unit: "Scottish Rifles",
-  conflict: "First World War (1914–1918)",
-  subtitle: "Scottish Rifles · Killed in action, April 1917",
-  image: "images/FamilyMorrison.jpg",
-  imageCaption: "John Thomas Morrison with his wife and children while on leave",
-  shortQuote: "Wounded twice and decorated for conspicuous bravery, he was killed in action in April 1917.",
-  quoteSource: "Family epitaph",
-  tributeBy: "Family epitaph",
-  paragraphs: [
-    "John Thomas Morrison enlisted in the Scottish Rifles in 1914 and was rapidly promoted to Company Sergeant Major.",
-    "He was wounded twice in battle and was awarded the Distinguished Conduct Medal (DCM) for conspicuous bravery.",
-    "He was killed in action in April 1917. John, along with many others, is remembered on Kinghorn’s War Memorial.",
-    "At the time, the family lived at 28 High Street, Kinghorn."
-  ]
-}
+  },
 
-    
- 
- 
- 
- 
- 
- 
-
- 
+  "john-morrison": {
+    fullName: "CSM John Thomas Morrison DCM",
+    rank: "Company Sergeant Major",
+    unit: "Scottish Rifles",
+    conflict: "First World War (1914–1918)",
+    subtitle: "Scottish Rifles · Killed in action, April 1917",
+    image: "images/FamilyMorrison.jpg",
+    imageCaption: "John Thomas Morrison with his wife and children while on leave",
+    shortQuote: "Wounded twice and decorated for conspicuous bravery, he was killed in action in April 1917.",
+    quoteSource: "Family epitaph",
+    tributeBy: "Family epitaph",
+    paragraphs: [
+      "John Thomas Morrison enlisted in the Scottish Rifles in 1914 and was rapidly promoted to Company Sergeant Major.",
+      "He was wounded twice in battle and was awarded the Distinguished Conduct Medal (DCM) for conspicuous bravery.",
+      "He was killed in action in April 1917. John, along with many others, is remembered on Kinghorn’s War Memorial.",
+      "At the time, the family lived at 28 High Street, Kinghorn."
+    ]
+  }
+};
