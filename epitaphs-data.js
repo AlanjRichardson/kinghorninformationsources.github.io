@@ -10,8 +10,8 @@ const EPITAPHS = {
     image: "images/JohnBraid.jpg",
     imageCaption: "Private John Braid, Black Watch",
     shortQuote: "From the moment we met we became great friends and he always looked after me.",
-    quoteSource: "Bill War, childhood friend",
-    tributeBy: "Tribute by his friend, Bill War",
+    quoteSource: "Bill Ward, childhood friend",
+    tributeBy: "Tribute by his friend, Bill Ward",
     paragraphs: [
       "John Braid – not too many people in Kinghorn will remember him, but I will never forget him.",
       "We first met in 1938 when I was three years old and John was five. I had moved to 2 Birrels Wynd and John lived down the road at Old Abden, a nice normal family – Mum, Dad and two sisters, Bunty and Margaret. From the moment we met we became great friends and he certainly looked after me.",
