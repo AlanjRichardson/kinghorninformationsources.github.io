@@ -453,6 +453,12 @@ small {
   background-color: #fffdf4;
 }
 
+#resultsArea input[type="checkbox"] {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
 /* ==========================================================
    REMEMBRANCE PAGES (e.g. Private John Braid)
    ========================================================== */
