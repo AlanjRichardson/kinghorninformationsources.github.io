@@ -93,7 +93,18 @@
     <strong>Birrels Wynd:</strong> This may have derived its name from the material made in the mill at the bottom of the Wynd; the name of the material was called
     "Burel", a rough texture cloth. In Angus there is a town called Birrels Town that received its name from the same material.
   </p>
+<script>
+  const toggler = document.querySelector('.navbar-toggler');
+  const navMenu = document.querySelector('.navbar-nav');
+  const body = document.body;
 
+  if (toggler && navMenu) {
+    toggler.addEventListener('click', () => {
+      navMenu.classList.toggle('show');
+      body.classList.toggle('menu-active');
+    });
+  }
+</script>
   <p>
     <strong>Ladyburn Place:</strong> This roadway leading down to the Abden received its name from the burn that had its source in the North Myre, and also from the
     little spring that had the peculiar name of "Nell’s Hole".
@@ -432,18 +443,7 @@ My only memory of Mr Julian was when I went to Kinghorn Primary School for the f
 
   
   
-  <script>
-  const toggler = document.querySelector('.navbar-toggler');
-  const navMenu = document.querySelector('.navbar-nav');
-  const body = document.body;
-
-  if (toggler && navMenu) {
-    toggler.addEventListener('click', () => {
-      navMenu.classList.toggle('show');
-      body.classList.toggle('menu-active');
-    });
-  }
-</script>
+ <script src="js/people-data.js"></script>
   
   
   

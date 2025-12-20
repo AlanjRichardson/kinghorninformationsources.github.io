@@ -457,6 +457,29 @@ small {
   transform: scale(1.1);
   cursor: pointer;
 }
+/* --- Name Search form layout tidy (prevents mobile overflow) --- */
+#name-search-panel input[type="text"],
+#name-search-panel button {
+  box-sizing: border-box;   /* stops 100% width spilling over border */
+  max-width: 100%;
+}
+
+/* Mobile: stack input + buttons neatly inside the panel */
+@media (max-width: 600px) {
+  #name-search-panel input[type="text"],
+  #name-search-panel button {
+    width: 100%;
+    display: block;
+  }
+
+  #name-search-panel input[type="text"] {
+    margin-bottom: 0.6em;   /* space before buttons */
+  }
+
+  #name-search-panel button {
+    margin-top: 0.4em;      /* spacing between buttons */
+  }
+}
 
 
 /* ==========================================================
