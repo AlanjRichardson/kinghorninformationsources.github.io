@@ -58,39 +58,38 @@
              placeholder="e.g. McA">
 
       <!-- Primary actions -->
-      <div style="margin-top:10px;">
-        <button type="button" onclick="performSearch()">Search</button>
-        <button type="button" onclick="clearSearch()">Clear</button>
-      </div>
+      <div class="button-row">
+  <button type="button" onclick="performSearch()">Search</button>
+  <button type="button" onclick="clearSearch()">Clear</button>
+</div>
+
 
       <div id="resultsInfo" style="margin-top:10px;"></div>
 
       <!-- EXTRA TOOLS (hidden until search results exist) -->
-      <div id="resultsTools" style="display:none; margin-top:15px;">
+      <div style="margin-bottom:10px;">
+  <div class="radio-row">
+    <strong>Copy selected as:</strong>
 
-        <div style="margin-bottom:10px;">
-          <strong>Copy selected as:</strong>
+    <label>
+      <input type="radio" name="copyMode" value="photo" checked>
+      Photo only (Album search — one at a time)
+    </label>
 
-          <div style="margin-top:6px;">
-            <label style="display:inline-flex; align-items:center; gap:6px;">
-              <input type="radio" name="copyMode" value="photo" checked>
-              Photo only (Album search — one at a time)
-            </label>
-          </div>
+    <label>
+      <input type="radio" name="copyMode" value="full">
+      Name + photo (notes)
+    </label>
+  </div>
+</div>
 
-          <div style="margin-top:6px;">
-            <label style="display:inline-flex; align-items:center; gap:6px;">
-              <input type="radio" name="copyMode" value="full">
-              Name + photo (notes)
-            </label>
-          </div>
-        </div>
 
-        <div style="margin-top:10px;">
-          <button type="button" onclick="copySelected()">Copy selected</button>
-          <button type="button" onclick="clearSelected()">Clear selected</button>
-          <button type="button" onclick="openDriveFolder()">Open Album</button>
-        </div>
+        <div class="button-row">
+  <button type="button" onclick="copySelected()">Copy selected</button>
+  <button type="button" onclick="clearSelected()">Clear selected</button>
+  <button type="button" onclick="openDriveFolder()">Open Album</button>
+</div>
+
 
         <p style="margin-top:10px;">
           <small>

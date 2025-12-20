@@ -252,17 +252,18 @@ label {
     letter-spacing: 2px;
 }
 
-input, textarea {
-    width: 100%;
-    max-width: 400px;
-    background: #efefef;
-    border: 1px solid #dedede;
-    padding: 10px;
-    margin-top: 3px;
-    font-size: 0.9em;
-    color: #3a3a3a;
-    border-radius: 5px;
+input:not([type="radio"]):not([type="checkbox"]), textarea {
+  width: 100%;
+  max-width: 400px;
+  background: #efefef;
+  border: 1px solid #dedede;
+  padding: 10px;
+  margin-top: 3px;
+  font-size: 0.9em;
+  color: #3a3a3a;
+  border-radius: 5px;
 }
+
 
 textarea {
     height: 213px;
@@ -537,6 +538,58 @@ small {
     display: flex;
     align-items: center;
     gap: 8px;
+  }
+}
+/* ===== Name Search layout ===== */
+
+#name-search-panel input[type="text"]{
+  width: 100%;
+  max-width: 320px;
+}
+
+/* make radio/checkbox normal size */
+#name-search-panel input[type="radio"],
+#name-search-panel input[type="checkbox"]{
+  width: auto;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Neat button rows */
+#name-search-panel .button-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+#name-search-panel .button-row button{
+  padding: 6px 12px;
+}
+
+/* Radio row */
+#resultsTools .radio-row{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+#resultsTools .radio-row label{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Mobile: stack buttons full-width */
+@media (max-width: 600px){
+  #name-search-panel .button-row{
+    flex-direction: column;
+  }
+  #name-search-panel .button-row button{
+    width: 100%;
   }
 }
 
