@@ -1,204 +1,260 @@
-<!-- Search logic + selection -->
+// Search logic + selection
 
-  // Stores selected entries (Full Name + Photo file) across searches on this page load
-  const selectedEntries = new Map(); // key: "fullName||photoFile" -> { fullName, photoFile }
+// Stores selected entries (Full Name + Photo file) across searches on this page load
+// key: "fullName||photoFile" -> { fullName, photoFile }
+const selectedEntries = new Map();
 
-  const DRIVE_FOLDER_URL =
-    "https://drive.google.com/drive/folders/0B_ryY5OKr0WyRlZxUmVBUU0wbjg?resourcekey=0--wTJ-afNjfmQDnNBqjaA9g&usp=sharing";
+const DRIVE_FOLDER_URL =
+  "https://drive.google.com/drive/folders/0B_ryY5OKr0WyRlZxUmVBUU0wbjg?resourcekey=0--wTJ-afNjfmQDnNBqjaA9g&usp=sharing";
 
-  function openDriveFolder() {
-    window.open(DRIVE_FOLDER_URL, "_blank", "noopener,noreferrer");
+
+function openDriveFolder() {
+  window.open(DRIVE_FOLDER_URL, "_blank", "noopener,noreferrer");
+}
+
+// Show/hide the post-search tools area (Copy/Clear/Open Album etc.)
+function setResultsToolsVisible(show) {
+  const tools = document.getElementById("resultsTools");
+  if (tools) tools.style.display = show ? "block" : "none";
+}
+
+function updateResultsInfo(matchCount = null, message = null) {
+  const resultsInfo = document.getElementById("resultsInfo");
+  if (!resultsInfo) return;
+
+  if (message) {
+    resultsInfo.textContent = message;
+    return;
   }
 
-  function updateResultsInfo(matchCount = null, message = null) {
-    const resultsInfo = document.getElementById('resultsInfo');
-    if (!resultsInfo) return;
+  const selCount = selectedEntries.size;
 
-    if (message) {
-      resultsInfo.textContent = message;
-      return;
-    }
+  if (matchCount !== null) {
+    resultsInfo.textContent =
+      `${matchCount} result${matchCount === 1 ? "" : "s"} found. ` +
+      `Selected entries: ${selCount}`;
+  } else {
+    resultsInfo.textContent = `Selected entries: ${selCount}`;
+  }
+}
 
-    const selCount = selectedEntries.size;
+function performSearch() {
+  const input = document.getElementById("surnameInput");
+  const prefix = input.value.trim().toLowerCase();
+  const resultsArea = document.getElementById("resultsArea");
 
-    if (matchCount !== null) {
-      resultsInfo.textContent =
-        `${matchCount} result${matchCount === 1 ? '' : 's'} found. ` +
-        `Selected entries: ${selCount}`;
-    } else {
-      resultsInfo.textContent = `Selected entries: ${selCount}`;
-    }
+  resultsArea.innerHTML = "";
+
+  if (prefix.length < 3) {
+    setResultsToolsVisible(false);
+    updateResultsInfo(null, "Please enter at least 3 letters of a surname.");
+    return;
   }
 
-  function performSearch() {
-    const input = document.getElementById('surnameInput');
-    const prefix = input.value.trim().toLowerCase();
-    const resultsArea = document.getElementById('resultsArea');
+  // Filter people by surname prefix (case-insensitive)
+  const matches = people.filter(
+    (p) => p.surname && p.surname.toLowerCase().startsWith(prefix)
+  );
 
-    resultsArea.innerHTML = '';
-
-    if (prefix.length < 3) {
-      updateResultsInfo(null, 'Please enter at least 3 letters of a surname.');
-      return;
-    }
-
-    // Filter people by surname prefix (case-insensitive)
-    const matches = people.filter(p =>
-      p.surname && p.surname.toLowerCase().startsWith(prefix)
-    );
-
-    if (matches.length === 0) {
-      updateResultsInfo(null, 'No matches found.');
-      resultsArea.innerHTML = '<p><em>No people found with that surname prefix.</em></p>';
-      return;
-    }
-
-    // Build results table (with checkboxes)
-    let html = '';
-    html += '<table>';
-    html += '<thead><tr>' +
-            '<th>Select</th>' +
-            '<th>Surname</th>' +
-            '<th>Full name</th>' +
-            '<th>Photo file</th>' +
-            '</tr></thead><tbody>';
-
-    matches.forEach((p, idx) => {
-      const surnameRaw = p.surname || '';
-      const fullNameRaw = p.fullName || '';
-      const photoRaw = p.photoFile || '';
-
-      const surname = escapeHtml(surnameRaw);
-      const fullName = escapeHtml(fullNameRaw);
-      const photo = escapeHtml(photoRaw);
-
-      const key = `${fullNameRaw}||${photoRaw}`;
-      const checked = selectedEntries.has(key) ? 'checked' : '';
-
-      html += '<tr>' +
-              `<td><input type="checkbox"
-                    data-fullname="${escapeAttr(fullNameRaw)}"
-                    data-photo="${escapeAttr(photoRaw)}"
-                    ${checked}
-                    onchange="toggleSelected(this)"></td>` +
-              `<td>${surname}</td>` +
-              `<td>${fullName}</td>` +
-              `<td>${photo}</td>` +
-              '</tr>';
-    });
-
-    html += '</tbody></table>';
-    resultsArea.innerHTML = html;
-
-    updateResultsInfo(matches.length);
+  if (matches.length === 0) {
+    setResultsToolsVisible(false);
+    updateResultsInfo(null, "No matches found.");
+    resultsArea.innerHTML =
+      "<p><em>No people found with that surname prefix.</em></p>";
+    return;
   }
 
-  function toggleSelected(checkbox) {
-    const fullName = checkbox.getAttribute('data-fullname') || '';
-    const photo = checkbox.getAttribute('data-photo') || '';
-    if (!fullName || !photo) return;
+  // Build results table (with checkboxes)
+  let html = "";
+  html += "<table>";
+  html +=
+    "<thead><tr>" +
+    "<th>Select</th>" +
+    "<th>Surname</th>" +
+    "<th>Full name</th>" +
+    "<th>Photo file</th>" +
+    "</tr></thead><tbody>";
 
-    const key = `${fullName}||${photo}`;
+  matches.forEach((p) => {
+    const surnameRaw = p.surname || "";
+    const fullNameRaw = p.fullName || "";
+    const photoRaw = p.photoFile || "";
 
-    if (checkbox.checked) {
-      selectedEntries.set(key, { fullName, photoFile: photo });
-    } else {
-      selectedEntries.delete(key);
-    }
+    const surname = escapeHtml(surnameRaw);
+    const fullName = escapeHtml(fullNameRaw);
+    const photo = escapeHtml(photoRaw);
 
-    // Keep the count visible
-    updateResultsInfo(null);
+    const key = `${fullNameRaw}||${photoRaw}`;
+    const checked = selectedEntries.has(key) ? "checked" : "";
+
+    html +=
+      "<tr>" +
+      `<td><input type="checkbox"
+            data-fullname="${escapeAttr(fullNameRaw)}"
+            data-photo="${escapeAttr(photoRaw)}"
+            ${checked}
+            onchange="toggleSelected(this)"></td>` +
+      `<td>${surname}</td>` +
+      `<td>${fullName}</td>` +
+      `<td>${photo}</td>` +
+      "</tr>";
+  });
+
+  html += "</tbody></table>";
+  resultsArea.innerHTML = html;
+
+  setResultsToolsVisible(true);
+  updateResultsInfo(matches.length);
+}
+
+function toggleSelected(checkbox) {
+  const fullName = checkbox.getAttribute("data-fullname") || "";
+  const photo = checkbox.getAttribute("data-photo") || "";
+
+  // If you want to allow selecting even when fullName is blank, change to: if (!photo) return;
+  if (!fullName || !photo) return;
+
+  const key = `${fullName}||${photo}`;
+
+  if (checkbox.checked) {
+    selectedEntries.set(key, { fullName, photoFile: photo });
+  } else {
+    selectedEntries.delete(key);
   }
 
-  function showSelected() {
-    const resultsArea = document.getElementById('resultsArea');
+  updateResultsInfo(null);
+}
 
-    if (selectedEntries.size === 0) {
-      updateResultsInfo(null, 'No selected entries yet.');
-      resultsArea.innerHTML = '';
-      return;
-    }
+function showSelected() {
+  const resultsArea = document.getElementById("resultsArea");
 
-    const items = Array.from(selectedEntries.values())
-      .sort((a, b) => {
-        const s = a.fullName.localeCompare(b.fullName);
-        return s !== 0 ? s : a.photoFile.localeCompare(b.photoFile);
-      });
-
-    let html = '<h3>Selected entries (Full name — Photo file)</h3>';
-    html += '<ul>';
-    items.forEach(item => {
-      html += `<li>${escapeHtml(item.fullName)} — ${escapeHtml(item.photoFile)}</li>`;
-    });
-    html += '</ul>';
-
-    resultsArea.innerHTML = html;
-    updateResultsInfo(null);
+  if (selectedEntries.size === 0) {
+    updateResultsInfo(null, "No selected entries yet.");
+    resultsArea.innerHTML = "";
+    return;
   }
 
-  async function copySelected() {
-    if (selectedEntries.size === 0) {
-      updateResultsInfo(null, 'No selected entries to copy.');
-      return;
-    }
+  const items = Array.from(selectedEntries.values()).sort((a, b) => {
+    const s = a.fullName.localeCompare(b.fullName);
+    return s !== 0 ? s : a.photoFile.localeCompare(b.photoFile);
+  });
 
+  let html = "<h3>Selected entries (Full name — Photo file)</h3>";
+  html += "<ul>";
+  items.forEach((item) => {
+    html += `<li>${escapeHtml(item.fullName)} — ${escapeHtml(
+      item.photoFile
+    )}</li>`;
+  });
+  html += "</ul>";
+
+  resultsArea.innerHTML = html;
+  updateResultsInfo(null);
+}
+
+function getCopyMode() {
+  const modeEl = document.querySelector('input[name="copyMode"]:checked');
+  return modeEl ? modeEl.value : "photo"; // default
+}
+
+async function copySelected() {
+  if (selectedEntries.size === 0) {
+    updateResultsInfo(null, "No selected entries to copy.");
+    return;
+  }
+
+  const mode = getCopyMode();
+  let text = "";
+
+  if (mode === "photo") {
+    // Photo-only (for Google Drive): deduplicate filenames
+    const photos = new Set();
+    for (const item of selectedEntries.values()) {
+      if (item.photoFile) photos.add(item.photoFile);
+    }
+    text = Array.from(photos)
+      .sort((a, b) => a.localeCompare(b))
+      .join("\n");
+  } else {
+    // Full name + photo (for notes)
     const lines = Array.from(selectedEntries.values())
       .sort((a, b) => {
         const s = a.fullName.localeCompare(b.fullName);
         return s !== 0 ? s : a.photoFile.localeCompare(b.photoFile);
       })
-      .map(item => `${item.fullName} — ${item.photoFile}`);
+      .map((item) => `${item.fullName} — ${item.photoFile}`);
 
-    const text = lines.join('\n');
+    text = lines.join("\n");
+  }
 
-    try {
-      await navigator.clipboard.writeText(text);
-      updateResultsInfo(null, `Copied ${selectedEntries.size} selected entr${selectedEntries.size === 1 ? 'y' : 'ies'} to clipboard.`);
-    } catch (e) {
-      window.prompt("Copy the selected entries:", text);
+  try {
+    await navigator.clipboard.writeText(text);
+
+    if (mode === "photo") {
+      const photoCount = text ? text.split("\n").length : 0;
+      updateResultsInfo(
+        null,
+        `Copied ${photoCount} photo filename(s) to clipboard (Drive search).`
+      );
+    } else {
+      updateResultsInfo(
+        null,
+        `Copied ${selectedEntries.size} selected entr${
+          selectedEntries.size === 1 ? "y" : "ies"
+        } to clipboard (notes).`
+      );
     }
+  } catch (e) {
+    window.prompt("Copy to clipboard:", text);
   }
+}
 
-  function clearSelected() {
-    selectedEntries.clear();
-    updateResultsInfo(null, 'Selected entries cleared.');
+function clearSelected() {
+  selectedEntries.clear();
+  updateResultsInfo(null, "Selected entries cleared.");
 
-    // If a search is visible, refresh it so checkboxes clear
-    const prefix = document.getElementById('surnameInput').value.trim();
-    if (prefix.length >= 3) performSearch();
-    else document.getElementById('resultsArea').innerHTML = '';
+  // If a search is visible, refresh it so checkboxes clear
+  const prefix = document.getElementById("surnameInput").value.trim();
+  if (prefix.length >= 3) performSearch();
+  else document.getElementById("resultsArea").innerHTML = "";
+}
+
+function clearSearch() {
+  document.getElementById("surnameInput").value = "";
+  document.getElementById("resultsArea").innerHTML = "";
+  setResultsToolsVisible(false);
+  updateResultsInfo(null);
+  document.getElementById("surnameInput").focus();
+}
+
+function escapeHtml(text) {
+  if (!text) return "";
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function escapeAttr(text) {
+  if (!text) return "";
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+// Allow Enter key to trigger the search
+document.getElementById("surnameInput").addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    performSearch();
   }
+});
 
-  function clearSearch() {
-    document.getElementById('surnameInput').value = '';
-    document.getElementById('resultsArea').innerHTML = '';
-    updateResultsInfo(null);
-    document.getElementById('surnameInput').focus();
-  }
+// On first load, hide tools until a successful search
+setResultsToolsVisible(false);
+updateResultsInfo(null);
 
-  function escapeHtml(text) {
-    if (!text) return '';
-    return text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#039;');
-  }
-
-  function escapeAttr(text) {
-    if (!text) return '';
-    return text
-      .replace(/&/g, '&amp;')
-      .replace(/"/g, '&quot;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-  }
-
-  // Allow Enter key to trigger the search
-  document.getElementById('surnameInput').addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      performSearch();
-    }
-  });

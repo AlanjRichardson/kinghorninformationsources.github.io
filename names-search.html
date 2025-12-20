@@ -44,19 +44,16 @@
 
   <main>
   <h2>Photo Name Search</h2>
+
   <p>
     Use this page to search the Kinghorn Photos with Names album.
     Enter the first three letters or more of a surname (for example, <strong>McA</strong> for McAndrew)
-    to see the photo file(s) they appear in. Make a note of the photo file(s) and visit
-    <a href="https://drive.google.com/drive/folders/0B_ryY5OKr0WyRlZxUmVBUU0wbjg?resourcekey=0--wTJ-afNjfmQDnNBqjaA9g&usp=sharing" target="_blank">
-      Kinghorn Photos with Names Album
-    </a> noting that the filenames there are organised in alphabetical order.
+    to see the photo file(s) they appear in.
   </p>
 
   <div id="name-search-panel">
-    <label for="surnameInput">
-      Surname (first 3 letters or more):
-    </label>
+    <label for="surnameInput">Surname (first 3 letters or more):</label>
+
     <input type="text"
            id="surnameInput"
            maxlength="20"
@@ -65,24 +62,39 @@
     <button type="button" onclick="performSearch()">Search</button>
     <button type="button" onclick="clearSearch()">Clear</button>
 
-    <!-- New controls -->
-    <button type="button" onclick="showSelected()">Show selected</button>
-    <button type="button" onclick="copySelected()">Copy selected</button>
-    <button type="button" onclick="clearSelected()">Clear selected</button>
-    <button type="button" onclick="openDriveFolder()">Open Album</button>
-
     <div id="resultsInfo"></div>
 
-    <p style="margin-top:10px;">
-      <small>
-        Tip: tick the relevant entries, click <strong>Copy selected</strong>,
-        then click <strong>Open Album</strong> and paste a filename into the Drive search box.
-      </small>
-    </p>
+    <!-- EXTRA TOOLS (hidden until search results exist) -->
+    <div id="resultsTools" style="display:none; margin-top:12px;">
+
+      <div style="margin-bottom:8px;">
+        <strong>Copy selected as:</strong>
+        <label style="margin-left:10px;">
+          <input type="radio" name="copyMode" value="photo" checked>
+          Photo only (Drive)
+        </label>
+        <label style="margin-left:10px;">
+          <input type="radio" name="copyMode" value="full">
+          Name + photo (notes)
+        </label>
+      </div>
+
+      <button type="button" onclick="copySelected()">Copy selected</button>
+      <button type="button" onclick="clearSelected()">Clear selected</button>
+      <button type="button" onclick="openDriveFolder()">Open Album</button>
+
+      <p style="margin-top:10px;">
+        <small>
+          Tip: tick entries, click <strong>Copy selected</strong>,
+          then click <strong>Open Album</strong> and paste into Drive search.
+        </small>
+      </p>
+    </div>
   </div>
 
   <div id="resultsArea"></div>
 </main>
+
 
 <footer>
   Editor: Alan Richardson <a href="ContactForm.html">Contact me by email</a>
