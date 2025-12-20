@@ -39,9 +39,14 @@ function updateResultsInfo(matchCount = null, message = null) {
 
 function performSearch() {
   const input = document.getElementById("surnameInput");
-  const prefix = input.value.trim().toLowerCase();
   const resultsArea = document.getElementById("resultsArea");
 
+  if (!input || !resultsArea) {
+    updateResultsInfo(null, "Page elements not found. Please refresh.");
+    return;
+  }
+
+  const prefix = input.value.trim().toLowerCase();
   resultsArea.innerHTML = "";
 
   if (prefix.length < 3) {
@@ -50,16 +55,11 @@ function performSearch() {
     return;
   }
 
-  // Safety: ensure the people-data.js has loaded
+  // Ensure people-data is loaded
   if (typeof people === "undefined" || !Array.isArray(people)) {
-  setResultsToolsVisible(false);
-  updateResultsInfo(
-    null,
-    "People data not loaded yet. Please refresh the page."
-  );
-  return;
-}
-
+    setResultsToolsVisible(false);
+    updateResultsInfo(null, "People data not loaded yet. Please refresh the page.");
+    return;
   }
 
   // Filter people by surname prefix (case-insensitive)
@@ -70,8 +70,7 @@ function performSearch() {
   if (matches.length === 0) {
     setResultsToolsVisible(false);
     updateResultsInfo(null, "No matches found.");
-    resultsArea.innerHTML =
-      "<p><em>No people found with that surname prefix.</em></p>";
+    resultsArea.innerHTML = "<p><em>No people found with that surname prefix.</em></p>";
     return;
   }
 
@@ -121,8 +120,6 @@ function performSearch() {
 function toggleSelected(checkbox) {
   const fullName = checkbox.getAttribute("data-fullname") || "";
   const photo = checkbox.getAttribute("data-photo") || "";
-
-  // If you want to allow selecting even when fullName is blank, change to: if (!photo) return;
   if (!fullName || !photo) return;
 
   const key = `${fullName}||${photo}`;
@@ -136,37 +133,9 @@ function toggleSelected(checkbox) {
   updateResultsInfo(null);
 }
 
-// Optional (only used if you keep the "Show selected" button somewhere)
-function showSelected() {
-  const resultsArea = document.getElementById("resultsArea");
-
-  if (selectedEntries.size === 0) {
-    updateResultsInfo(null, "No selected entries yet.");
-    resultsArea.innerHTML = "";
-    return;
-  }
-
-  const items = Array.from(selectedEntries.values()).sort((a, b) => {
-    const s = a.fullName.localeCompare(b.fullName);
-    return s !== 0 ? s : a.photoFile.localeCompare(b.photoFile);
-  });
-
-  let html = "<h3>Selected entries (Full name — Photo file)</h3>";
-  html += "<ul>";
-  items.forEach((item) => {
-    html += `<li>${escapeHtml(item.fullName)} — ${escapeHtml(
-      item.photoFile
-    )}</li>`;
-  });
-  html += "</ul>";
-
-  resultsArea.innerHTML = html;
-  updateResultsInfo(null);
-}
-
 function getCopyMode() {
   const modeEl = document.querySelector('input[name="copyMode"]:checked');
-  return modeEl ? modeEl.value : "photo"; // default
+  return modeEl ? modeEl.value : "photo";
 }
 
 async function copySelected() {
@@ -180,7 +149,7 @@ async function copySelected() {
   let message = "";
 
   if (mode === "photo") {
-    // Album search works best one filename at a time.
+    // Album search works best one filename at a time
     const photos = Array.from(
       new Set(
         Array.from(selectedEntries.values())
@@ -195,7 +164,7 @@ async function copySelected() {
     }
 
     if (photos.length > 1) {
-      text = photos[0]; // copy only the first filename
+      text = photos[0];
       message =
         "Multiple photos selected. Copied the first filename only " +
         "(album search works one filename at a time).";
@@ -204,7 +173,6 @@ async function copySelected() {
       message = "Copied photo filename to clipboard (album search).";
     }
   } else {
-    // Full name + photo (for notes)
     const lines = Array.from(selectedEntries.values())
       .sort((a, b) => {
         const s = a.fullName.localeCompare(b.fullName);
@@ -230,18 +198,20 @@ function clearSelected() {
   selectedEntries.clear();
   updateResultsInfo(null, "Selected entries cleared.");
 
-  // If a search is visible, refresh it so checkboxes clear
-  const prefix = document.getElementById("surnameInput").value.trim();
+  const prefix = document.getElementById("surnameInput")?.value.trim() || "";
   if (prefix.length >= 3) performSearch();
   else document.getElementById("resultsArea").innerHTML = "";
 }
 
 function clearSearch() {
-  document.getElementById("surnameInput").value = "";
+  const input = document.getElementById("surnameInput");
+  if (input) input.value = "";
+
   document.getElementById("resultsArea").innerHTML = "";
   setResultsToolsVisible(false);
   updateResultsInfo(null);
-  document.getElementById("surnameInput").focus();
+
+  if (input) input.focus();
 }
 
 function escapeHtml(text) {
@@ -263,14 +233,18 @@ function escapeAttr(text) {
     .replace(/>/g, "&gt;");
 }
 
-// Allow Enter key to trigger the search
-document.getElementById("surnameInput").addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    performSearch();
+// Wire Enter key (only if element exists)
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("surnameInput");
+  if (input) {
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        performSearch();
+      }
+    });
   }
-});
 
-// On first load, hide tools until a successful search
-setResultsToolsVisible(false);
-updateResultsInfo(null);
+  setResultsToolsVisible(false);
+  updateResultsInfo(null);
+});
