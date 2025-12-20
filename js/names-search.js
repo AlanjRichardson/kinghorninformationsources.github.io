@@ -7,7 +7,6 @@ const selectedEntries = new Map();
 const DRIVE_FOLDER_URL =
   "https://drive.google.com/drive/folders/0B_ryY5OKr0WyRlZxUmVBUU0wbjg?resourcekey=0--wTJ-afNjfmQDnNBqjaA9g&usp=sharing";
 
-
 function openDriveFolder() {
   window.open(DRIVE_FOLDER_URL, "_blank", "noopener,noreferrer");
 }
@@ -48,6 +47,16 @@ function performSearch() {
   if (prefix.length < 3) {
     setResultsToolsVisible(false);
     updateResultsInfo(null, "Please enter at least 3 letters of a surname.");
+    return;
+  }
+
+  // Safety: ensure the people-data.js has loaded
+  if (!Array.isArray(window.people)) {
+    setResultsToolsVisible(false);
+    updateResultsInfo(
+      null,
+      "Data file not loaded yet (people-data.js). Please refresh the page."
+    );
     return;
   }
 
@@ -125,6 +134,7 @@ function toggleSelected(checkbox) {
   updateResultsInfo(null);
 }
 
+// Optional (only used if you keep the "Show selected" button somewhere)
 function showSelected() {
   const resultsArea = document.getElementById("resultsArea");
 
@@ -165,16 +175,32 @@ async function copySelected() {
 
   const mode = getCopyMode();
   let text = "";
+  let message = "";
 
   if (mode === "photo") {
-    // Photo-only (for Google Drive): deduplicate filenames
-    const photos = new Set();
-    for (const item of selectedEntries.values()) {
-      if (item.photoFile) photos.add(item.photoFile);
+    // Album search works best one filename at a time.
+    const photos = Array.from(
+      new Set(
+        Array.from(selectedEntries.values())
+          .map((item) => item.photoFile)
+          .filter(Boolean)
+      )
+    ).sort((a, b) => a.localeCompare(b));
+
+    if (photos.length === 0) {
+      updateResultsInfo(null, "No photo filenames found to copy.");
+      return;
     }
-    text = Array.from(photos)
-      .sort((a, b) => a.localeCompare(b))
-      .join("\n");
+
+    if (photos.length > 1) {
+      text = photos[0]; // copy only the first filename
+      message =
+        "Multiple photos selected. Copied the first filename only " +
+        "(album search works one filename at a time).";
+    } else {
+      text = photos[0];
+      message = "Copied photo filename to clipboard (album search).";
+    }
   } else {
     // Full name + photo (for notes)
     const lines = Array.from(selectedEntries.values())
@@ -185,25 +211,14 @@ async function copySelected() {
       .map((item) => `${item.fullName} — ${item.photoFile}`);
 
     text = lines.join("\n");
+    message =
+      `Copied ${selectedEntries.size} selected entr` +
+      `${selectedEntries.size === 1 ? "y" : "ies"} (notes format).`;
   }
 
   try {
     await navigator.clipboard.writeText(text);
-
-    if (mode === "photo") {
-      const photoCount = text ? text.split("\n").length : 0;
-      updateResultsInfo(
-        null,
-        `Copied ${photoCount} photo filename(s) to clipboard (Drive search).`
-      );
-    } else {
-      updateResultsInfo(
-        null,
-        `Copied ${selectedEntries.size} selected entr${
-          selectedEntries.size === 1 ? "y" : "ies"
-        } to clipboard (notes).`
-      );
-    }
+    updateResultsInfo(null, message);
   } catch (e) {
     window.prompt("Copy to clipboard:", text);
   }
@@ -257,4 +272,3 @@ document.getElementById("surnameInput").addEventListener("keydown", function (e)
 // On first load, hide tools until a successful search
 setResultsToolsVisible(false);
 updateResultsInfo(null);
-

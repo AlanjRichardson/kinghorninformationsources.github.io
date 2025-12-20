@@ -42,7 +42,7 @@
     </nav>
   </header>
 
-  <main>
+ <main>
   <h2>Photo Name Search</h2>
 
   <p>
@@ -59,34 +59,48 @@
            maxlength="20"
            placeholder="e.g. McA">
 
-    <button type="button" onclick="performSearch()">Search</button>
-    <button type="button" onclick="clearSearch()">Clear</button>
+    <!-- Primary actions (kept simple) -->
+    <div style="margin-top:10px;">
+      <button type="button" onclick="performSearch()">Search</button>
+      <button type="button" onclick="clearSearch()">Clear</button>
+    </div>
 
-    <div id="resultsInfo"></div>
+    <div id="resultsInfo" style="margin-top:10px;"></div>
 
     <!-- EXTRA TOOLS (hidden until search results exist) -->
-    <div id="resultsTools" style="display:none; margin-top:12px;">
+    <div id="resultsTools" style="display:none; margin-top:15px;">
 
-      <div style="margin-bottom:8px;">
+      <!-- Copy mode -->
+      <div style="margin-bottom:10px;">
         <strong>Copy selected as:</strong>
-        <label style="margin-left:10px;">
-          <input type="radio" name="copyMode" value="photo" checked>
-          Photo only (Drive)
-        </label>
-        <label style="margin-left:10px;">
-          <input type="radio" name="copyMode" value="full">
-          Name + photo (notes)
-        </label>
+
+        <div style="margin-top:6px;">
+          <label style="display:inline-flex; align-items:center; gap:6px;">
+            <input type="radio" name="copyMode" value="photo" checked>
+            Photo only (Album search — one at a time)
+          </label>
+        </div>
+
+        <div style="margin-top:6px;">
+          <label style="display:inline-flex; align-items:center; gap:6px;">
+            <input type="radio" name="copyMode" value="full">
+            Name + photo (notes)
+          </label>
+        </div>
       </div>
 
-      <button type="button" onclick="copySelected()">Copy selected</button>
-      <button type="button" onclick="clearSelected()">Clear selected</button>
-      <button type="button" onclick="openDriveFolder()">Open Album</button>
+      <!-- Secondary actions -->
+      <div style="margin-top:10px;">
+        <button type="button" onclick="copySelected()">Copy selected</button>
+        <button type="button" onclick="clearSelected()">Clear selected</button>
+        <button type="button" onclick="openDriveFolder()">Open Album</button>
+      </div>
 
       <p style="margin-top:10px;">
         <small>
           Tip: tick entries, click <strong>Copy selected</strong>,
-          then click <strong>Open Album</strong> and paste into Drive search.
+          then click <strong>Open Album</strong> and paste into the album search box.
+          (Album search works best with one filename at a time.)
         </small>
       </p>
     </div>

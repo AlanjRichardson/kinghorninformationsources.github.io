@@ -480,6 +480,65 @@ small {
     margin-top: 0.4em;      /* spacing between buttons */
   }
 }
+/* ==========================================================
+   NAME SEARCH – CONTROL LAYOUT TIDY-UP
+   ========================================================== */
+
+/* Ensure inputs and buttons never overflow the panel */
+#name-search-panel input,
+#name-search-panel button {
+  box-sizing: border-box;
+}
+
+/* Input field spacing */
+#name-search-panel input[type="text"] {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+/* Button rows */
+#name-search-panel button {
+  margin: 4px 6px 4px 0;
+  padding: 6px 12px;
+  font-size: 0.95em;
+  cursor: pointer;
+}
+
+/* Group buttons into clean rows */
+#name-search-panel > div > div {
+  margin-top: 6px;
+}
+
+/* Radio button rows */
+#resultsTools label {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Improve tap targets on mobile */
+#resultsTools input[type="radio"],
+#resultsArea input[type="checkbox"] {
+  transform: scale(1.15);
+}
+
+/* Stack buttons cleanly on small screens */
+@media (max-width: 600px) {
+
+  #name-search-panel button {
+    display: block;
+    width: 100%;
+    margin: 6px 0;
+  }
+
+  #resultsTools label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
 
 
 /* ==========================================================
