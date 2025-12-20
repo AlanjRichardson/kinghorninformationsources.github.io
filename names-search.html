@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-20KZGF4994"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-20KZGF4994"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-20KZGF4994');
+  </script>
 
-  gtag('config', 'G-20KZGF4994');
-</script>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Name-Search</title>
   <link rel="stylesheet" href="kinghorn.css">
-</head>
-  
-<script src="js/people-data.js"></script>
-<script src="js/names-search.js"></script>
 
+  <!-- Data + search logic (defer ensures DOM exists before code runs) -->
+  <script defer src="js/people-data.js"></script>
+  <script defer src="js/names-search.js"></script>
+  <script defer src="js/menu.js"></script>
 </head>
 
 <body>
@@ -42,92 +40,75 @@
     </nav>
   </header>
 
- <main>
-  <h2>Photo Name Search</h2>
+  <main>
+    <h2>Photo Name Search</h2>
 
-  <p>
-    Use this page to search the Kinghorn Photos with Names album.
-    Enter the first three letters or more of a surname (for example, <strong>McA</strong> for McAndrew)
-    to see the photo file(s) they appear in.
-  </p>
+    <p>
+      Use this page to search the Kinghorn Photos with Names album.
+      Enter the first three letters or more of a surname (for example, <strong>McA</strong> for McAndrew)
+      to see the photo file(s) they appear in.
+    </p>
 
-  <div id="name-search-panel">
-    <label for="surnameInput">Surname (first 3 letters or more):</label>
+    <div id="name-search-panel">
+      <label for="surnameInput">Surname (first 3 letters or more):</label>
 
-    <input type="text"
-           id="surnameInput"
-           maxlength="20"
-           placeholder="e.g. McA">
+      <input type="text"
+             id="surnameInput"
+             maxlength="20"
+             placeholder="e.g. McA">
 
-    <!-- Primary actions (kept simple) -->
-    <div style="margin-top:10px;">
-      <button type="button" onclick="performSearch()">Search</button>
-      <button type="button" onclick="clearSearch()">Clear</button>
-    </div>
-
-    <div id="resultsInfo" style="margin-top:10px;"></div>
-
-    <!-- EXTRA TOOLS (hidden until search results exist) -->
-    <div id="resultsTools" style="display:none; margin-top:15px;">
-
-      <!-- Copy mode -->
-      <div style="margin-bottom:10px;">
-        <strong>Copy selected as:</strong>
-
-        <div style="margin-top:6px;">
-          <label style="display:inline-flex; align-items:center; gap:6px;">
-            <input type="radio" name="copyMode" value="photo" checked>
-            Photo only (Album search — one at a time)
-          </label>
-        </div>
-
-        <div style="margin-top:6px;">
-          <label style="display:inline-flex; align-items:center; gap:6px;">
-            <input type="radio" name="copyMode" value="full">
-            Name + photo (notes)
-          </label>
-        </div>
-      </div>
-
-      <!-- Secondary actions -->
+      <!-- Primary actions -->
       <div style="margin-top:10px;">
-        <button type="button" onclick="copySelected()">Copy selected</button>
-        <button type="button" onclick="clearSelected()">Clear selected</button>
-        <button type="button" onclick="openDriveFolder()">Open Album</button>
+        <button type="button" onclick="performSearch()">Search</button>
+        <button type="button" onclick="clearSearch()">Clear</button>
       </div>
 
-      <p style="margin-top:10px;">
-        <small>
-          Tip: tick entries, click <strong>Copy selected</strong>,
-          then click <strong>Open Album</strong> and paste into the album search box.
-          (Album search works best with one filename at a time.)
-        </small>
-      </p>
+      <div id="resultsInfo" style="margin-top:10px;"></div>
+
+      <!-- EXTRA TOOLS (hidden until search results exist) -->
+      <div id="resultsTools" style="display:none; margin-top:15px;">
+
+        <div style="margin-bottom:10px;">
+          <strong>Copy selected as:</strong>
+
+          <div style="margin-top:6px;">
+            <label style="display:inline-flex; align-items:center; gap:6px;">
+              <input type="radio" name="copyMode" value="photo" checked>
+              Photo only (Album search — one at a time)
+            </label>
+          </div>
+
+          <div style="margin-top:6px;">
+            <label style="display:inline-flex; align-items:center; gap:6px;">
+              <input type="radio" name="copyMode" value="full">
+              Name + photo (notes)
+            </label>
+          </div>
+        </div>
+
+        <div style="margin-top:10px;">
+          <button type="button" onclick="copySelected()">Copy selected</button>
+          <button type="button" onclick="clearSelected()">Clear selected</button>
+          <button type="button" onclick="openDriveFolder()">Open Album</button>
+        </div>
+
+        <p style="margin-top:10px;">
+          <small>
+            Tip: tick entries, click <strong>Copy selected</strong>,
+            then click <strong>Open Album</strong> and paste into the album search box.
+            (Album search works best with one filename at a time.)
+          </small>
+        </p>
+      </div>
     </div>
-  </div>
 
-  <div id="resultsArea"></div>
-</main>
+    <div id="resultsArea"></div>
+  </main>
 
-
-<footer>
-  Editor: Alan Richardson <a href="ContactForm.html">Contact me by email</a>
-</footer>
-
-<script src="js/menu.js"></script>
-
-
-
-
+  <footer>
+    Editor: Alan Richardson <a href="ContactForm.html">Contact me by email</a>
+  </footer>
 </body>
 </html>
 
-
-
-  
-
- 
-  
-</body>
-</html>
 
