@@ -149,7 +149,6 @@ async function copySelected() {
   let message = "";
 
   if (mode === "photo") {
-    // Album search works best one filename at a time
     const photos = Array.from(
       new Set(
         Array.from(selectedEntries.values())
@@ -198,7 +197,8 @@ function clearSelected() {
   selectedEntries.clear();
   updateResultsInfo(null, "Selected entries cleared.");
 
-  const prefix = document.getElementById("surnameInput")?.value.trim() || "";
+  const input = document.getElementById("surnameInput");
+  const prefix = input ? input.value.trim() : "";
   if (prefix.length >= 3) performSearch();
   else document.getElementById("resultsArea").innerHTML = "";
 }
@@ -233,7 +233,6 @@ function escapeAttr(text) {
     .replace(/>/g, "&gt;");
 }
 
-// Wire Enter key (only if element exists)
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("surnameInput");
   if (input) {
