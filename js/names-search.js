@@ -51,13 +51,15 @@ function performSearch() {
   }
 
   // Safety: ensure the people-data.js has loaded
-  if (!Array.isArray(window.people)) {
-    setResultsToolsVisible(false);
-    updateResultsInfo(
-      null,
-      "Data file not loaded yet (people-data.js). Please refresh the page."
-    );
-    return;
+  if (typeof people === "undefined" || !Array.isArray(people)) {
+  setResultsToolsVisible(false);
+  updateResultsInfo(
+    null,
+    "People data not loaded yet. Please refresh the page."
+  );
+  return;
+}
+
   }
 
   // Filter people by surname prefix (case-insensitive)
