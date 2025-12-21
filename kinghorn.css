@@ -11,9 +11,10 @@ body {
 
 /* MAIN CONTENT */
 main {
-  margin-top: 80px; /* space for fixed header */
+  margin-top: 80px;                /* space for fixed header */
   padding: 10px;
-  width: 95%;
+  width: 100%;
+  max-width: 1100px;               /* helps “dynamic width” on large screens */
   margin-left: auto;
   margin-right: auto;
   background-color: #FFFFE0;
@@ -34,11 +35,13 @@ main {
 footer {
   margin: 0 auto;
   padding: 1em;
-  width: 95%;
+  width: 100%;
+  max-width: 1100px;
   color: black;
   font-size: 1em;
   text-align: center;
   border-top: 2px solid pink;
+  box-sizing: border-box;
 }
 
 /* LINKS */
@@ -53,7 +56,7 @@ a:hover {
 /* ===================== */
 /* HEADER STYLES – only the main site header */
 body > header {
-  background-color: #a47864; /* Mocha */
+  background-color: #a47864;       /* Mocha */
   border-bottom: 2px solid pink;
   text-align: center;
   padding: 10px 0;
@@ -86,6 +89,7 @@ body > header h1 {
   gap: 1.5rem;
   width: 100%;
   max-width: 960px;
+  box-sizing: border-box;
 }
 
 .navbar-nav li a {
@@ -114,7 +118,7 @@ body > header h1 {
 /* MOBILE STYLES */
 @media (max-width: 991px) {
   body > header h1 {
-    padding-right: 3em; /* space for the ☰ icon */
+    padding-right: 3em;            /* space for ☰ icon */
   }
 
   .navbar-toggler {
@@ -210,9 +214,7 @@ textarea {
   box-sizing: border-box;
 }
 
-textarea {
-  height: 213px;
-}
+textarea { height: 213px; }
 
 /* ===================== */
 /* IMAGE RESPONSIVENESS */
@@ -225,19 +227,11 @@ img {
 }
 
 /* FIGURE AND CAPTION */
-figure {
-  margin: 1em 0;
-  text-align: center;
-}
-
-figcaption {
-  font-size: 0.95em;
-  color: #555;
-  margin-top: 0.5em;
-}
+figure { margin: 1em 0; text-align: center; }
+figcaption { font-size: 0.95em; color: #555; margin-top: 0.5em; }
 
 /* ===================== */
-/* HOVER IMAGE LINK (single, clean version) */
+/* HOVER IMAGE LINK */
 .hover-image-link {
   position: relative;
   display: inline-block;
@@ -278,19 +272,11 @@ figcaption {
 }
 
 @media (max-width: 1024px) {
-  .hover-image-link span img {
-    width: min(50vw, 450px);
-  }
+  .hover-image-link span img { width: min(50vw, 450px); }
 }
 @media (max-width: 600px) {
-  .hover-image-link span {
-    left: 0;
-    top: 110%;
-    transform: translateY(0);
-  }
-  .hover-image-link span img {
-    width: 80vw;
-  }
+  .hover-image-link span { left: 0; top: 110%; transform: translateY(0); }
+  .hover-image-link span img { width: 80vw; }
 }
 
 /* ===================== */
@@ -313,10 +299,8 @@ figcaption {
 #toc ul { padding-left: 20px; }
 #toc ul li { margin: 5px 0; }
 
-/* Paragraph spacing */
 main p { margin: 0 0 1em 0; }
 
-/* Blockquote styling */
 main blockquote {
   margin: 10px 0 10px 20px;
   padding: 10px 15px;
@@ -325,7 +309,6 @@ main blockquote {
   font-style: italic;
 }
 
-/* Code and pre formatting */
 main pre, main code {
   background-color: #efefef;
   border: 1px solid #dedede;
@@ -339,7 +322,7 @@ small { font-size: 0.85em; color: #555; }
 
 /* ==========================================================
    NAME SEARCH PAGE (names-search.html)
-   Works with your ns-* classes in the HTML
+   Supports your ns-* classes exactly
    ========================================================== */
 
 #name-search-panel {
@@ -348,15 +331,18 @@ small { font-size: 0.85em; color: #555; }
   border-radius: 10px;
   padding: 10px 15px;
   margin: 20px 0;
-}
-
-#name-search-panel input[type="text"] {
-  width: 100%;
-  max-width: 340px;
   box-sizing: border-box;
 }
 
-/* Keep radios/checkboxes “normal” and not affected by global input sizing */
+/* Ensure panel contents never overflow */
+#name-search-panel * { box-sizing: border-box; }
+
+#name-search-panel input[type="text"] {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Keep radios/checkboxes “normal” */
 #name-search-panel input[type="radio"],
 #name-search-panel input[type="checkbox"] {
   width: auto;
@@ -365,7 +351,7 @@ small { font-size: 0.85em; color: #555; }
   margin: 0;
 }
 
-/* Rows */
+/* Rows (Search/Clear and Copy/Open/Clear) */
 .ns-row {
   display: flex;
   align-items: center;
@@ -373,13 +359,8 @@ small { font-size: 0.85em; color: #555; }
   margin-top: 10px;
 }
 
-.ns-row-primary {
-  justify-content: space-between; /* Search left, Clear right */
-}
-
-.ns-row-tools {
-  justify-content: space-between; /* Copy left, Open centre, Clear right */
-}
+.ns-row-primary { justify-content: space-between; }
+.ns-row-tools   { justify-content: space-between; }
 
 /* Buttons */
 .ns-btn {
@@ -387,7 +368,6 @@ small { font-size: 0.85em; color: #555; }
   font-size: 0.95em;
   cursor: pointer;
   white-space: nowrap;
-  box-sizing: border-box;
 }
 
 /* Info line */
@@ -399,27 +379,27 @@ small { font-size: 0.85em; color: #555; }
 /* Guidance */
 .ns-guidance {
   margin-top: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-/* Radio block (two neat rows) */
-.ns-radio-block {
-  margin-top: 10px;
-  margin-bottom: 8px;
-}
+/* Radio block: use a 2-column GRID so rows always align */
+.ns-radio-block { margin-top: 10px; margin-bottom: 8px; }
 
 .ns-radio-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;   /* left label column + right controls */
   align-items: center;
-  gap: 10px;
+  column-gap: 10px;
   margin-top: 6px;
 }
 
+/* Your HTML includes a spacer span — make it behave like the left column */
 .ns-radio-spacer {
-  display: inline-block;
-  width: 62px; /* aligns second row under “Copy as:” */
+  display: block;
+  width: auto;                         /* grid handles width */
 }
 
+/* Radio label */
 .ns-radio {
   display: inline-flex;
   align-items: center;
@@ -428,11 +408,8 @@ small { font-size: 0.85em; color: #555; }
   user-select: none;
 }
 
-/* Small label above tool buttons */
-.ns-tools-label {
-  margin-top: 6px;
-  margin-bottom: 4px;
-}
+/* Label above tool buttons */
+.ns-tools-label { margin-top: 8px; margin-bottom: 4px; }
 
 /* Results table */
 #resultsArea table {
@@ -449,10 +426,7 @@ small { font-size: 0.85em; color: #555; }
   text-align: left;
 }
 
-#resultsArea th {
-  background-color: #FFF8DC;
-}
-
+#resultsArea th { background-color: #FFF8DC; }
 #resultsArea tr:nth-child(even) { background-color: #faf3e5; }
 #resultsArea tr:nth-child(odd)  { background-color: #fffdf4; }
 
@@ -461,13 +435,10 @@ small { font-size: 0.85em; color: #555; }
   cursor: pointer;
 }
 
-/* Small phones: keep your “Search left / Clear right” requirement,
-   but slightly reduce padding so it fits better */
+/* Very small phones: tighten buttons so Search/Clear fits on one row */
 @media (max-width: 420px) {
-  .ns-btn {
-    padding: 7px 10px;
-    font-size: 0.92em;
-  }
+  .ns-btn { padding: 7px 10px; font-size: 0.92em; }
+  .ns-radio-row { grid-template-columns: 7.5rem 1fr; }
 }
 
 /* ==========================================================
@@ -523,9 +494,7 @@ small { font-size: 0.85em; color: #555; }
   margin-top: 0.4em;
 }
 
-.remembrance-epitaph {
-  flex: 1 1 260px;
-}
+.remembrance-epitaph { flex: 1 1 260px; }
 
 .remembrance-epitaph h3 {
   margin-top: 0;
@@ -551,9 +520,7 @@ small { font-size: 0.85em; color: #555; }
   margin-bottom: 0.75em;
 }
 
-.remembrance-tribute p {
-  margin-bottom: 0.9em;
-}
+.remembrance-tribute p { margin-bottom: 0.9em; }
 
 @media (min-width: 1000px) {
   .remembrance-entry { max-width: 850px; }
@@ -564,8 +531,8 @@ small { font-size: 0.85em; color: #555; }
     flex-direction: column;
     align-items: center;
   }
-
   .remembrance-photo { flex: 0 0 auto; }
   .remembrance-photo img { max-width: 260px; }
   .remembrance-epitaph { width: 100%; }
 }
+

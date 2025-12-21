@@ -52,12 +52,14 @@ function enforceSingleSelectionIfPhotoMode(newKeyToKeep) {
   }
 
   // Update UI checkboxes to match the Map
-  document.querySelectorAll('#resultsArea input[type="checkbox"]').forEach((cb) => {
-    const fullName = cb.getAttribute("data-fullname") || "";
-    const photo = cb.getAttribute("data-photo") || "";
-    const key = `${fullName}||${photo}`;
-    cb.checked = key === newKeyToKeep;
-  });
+  document
+    .querySelectorAll('#resultsArea input[type="checkbox"]')
+    .forEach((cb) => {
+      const fullName = cb.getAttribute("data-fullname") || "";
+      const photo = cb.getAttribute("data-photo") || "";
+      const key = `${fullName}||${photo}`;
+      cb.checked = key === newKeyToKeep;
+    });
 }
 
 function performSearch() {
@@ -81,7 +83,10 @@ function performSearch() {
   // Ensure people-data is loaded
   if (typeof people === "undefined" || !Array.isArray(people)) {
     setResultsToolsVisible(false);
-    updateResultsInfo(null, "People data not loaded yet. Please refresh the page.");
+    updateResultsInfo(
+      null,
+      "People data not loaded yet. Please refresh the page."
+    );
     return;
   }
 
@@ -93,27 +98,26 @@ function performSearch() {
   if (matches.length === 0) {
     setResultsToolsVisible(false);
     updateResultsInfo(null, "No matches found.");
-    resultsArea.innerHTML = "<p><em>No people found with that surname prefix.</em></p>";
+    resultsArea.innerHTML =
+      "<p><em>No people found with that surname prefix.</em></p>";
     return;
   }
 
   // Build results table (with checkboxes)
+  // NOTE: surname column removed (now: Select | Full name | Photo file)
   let html = "";
   html += "<table>";
   html +=
     "<thead><tr>" +
-    "<th>Select</th>" +
-    "<th>Surname</th>" +
+    "<th>Tick</th>" +
     "<th>Full name</th>" +
     "<th>Photo file</th>" +
     "</tr></thead><tbody>";
 
   matches.forEach((p) => {
-    const surnameRaw = p.surname || "";
     const fullNameRaw = p.fullName || "";
     const photoRaw = p.photoFile || "";
 
-    const surname = escapeHtml(surnameRaw);
     const fullName = escapeHtml(fullNameRaw);
     const photo = escapeHtml(photoRaw);
 
@@ -127,7 +131,6 @@ function performSearch() {
             data-photo="${escapeAttr(photoRaw)}"
             ${checked}
             onchange="toggleSelected(this)"></td>` +
-      `<td>${surname}</td>` +
       `<td>${fullName}</td>` +
       `<td>${photo}</td>` +
       "</tr>";
@@ -138,12 +141,20 @@ function performSearch() {
 
   setResultsToolsVisible(true);
   updateResultsInfo(matches.length);
+
+  // If we're currently in photo-only mode and multiple are already selected,
+  // force it back to one to keep rules consistent.
+  if (getCopyMode() === "photo" && selectedEntries.size > 1) {
+    const firstKey = selectedEntries.keys().next().value;
+    enforceSingleSelectionIfPhotoMode(firstKey);
+    updateResultsInfo(null, "Photo-only mode: selection limited to one entry.");
+  }
 }
 
 function toggleSelected(checkbox) {
   const fullName = checkbox.getAttribute("data-fullname") || "";
   const photo = checkbox.getAttribute("data-photo") || "";
-  if (!fullName || !photo) return;
+  if (!photo) return; // photo is the essential bit
 
   const key = `${fullName}||${photo}`;
 
@@ -168,7 +179,7 @@ async function copySelected() {
   let message = "";
 
   if (mode === "photo") {
-    // In photo mode we *expect* only one selection, but handle safely anyway
+    // photo-only mode: we enforce single selection, but handle safely anyway
     const photos = Array.from(
       new Set(
         Array.from(selectedEntries.values())
@@ -182,8 +193,8 @@ async function copySelected() {
   } else {
     const lines = Array.from(selectedEntries.values())
       .sort((a, b) => {
-        const s = a.fullName.localeCompare(b.fullName);
-        return s !== 0 ? s : a.photoFile.localeCompare(b.photoFile);
+        const s = (a.fullName || "").localeCompare(b.fullName || "");
+        return s !== 0 ? s : (a.photoFile || "").localeCompare(b.photoFile || "");
       })
       .map((item) => `${item.fullName} — ${item.photoFile}`);
 
@@ -267,3 +278,4 @@ document.addEventListener("DOMContentLoaded", () => {
   setResultsToolsVisible(false);
   updateResultsInfo(null);
 });
+
