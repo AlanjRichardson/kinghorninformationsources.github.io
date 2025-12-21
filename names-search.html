@@ -50,58 +50,65 @@
     </p>
 
     <div id="name-search-panel">
-      <label for="surnameInput">Surname (first 3 letters or more):</label>
+  <label for="surnameInput">Surname (first 3 letters or more):</label>
 
-      <input type="text"
-             id="surnameInput"
-             maxlength="20"
-             placeholder="e.g. McA">
+  <input type="text"
+         id="surnameInput"
+         maxlength="20"
+         placeholder="e.g. McA">
 
-      <!-- Primary actions -->
-      <div class="button-row">
-  <button type="button" onclick="performSearch()">Search</button>
-  <button type="button" onclick="clearSearch()">Clear</button>
-</div>
-
-
-      <div id="resultsInfo" style="margin-top:10px;"></div>
-
-      <!-- EXTRA TOOLS (hidden until search results exist) -->
-      <div style="margin-bottom:10px;">
-  <div class="radio-row">
-    <strong>Copy selected as:</strong>
-
-    <label>
-      <input type="radio" name="copyMode" value="photo" checked>
-      Photo only (Album search — one at a time)
-    </label>
-
-    <label>
-      <input type="radio" name="copyMode" value="full">
-      Name + photo (notes)
-    </label>
+  <!-- Search/Clear row -->
+  <div class="ns-row ns-row-primary">
+    <button type="button" class="ns-btn" onclick="performSearch()">Search</button>
+    <button type="button" class="ns-btn" onclick="clearSearch()">Clear</button>
   </div>
-</div>
 
+  <div id="resultsInfo" class="ns-info"></div>
 
-        <div class="button-row">
-  <button type="button" onclick="copySelected()">Copy selected</button>
-  <button type="button" onclick="clearSelected()">Clear selected</button>
-  <button type="button" onclick="openDriveFolder()">Open Album</button>
-</div>
+  <!-- Tools shown only after a successful search -->
+  <div id="resultsTools" style="display:none;">
 
+    <!-- Guidance (appears after search) -->
+    <div id="guidanceText" class="ns-guidance">
+      <small>
+        Tick entries in the results. Choose a copy mode, then press <strong>Copy</strong>.
+        Use <strong>Open</strong> to open the album.
+      </small>
+    </div>
 
-        <p style="margin-top:10px;">
-          <small>
-            Tip: tick entries, click <strong>Copy selected</strong>,
-            then click <strong>Open Album</strong> and paste into the album search box.
-            (Album search works best with one filename at a time.)
-          </small>
-        </p>
+    <!-- Copy mode (two rows) -->
+    <div class="ns-radio-block">
+      <div class="ns-radio-row">
+        <strong>Copy as:</strong>
+        <label class="ns-radio">
+          <input type="radio" name="copyMode" value="photo" checked>
+          Photo only
+        </label>
+      </div>
+
+      <div class="ns-radio-row">
+        <span class="ns-radio-spacer"></span>
+        <label class="ns-radio">
+          <input type="radio" name="copyMode" value="full">
+          Name + photo
+        </label>
       </div>
     </div>
 
-    <div id="resultsArea"></div>
+    <div class="ns-tools-label"><small>Selected tools:</small></div>
+
+    <!-- Copy/Open/Clear row (left/centre/right) -->
+    <div class="ns-row ns-row-tools">
+      <button type="button" class="ns-btn" onclick="copySelected()">Copy</button>
+      <button type="button" class="ns-btn" onclick="openDriveFolder()">Open</button>
+      <button type="button" class="ns-btn" onclick="clearSelected()">Clear</button>
+    </div>
+
+  </div>
+</div>
+
+<div id="resultsArea"></div>
+
   </main>
 
   <footer>

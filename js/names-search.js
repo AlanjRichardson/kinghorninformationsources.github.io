@@ -37,6 +37,29 @@ function updateResultsInfo(matchCount = null, message = null) {
   }
 }
 
+function getCopyMode() {
+  const modeEl = document.querySelector('input[name="copyMode"]:checked');
+  return modeEl ? modeEl.value : "photo"; // default
+}
+
+// If in photo-only mode, keep only the newest selection
+function enforceSingleSelectionIfPhotoMode(newKeyToKeep) {
+  if (getCopyMode() !== "photo") return;
+
+  // Keep only one selected entry in the Map
+  for (const key of Array.from(selectedEntries.keys())) {
+    if (key !== newKeyToKeep) selectedEntries.delete(key);
+  }
+
+  // Update UI checkboxes to match the Map
+  document.querySelectorAll('#resultsArea input[type="checkbox"]').forEach((cb) => {
+    const fullName = cb.getAttribute("data-fullname") || "";
+    const photo = cb.getAttribute("data-photo") || "";
+    const key = `${fullName}||${photo}`;
+    cb.checked = key === newKeyToKeep;
+  });
+}
+
 function performSearch() {
   const input = document.getElementById("surnameInput");
   const resultsArea = document.getElementById("resultsArea");
@@ -126,16 +149,12 @@ function toggleSelected(checkbox) {
 
   if (checkbox.checked) {
     selectedEntries.set(key, { fullName, photoFile: photo });
+    enforceSingleSelectionIfPhotoMode(key); // photo-mode: keep only this one
   } else {
     selectedEntries.delete(key);
   }
 
   updateResultsInfo(null);
-}
-
-function getCopyMode() {
-  const modeEl = document.querySelector('input[name="copyMode"]:checked');
-  return modeEl ? modeEl.value : "photo";
 }
 
 async function copySelected() {
@@ -149,6 +168,7 @@ async function copySelected() {
   let message = "";
 
   if (mode === "photo") {
+    // In photo mode we *expect* only one selection, but handle safely anyway
     const photos = Array.from(
       new Set(
         Array.from(selectedEntries.values())
@@ -157,20 +177,8 @@ async function copySelected() {
       )
     ).sort((a, b) => a.localeCompare(b));
 
-    if (photos.length === 0) {
-      updateResultsInfo(null, "No photo filenames found to copy.");
-      return;
-    }
-
-    if (photos.length > 1) {
-      text = photos[0];
-      message =
-        "Multiple photos selected. Copied the first filename only " +
-        "(album search works one filename at a time).";
-    } else {
-      text = photos[0];
-      message = "Copied photo filename to clipboard (album search).";
-    }
+    text = photos[0] || "";
+    message = "Copied photo filename to clipboard (album search).";
   } else {
     const lines = Array.from(selectedEntries.values())
       .sort((a, b) => {
@@ -235,6 +243,7 @@ function escapeAttr(text) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("surnameInput");
+
   if (input) {
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
@@ -243,6 +252,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // When user switches copy mode to photo-only, enforce only one selection
+  document.querySelectorAll('input[name="copyMode"]').forEach((radio) => {
+    radio.addEventListener("change", () => {
+      if (getCopyMode() === "photo" && selectedEntries.size > 1) {
+        const firstKey = selectedEntries.keys().next().value;
+        enforceSingleSelectionIfPhotoMode(firstKey);
+        updateResultsInfo(null, "Photo-only mode: selection limited to one entry.");
+      }
+    });
+  });
 
   setResultsToolsVisible(false);
   updateResultsInfo(null);

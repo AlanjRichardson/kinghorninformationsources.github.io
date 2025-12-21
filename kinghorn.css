@@ -1,258 +1,203 @@
 /* ===================== */
 /* GENERAL BODY STYLES */
 body {
-    font-family: "Times New Roman", Helvetica, serif;
-    font-size: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #FFFFE0;
-    line-height: 1.6; /* added for readability */
+  font-family: "Times New Roman", Helvetica, serif;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #FFFFE0;
+  line-height: 1.6;
 }
 
 /* MAIN CONTENT */
 main {
-    margin-top: 80px; /* space for header */
-    padding: 10px;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #FFFFE0;
-    border: 1px solid pink;
-    box-sizing: border-box; /* include padding in width */
+  margin-top: 80px; /* space for fixed header */
+  padding: 10px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFFFE0;
+  border: 1px solid pink;
+  box-sizing: border-box;
 }
 
 /* Divider line for section separation */
 .divider {
   width: 80%;
-  margin: 2em auto;               /* centers and adds vertical spacing */
+  margin: 2em auto;
   border: none;
-  border-top: 1px solid #b68c7b;  /* a softer version of #a47864 */
-  opacity: 0.6;                   /* keeps it light and refined */
+  border-top: 1px solid #b68c7b;
+  opacity: 0.6;
 }
 
 /* FOOTER */
 footer {
-    margin: 0 auto;
-    padding: 1em;
-    width: 95%;
-    color: black;
-    font-size: 1em;
-    text-align: center;
-    border-top: 2px solid pink;
+  margin: 0 auto;
+  padding: 1em;
+  width: 95%;
+  color: black;
+  font-size: 1em;
+  text-align: center;
+  border-top: 2px solid pink;
 }
 
 /* LINKS */
 a {
-    color: #0645AD; /* standard blue */
-    text-decoration: none;
-}
-
-.hover-image-link {
-  position: relative;
+  color: #0645AD;
   text-decoration: none;
 }
-
-.hover-image-link span {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 999;
-  padding-top: 8px;
-}
-
-.hover-image-link:hover span {
-  display: block;
-}
-
-.hover-image-link span img {
-  max-width: 300px; /* adjust as needed */
-  height: auto;
-  border: 2px solid #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-}
-
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* ===================== */
 /* HEADER STYLES – only the main site header */
 body > header {
-    background-color: #a47864;  /* Mocha */
-    border-bottom: 2px solid pink;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: #a47864; /* Mocha */
+  border-bottom: 2px solid pink;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* MAIN HEADER TITLE ("Kinghorn Information Sources") */
+/* MAIN HEADER TITLE */
 body > header h1 {
-    margin: 0;
-    font-weight: bold;
-    color: #FFFFFF;
-    white-space: nowrap;                         /* no wrapping by default on larger screens */
-    font-size: clamp(18px, 4.2vw, 36px);        /* auto-shrink/grow between 18px and 36px */
+  margin: 0;
+  font-weight: bold;
+  color: #FFFFFF;
+  white-space: nowrap;
+  font-size: clamp(18px, 4.2vw, 36px);
 }
 
 /* ===================== */
 /* DESKTOP NAVIGATION MENU */
 .navbar-nav {
-    list-style: none;
-    margin: 5px 0 0 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-start; /* left align desktop menu items */
-    gap: 1.5rem; /* increased spacing */
-    width: 100%;
-    max-width: 960px;
+  list-style: none;
+  margin: 5px 0 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 960px;
 }
 
 .navbar-nav li a {
-    text-decoration: none;
-    color: #FFFFFF; /* white for desktop menu */
-    font-weight: bold;
-    font-size: 1.2em; /* larger font */
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
-/* ====================================================== */
-/* MENU LINK HOVER EFFECT — MATCHING #a47864 BACKGROUND */
-/* Works for both desktop and mobile menus */
+/* MENU LINK HOVER EFFECT */
 .navbar-nav li a:hover {
-    color: #FFDAB9; /* a soft peach highlight that complements #a47864 */
-    background-color: rgba(255, 255, 255, 0.15); /* subtle light overlay */
-    text-decoration: none;
-    border-radius: 6px;
-    padding: 3px 8px;
-    transition: all 0.3s ease;
+  color: #FFDAB9;
+  background-color: rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 3px 8px;
+  transition: all 0.3s ease;
 }
 
 /* HIDE MOBILE HAMBURGER ON DESKTOP */
 .navbar-toggler {
-    display: none;
+  display: none;
 }
 
 /* ===================== */
 /* MOBILE STYLES */
 @media (max-width: 991px) {
+  body > header h1 {
+    padding-right: 3em; /* space for the ☰ icon */
+  }
 
-    /* Only affect the main site header title */
-    body > header h1 {
-        padding-right: 3em;  /* space for the ☰ icon */
-    }
+  .navbar-toggler {
+    display: block;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #FFFFFF;
+  }
 
-    .navbar-toggler {
-        display: block;
-        position: absolute;
-        top: 12px;
-        right: 15px;
-        font-size: 1.5em;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #FFFFFF;
-    }
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    background: #a47864;
+    border-left: 1px solid pink;
+    border-bottom-left-radius: 10px;
+    box-shadow: -3px 3px 10px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: auto;
+    padding: 0.5rem 1rem;
+    z-index: 999;
+  }
 
-    /* MOBILE MENU DROPDOWN */
-    .navbar-nav {
-        display: none;
-        flex-direction: column;
-        align-items: flex-end;
-        background: #a47864; /* Mocha */
-        border-left: 1px solid pink;
-        border-bottom-left-radius: 10px;
-        box-shadow: -3px 3px 10px rgba(0,0,0,0.2);
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: auto;
-        padding: 0.5rem 1rem;
-        z-index: 999;
-    }
+  .navbar-nav.show {
+    display: flex;
+  }
 
-    /* SHOW MENU WHEN TOGGLER CLICKED */
-    .navbar-nav.show {
-        display: flex;
-    }
+  .navbar-nav li {
+    margin: 0.3rem 0;
+  }
 
-    /* Menu item spacing */
-    .navbar-nav li {
-        margin: 0.3rem 0;
-    }
-
-    .navbar-nav li a {
-        color: #FFFFFF; /* white for mobile dropdown menu */
-    }
+  .navbar-nav li a {
+    color: #FFFFFF;
+  }
 }
 
-/* Extra tweak for smaller phones: allow wrapping and reserve icon space */
+/* Smaller phones: allow wrapping title if needed */
 @media (max-width: 600px) {
-    body > header h1 {
-        white-space: normal;                 /* allow wrapping on small screens */
-        font-size: 1.35em;                  /* slightly smaller, more compact */
-        line-height: 1.15;
-        padding: 0.2em 3em 0.2em 0.6em;     /* reserve space for hamburger on right */
-        text-align: center;
-    }
+  body > header h1 {
+    white-space: normal;
+    font-size: 1.35em;
+    line-height: 1.15;
+    padding: 0.2em 3em 0.2em 0.6em;
+    text-align: center;
+  }
 }
 
 /* ===================== */
 /* HEADINGS */
-h1 {
-    font-size: 3em;
-}
-
-h2 {
-    font-size: 2.5em;
-    color: black;
-    text-align: left;
-}
-
-h3 {
-    font-size: 2em;
-    text-align: left;
-    color: black;
-}
-
-h4 {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: black;
-    text-align: left;
-}
-
-h5 {
-    font-weight: bold;
-    font-size: 1em;
-    text-align: left;
-    color: black;
-}
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; color: black; text-align: left; }
+h3 { font-size: 2em; text-align: left; color: black; }
+h4 { font-weight: bold; font-size: 1.5em; color: black; text-align: left; }
+h5 { font-weight: bold; font-size: 1em; text-align: left; color: black; }
 
 /* ===================== */
 /* LIST STYLING */
 ul, li {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    font-size: 1em;
-    color: black;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+  color: black;
 }
 
 /* ===================== */
 /* FORM STYLING */
 label {
-    display: block;
-    margin-top: 20px;
-    letter-spacing: 2px;
+  display: block;
+  margin-top: 20px;
+  letter-spacing: 2px;
 }
 
-input:not([type="radio"]):not([type="checkbox"]), textarea {
+/* Only style text-like inputs globally (avoid radios/checkboxes) */
+input:not([type="radio"]):not([type="checkbox"]),
+textarea {
   width: 100%;
   max-width: 400px;
   background: #efefef;
@@ -262,37 +207,37 @@ input:not([type="radio"]):not([type="checkbox"]), textarea {
   font-size: 0.9em;
   color: #3a3a3a;
   border-radius: 5px;
+  box-sizing: border-box;
 }
 
-
 textarea {
-    height: 213px;
+  height: 213px;
 }
 
 /* ===================== */
 /* IMAGE RESPONSIVENESS */
 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* FIGURE AND CAPTION */
 figure {
-    margin: 1em 0;
-    text-align: center;
+  margin: 1em 0;
+  text-align: center;
 }
 
 figcaption {
-    font-size: 0.95em;
-    color: #555;
-    margin-top: 0.5em;
+  font-size: 0.95em;
+  color: #555;
+  margin-top: 0.5em;
 }
 
 /* ===================== */
-/* HOVER IMAGE LINK */
+/* HOVER IMAGE LINK (single, clean version) */
 .hover-image-link {
   position: relative;
   display: inline-block;
@@ -337,81 +282,64 @@ figcaption {
     width: min(50vw, 450px);
   }
 }
-
 @media (max-width: 600px) {
   .hover-image-link span {
     left: 0;
     top: 110%;
     transform: translateY(0);
   }
-
   .hover-image-link span img {
     width: 80vw;
   }
 }
 
 /* ===================== */
-/* NEW STYLES FOR TABLE OF CONTENTS AND CONTENT READABILITY */
-
-/* TOC container */
+/* TABLE OF CONTENTS */
 #toc {
-    border: 2px solid pink;
-    padding: 15px;
-    margin: 20px 0;
-    background-color: #FFF8DC;
-    border-radius: 10px;
+  border: 2px solid pink;
+  padding: 15px;
+  margin: 20px 0;
+  background-color: #FFF8DC;
+  border-radius: 10px;
 }
 
-/* TOC title */
 #toc h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    text-align: center;
-    color: #333333;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333333;
 }
 
-/* TOC list items */
-#toc ul {
-    padding-left: 20px;
-}
-
-#toc ul li {
-    margin: 5px 0;
-}
+#toc ul { padding-left: 20px; }
+#toc ul li { margin: 5px 0; }
 
 /* Paragraph spacing */
-main p {
-    margin: 0 0 1em 0;
-}
+main p { margin: 0 0 1em 0; }
 
 /* Blockquote styling */
 main blockquote {
-    margin: 10px 0 10px 20px;
-    padding: 10px 15px;
-    background-color: #FFF0F5;
-    border-left: 5px solid pink;
-    font-style: italic;
+  margin: 10px 0 10px 20px;
+  padding: 10px 15px;
+  background-color: #FFF0F5;
+  border-left: 5px solid pink;
+  font-style: italic;
 }
 
 /* Code and pre formatting */
 main pre, main code {
-    background-color: #efefef;
-    border: 1px solid #dedede;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-family: monospace;
-    overflow-x: auto;
+  background-color: #efefef;
+  border: 1px solid #dedede;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: monospace;
+  overflow-x: auto;
 }
 
-/* Small text */
-small {
-    font-size: 0.85em;
-    color: #555;
-}
+small { font-size: 0.85em; color: #555; }
 
 /* ==========================================================
-   PHOTO NAME SEARCH PAGE
-   (names-search.html)
+   NAME SEARCH PAGE (names-search.html)
+   Works with your ns-* classes in the HTML
    ========================================================== */
 
 #name-search-panel {
@@ -422,12 +350,91 @@ small {
   margin: 20px 0;
 }
 
-#resultsInfo {
-  margin-top: 0.5em;
-  font-size: 0.9em;
-  color: #555;
+#name-search-panel input[type="text"] {
+  width: 100%;
+  max-width: 340px;
+  box-sizing: border-box;
 }
 
+/* Keep radios/checkboxes “normal” and not affected by global input sizing */
+#name-search-panel input[type="radio"],
+#name-search-panel input[type="checkbox"] {
+  width: auto;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Rows */
+.ns-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ns-row-primary {
+  justify-content: space-between; /* Search left, Clear right */
+}
+
+.ns-row-tools {
+  justify-content: space-between; /* Copy left, Open centre, Clear right */
+}
+
+/* Buttons */
+.ns-btn {
+  padding: 8px 14px;
+  font-size: 0.95em;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* Info line */
+.ns-info {
+  margin-top: 10px;
+  font-size: 0.95em;
+}
+
+/* Guidance */
+.ns-guidance {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+/* Radio block (two neat rows) */
+.ns-radio-block {
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.ns-radio-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.ns-radio-spacer {
+  display: inline-block;
+  width: 62px; /* aligns second row under “Copy as:” */
+}
+
+.ns-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Small label above tool buttons */
+.ns-tools-label {
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+/* Results table */
 #resultsArea table {
   width: 100%;
   border-collapse: collapse;
@@ -446,268 +453,119 @@ small {
   background-color: #FFF8DC;
 }
 
-#resultsArea tr:nth-child(even) {
-  background-color: #faf3e5;
-}
-
-#resultsArea tr:nth-child(odd) {
-  background-color: #fffdf4;
-}
+#resultsArea tr:nth-child(even) { background-color: #faf3e5; }
+#resultsArea tr:nth-child(odd)  { background-color: #fffdf4; }
 
 #resultsArea input[type="checkbox"] {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-/* --- Name Search form layout tidy (prevents mobile overflow) --- */
-#name-search-panel input[type="text"],
-#name-search-panel button {
-  box-sizing: border-box;   /* stops 100% width spilling over border */
-  max-width: 100%;
-}
-
-/* Mobile: stack input + buttons neatly inside the panel */
-@media (max-width: 600px) {
-  #name-search-panel input[type="text"],
-  #name-search-panel button {
-    width: 100%;
-    display: block;
-  }
-
-  #name-search-panel input[type="text"] {
-    margin-bottom: 0.6em;   /* space before buttons */
-  }
-
-  #name-search-panel button {
-    margin-top: 0.4em;      /* spacing between buttons */
-  }
-}
-/* ==========================================================
-   NAME SEARCH – CONTROL LAYOUT TIDY-UP
-   ========================================================== */
-
-/* Ensure inputs and buttons never overflow the panel */
-#name-search-panel input,
-#name-search-panel button {
-  box-sizing: border-box;
-}
-
-/* Input field spacing */
-#name-search-panel input[type="text"] {
-  display: block;
-  width: 100%;
-  max-width: 320px;
-  margin-top: 6px;
-  margin-bottom: 10px;
-}
-
-/* Button rows */
-#name-search-panel button {
-  margin: 4px 6px 4px 0;
-  padding: 6px 12px;
-  font-size: 0.95em;
+  transform: scale(1.12);
   cursor: pointer;
 }
 
-/* Group buttons into clean rows */
-#name-search-panel > div > div {
-  margin-top: 6px;
-}
-
-/* Radio button rows */
-#resultsTools label {
-  cursor: pointer;
-  user-select: none;
-}
-
-/* Improve tap targets on mobile */
-#resultsTools input[type="radio"],
-#resultsArea input[type="checkbox"] {
-  transform: scale(1.15);
-}
-
-/* Stack buttons cleanly on small screens */
-@media (max-width: 600px) {
-
-  #name-search-panel button {
-    display: block;
-    width: 100%;
-    margin: 6px 0;
-  }
-
-  #resultsTools label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+/* Small phones: keep your “Search left / Clear right” requirement,
+   but slightly reduce padding so it fits better */
+@media (max-width: 420px) {
+  .ns-btn {
+    padding: 7px 10px;
+    font-size: 0.92em;
   }
 }
-/* ===== Name Search layout ===== */
-
-#name-search-panel input[type="text"]{
-  width: 100%;
-  max-width: 320px;
-}
-
-/* make radio/checkbox normal size */
-#name-search-panel input[type="radio"],
-#name-search-panel input[type="checkbox"]{
-  width: auto;
-  max-width: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Neat button rows */
-#name-search-panel .button-row{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-#name-search-panel .button-row button{
-  padding: 6px 12px;
-}
-
-/* Radio row */
-#resultsTools .radio-row{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-#resultsTools .radio-row label{
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* Mobile: stack buttons full-width */
-@media (max-width: 600px){
-  #name-search-panel .button-row{
-    flex-direction: column;
-  }
-  #name-search-panel .button-row button{
-    width: 100%;
-  }
-}
-
 
 /* ==========================================================
    REMEMBRANCE PAGES (e.g. Private John Braid)
    ========================================================== */
 
 .remembrance-entry {
-    max-width: 900px;
-    margin: 1.5em auto 2em auto;
-    padding: 1.5em 1.75em;
-    background-color: #FFF8DC;         /* soft cream, in keeping with site */
-    border: 2px solid pink;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  max-width: 900px;
+  margin: 1.5em auto 2em auto;
+  padding: 1.5em 1.75em;
+  background-color: #FFF8DC;
+  border: 2px solid pink;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* Main heading & subtitle */
 .remembrance-entry .remembrance-header h2 {
-    margin-top: 0;
-    margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: 0.25em;
 }
 
 .remembrance-subtitle {
-    margin: 0;
-    font-size: 1em;
-    color: #555;
+  margin: 0;
+  font-size: 1em;
+  color: #555;
 }
 
-/* Layout: photo + short epitaph side-by-side on wider screens */
 .remembrance-body {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5em;
-    margin-top: 1.25em;
-    align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  margin-top: 1.25em;
+  align-items: flex-start;
 }
 
-/* Photo block */
 .remembrance-photo {
-    flex: 0 0 220px;
-    margin: 0;                     /* override default figure margin */
-    text-align: center;
+  flex: 0 0 220px;
+  margin: 0;
+  text-align: center;
 }
 
 .remembrance-photo img {
-    max-width: 220px;
-    height: auto;
-    border-radius: 8px;
-    border: 2px solid pink;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  max-width: 220px;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid pink;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
 .remembrance-photo figcaption {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 0.4em;
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 0.4em;
 }
 
-/* Epitaph / short remembrance beside the photo */
 .remembrance-epitaph {
-    flex: 1 1 260px;
+  flex: 1 1 260px;
 }
 
 .remembrance-epitaph h3 {
-    margin-top: 0;
-    margin-bottom: 0.5em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
-/* Make the “quote” line feel special */
 .remembrance-epitaph p:first-of-type {
-    background-color: #FFF0F5;
-    border-left: 4px solid pink;
-    padding: 0.6em 0.75em;
-    font-style: italic;
-    margin: 0 0 0.5em 0;
+  background-color: #FFF0F5;
+  border-left: 4px solid pink;
+  padding: 0.6em 0.75em;
+  font-style: italic;
+  margin: 0 0 0.5em 0;
 }
 
-/* “Tribute by his friend…” full text */
 .remembrance-tribute {
-    margin-top: 1.75em;
-    padding-top: 1em;
-    border-top: 1px solid #b68c7b;
+  margin-top: 1.75em;
+  padding-top: 1em;
+  border-top: 1px solid #b68c7b;
 }
 
 .remembrance-tribute h3 {
-    margin-top: 0;
-    margin-bottom: 0.75em;
+  margin-top: 0;
+  margin-bottom: 0.75em;
 }
 
 .remembrance-tribute p {
-    margin-bottom: 0.9em;
+  margin-bottom: 0.9em;
 }
 
-/* Optional: slightly narrower text column for readability on big screens */
 @media (min-width: 1000px) {
-    .remembrance-entry {
-        max-width: 850px;
-    }
+  .remembrance-entry { max-width: 850px; }
 }
 
-/* Mobile: stack photo above epitaph */
 @media (max-width: 700px) {
-    .remembrance-body {
-        flex-direction: column;
-        align-items: center;
-    }
+  .remembrance-body {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .remembrance-photo {
-        flex: 0 0 auto;
-    }
-
-    .remembrance-photo img {
-        max-width: 260px;
-    }
-
-    .remembrance-epitaph {
-        width: 100%;
-    }
+  .remembrance-photo { flex: 0 0 auto; }
+  .remembrance-photo img { max-width: 260px; }
+  .remembrance-epitaph { width: 100%; }
 }
