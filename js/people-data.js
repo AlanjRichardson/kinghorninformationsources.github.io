@@ -391,7 +391,7 @@ const people = [
   {"surname": "Donaldson", "fullName": "Angela Donaldson", "photoFile": "School1966a.jpg"},
   {"surname": "Donaldson", "fullName": "Mark Donaldson", "photoFile": "School1964a.jpg"},
   {"surname": "Donaldson", "fullName": "Brian Donaldson", "photoFile": "School1962a.jpg"},
-  {"surname": "Donnelly", "fullName": "John Donnelly", "photoFile": "Schooll1947.jpg"},
+  {"surname": "Donnelly", "fullName": "John Donnelly", "photoFile": "School1947.jpg"},
   {"surname": "Donnelly", "fullName": "Pat Donnelly", "photoFile": "GroupBeach1960.jpg"},
   {"surname": "Douglas", "fullName": "Ann Douglas", "photoFile": "School1947b.jpg"},
   {"surname": "Dow", "fullName": "Jim Dow", "photoFile": "GolfersGroup1975.jpg"},
