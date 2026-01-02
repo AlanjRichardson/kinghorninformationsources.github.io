@@ -1,31 +1,26 @@
 /* js/photos-with-names-gallery.js
-   Works with:
-     /photos-with-names/photos.json
-
-   Where each JSON item looks like:
-     { "full":"full/xxx.jpg", "thumb":"thumbnails/xxx.jpg", "title":"..." }
-
-   Expects in gallery.html:
-     - input#gallery-filter
-     - div#gallery-grid
-     - span#gallery-count
+   Works with photos-with-names/photos.json entries like:
+     { "full":"full/X.jpg", "thumb":"thumbnails/X.jpg", "title":"..." }
+   Page expects:
+     #gallery-filter, #gallery-grid, #gallery-count
 */
 
 (() => {
   "use strict";
 
-  // Base folder that contains photos.json AND the full/ + thumbnails/ folders
-  const BASE = "photos-with-names/";
-  const JSON_URL = BASE + "photos.json";
+  // ---- CONFIG ----
+  const JSON_URL = "photos-with-names/photos.json";
+  const PATH_PREFIX = "photos-with-names/"; // because JSON paths are relative to photos-with-names/
 
+  // ---- DOM ----
   const $ = (sel) => document.querySelector(sel);
 
   const searchEl = $("#gallery-filter");
   const gridEl   = $("#gallery-grid");
-  const countEl  = $("#gallery-count");
+  const statusEl = $("#gallery-count");
 
-  function setCount(msg) {
-    if (countEl) countEl.textContent = msg || "";
+  function setStatus(msg) {
+    if (statusEl) statusEl.textContent = msg || "";
   }
 
   function escapeHtml(s) {
@@ -37,61 +32,76 @@
   function showError(msg) {
     console.error(msg);
     if (!gridEl) return;
-
     gridEl.innerHTML = `
       <div class="gallery-error" style="border:2px solid pink; background:#FFF0F5; padding:12px; border-radius:10px;">
         <strong>Gallery error:</strong>
         <div style="margin-top:6px;">${escapeHtml(msg)}</div>
         <div style="margin-top:10px; font-size:0.95em;">
-          Check that <code>${JSON_URL}</code> exists and that your JSON items contain <code>thumb</code> and <code>full</code>.
+          Check that <code>${JSON_URL}</code> exists and that the JSON paths match your folders.
         </div>
       </div>`;
-    setCount("");
+    setStatus("");
   }
 
   function normaliseText(s) {
-    return String(s || "").toLowerCase().replace(/\s+/g, " ").trim();
+    return String(s || "")
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
   }
 
-  function getSearchText(item) {
-    // Search by title + file paths (handy if you type part of filename)
-    return normaliseText([
-      item.title || "",
-      item.full  || "",
-      item.thumb || ""
-    ].join(" "));
+  function getItemText(item) {
+    // searchable text: title + paths (helps searching by filename)
+    const bits = [];
+    if (item.title) bits.push(item.title);
+    if (item.full)  bits.push(item.full);
+    if (item.thumb) bits.push(item.thumb);
+    return normaliseText(bits.join(" "));
   }
 
-  function makeCard(item) {
-    // Your JSON uses "thumb" and "full"
-    if (!item || !item.thumb || !item.full) return null;
+  function joinUrl(prefix, p) {
+    // Ensure we don’t double-prefix if p already starts with "photos-with-names/"
+    const path = String(p || "").replace(/^\/+/, "");
+    if (!path) return "";
+    if (path.startsWith(PATH_PREFIX)) return path;
+    return prefix + path;
+  }
 
-    const thumbUrl = BASE + item.thumb;
-    const fullUrl  = BASE + item.full;
-    const title    = item.title ? String(item.title) : "Photo";
+  function makeFigure(item) {
+    const fullRel  = item.full  || "";
+    const thumbRel = item.thumb || "";
+    const title    = item.title || fullRel || "Photo";
 
-    // Use <figure> so your existing CSS for .gallery-grid figure/figcaption applies
+    const fullUrl  = joinUrl(PATH_PREFIX, fullRel);
+    const thumbUrl = joinUrl(PATH_PREFIX, thumbRel);
+
+    if (!fullUrl || !thumbUrl) return null;
+
     const fig = document.createElement("figure");
 
     const a = document.createElement("a");
     a.href = fullUrl;
     a.target = "_blank";
     a.rel = "noopener";
+    a.setAttribute("aria-label", title);
 
     const img = document.createElement("img");
     img.loading = "lazy";
     img.src = thumbUrl;
     img.alt = title;
 
-    // Thumbnail missing? fall back to full image
+    // If thumb missing, fall back ONCE to full image (avoid infinite error loops)
     img.addEventListener("error", () => {
+      if (img.dataset.fellback) return;
+      img.dataset.fellback = "1";
       img.src = fullUrl;
     });
+
+    a.appendChild(img);
 
     const cap = document.createElement("figcaption");
     cap.textContent = title;
 
-    a.appendChild(img);
     fig.appendChild(a);
     fig.appendChild(cap);
 
@@ -102,22 +112,22 @@
     if (!gridEl) return;
 
     const q = normaliseText(query);
-    const filtered = !q ? items : items.filter((it) => getSearchText(it).includes(q));
+    const filtered = !q ? items : items.filter((it) => getItemText(it).includes(q));
 
     gridEl.innerHTML = "";
     const frag = document.createDocumentFragment();
 
     for (const item of filtered) {
-      const card = makeCard(item);
-      if (card) frag.appendChild(card);
+      const fig = makeFigure(item);
+      if (fig) frag.appendChild(fig);
     }
 
     gridEl.appendChild(frag);
-    setCount(`${filtered.length} / ${items.length} photos`);
+    setStatus(`${filtered.length} / ${items.length} photos`);
   }
 
-  async function loadItems() {
-    setCount("Loading photos…");
+  async function loadJson() {
+    setStatus("Loading photos…");
 
     let resp;
     try {
@@ -140,12 +150,17 @@
       return null;
     }
 
-    if (!Array.isArray(data)) {
-      showError(`Unexpected JSON structure in ${JSON_URL}. Expected a top-level array: [ {...}, {...} ]`);
+    const items = Array.isArray(data) ? data
+      : Array.isArray(data.photos) ? data.photos
+      : Array.isArray(data.items) ? data.items
+      : null;
+
+    if (!items) {
+      showError(`Unexpected JSON structure in ${JSON_URL}. Expected an array, or { "photos": [...] }.`);
       return null;
     }
 
-    return data;
+    return items;
   }
 
   function debounce(fn, ms = 120) {
@@ -159,7 +174,7 @@
   async function init() {
     if (!gridEl) return;
 
-    const items = await loadItems();
+    const items = await loadJson();
     if (!items) return;
 
     render(items, "");
