@@ -449,10 +449,13 @@ small { font-size: 0.85em; color: #555; }
 
 /* ==========================================================
    PHOTOS WITH NAMES – GALLERY
+   (compatible with your JS: .gallery-item + .gallery-caption)
    ========================================================== */
 
-/* Gallery header section */
-.gallery-header {
+/* Give the gallery page a touch more breathing room under the fixed header */
+.gallery-header { 
+  margin-top: 6px;
+  padding-top: 6px;
   margin-bottom: 1.2em;
 }
 
@@ -491,42 +494,37 @@ small { font-size: 0.85em; color: #555; }
   gap: 14px;
 }
 
-/* Individual gallery item */
-.gallery-grid figure {
-  margin: 0;
+/* Each card is an <a class="gallery-item"> created by JS */
+.gallery-item {
+  display: block;
   background-color: #FFF8DC;
   border: 1px solid pink;
   border-radius: 10px;
   overflow: hidden;
+  text-decoration: none;     /* remove link underline */
+  color: inherit;            /* avoid blue text */
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.gallery-grid figure:hover {
+.gallery-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
-/* Thumbnail link */
-.gallery-grid figure a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Thumbnail image */
-.gallery-grid figure img {
+/* Thumbnail image inside the <a> */
+.gallery-item img {
   width: 100%;
   height: auto;
   display: block;
   background-color: #FFFFE0;
 }
 
-/* Caption below thumbnail */
-.gallery-grid figcaption {
-  padding: 8px 10px;
-  font-size: 0.9em;
-  line-height: 1.25;
-  color: #222;
+/* Caption div inside the <a> */
+.gallery-caption {
+  padding: 7px 10px;
+  font-size: 0.88em;         /* slightly smaller */
+  line-height: 1.22;
+  color: #222;               /* plain text, not link blue */
   border-top: 1px solid #e0caca;
 }
 

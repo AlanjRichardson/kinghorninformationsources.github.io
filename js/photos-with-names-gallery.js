@@ -57,9 +57,8 @@
       .trim();
   }
 
-  // Year extraction rule (your requested behaviour):
-  // - find a 4-digit year in the filename (e.g. School1948a.jpg -> 1948)
-  // - allow suffix letters (a,b,c) and various cases
+  // Year extraction rule:
+  // - first 4-digit year anywhere in filename (e.g. School1948a.jpg -> 1948)
   function extractYearFromFilename(filename) {
     const m = String(filename || "").match(/(18\d{2}|19\d{2}|20\d{2})/);
     return m ? m[1] : "";
@@ -78,12 +77,11 @@
   }
 
   function resolveFilename(item) {
-    // people-index.json likely uses photoFile
     return item.photoFile || item.filename || item.file || item.name || item.image || "";
   }
 
   // Build grouped photo records from per-person rows:
-  // { file, year, allNames:Set, searchText }
+  // { file, year, fullNames:Set, surnames:Set, searchText }
   function groupByPhoto(rows) {
     const map = new Map();
 
@@ -96,22 +94,26 @@
         rec = {
           file,
           year: extractYearFromFilename(file),
-          allNames: new Set(),
-          // We'll build searchText later
+          fullNames: new Set(),
+          surnames: new Set(),
           searchText: ""
         };
         map.set(file, rec);
       }
 
-      if (r.fullName) rec.allNames.add(String(r.fullName));
-      // surname can help searching too
-      if (r.surname) rec.allNames.add(String(r.surname));
+      if (r.fullName) rec.fullNames.add(String(r.fullName));
+      if (r.surname) rec.surnames.add(String(r.surname));
     }
 
     // Create searchable strings per photo
     for (const rec of map.values()) {
-      const names = Array.from(rec.allNames).join(" ");
-      rec.searchText = normaliseText([rec.file, rec.year, names].join(" "));
+      const bits = [
+        rec.file,
+        rec.year,
+        Array.from(rec.fullNames).join(" "),
+        Array.from(rec.surnames).join(" ")
+      ];
+      rec.searchText = normaliseText(bits.join(" "));
     }
 
     return Array.from(map.values());
@@ -159,31 +161,28 @@
       ? photoRecs
       : photoRecs.filter((p) => p.searchText.includes(q));
 
-    // Build captions:
-    // - year search: keep it simple (file without extension, or file)
-    // - name search: show matching names only
+    // Captions:
+    // - no query: filename (minus extension)
+    // - year query: filename (minus extension) — NO names (your requirement)
+    // - name query: FULL NAMES ONLY (no surname), matching the query words
     const frag = document.createDocumentFragment();
     gridEl.innerHTML = "";
 
     for (const p of filtered) {
       let caption = "";
 
-      if (!q) {
-        caption = p.file.replace(/\.[^.]+$/, ""); // default title: filename minus extension
-      } else if (yearMode) {
-        caption = p.file.replace(/\.[^.]+$/, ""); // year browsing: no names
+      if (!q || yearMode) {
+        caption = p.file.replace(/\.[^.]+$/, "");
       } else {
-        // Name browsing: show only names that match the query words
-        // (simple contains match, good enough and fast)
         const qWords = q.split(" ").filter(Boolean);
-        const names = Array.from(p.allNames)
+
+        const names = Array.from(p.fullNames)
           .filter((nm) => {
             const n = normaliseText(nm);
             return qWords.every((w) => n.includes(w));
           });
 
         if (names.length === 0) {
-          // fallback
           caption = p.file.replace(/\.[^.]+$/, "");
         } else if (names.length <= 3) {
           caption = names.join(", ");
