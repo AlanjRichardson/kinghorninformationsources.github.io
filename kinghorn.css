@@ -1,17 +1,33 @@
 /* ===================== */
 /* GENERAL BODY STYLES */
+:root{
+  /* Space reserved for the fixed header (title + menu). Adjust if needed. */
+  --header-offset: 140px;
+}
+
+/* Tweak for tablets/smaller screens (header often a bit taller/shorter) */
+@media (max-width: 991px){
+  :root{ --header-offset: 150px; }
+}
+
+/* Small phones: title may wrap, header height increases */
+@media (max-width: 600px){
+  :root{ --header-offset: 180px; }
+}
+
 body {
   font-family: "Times New Roman", Helvetica, serif;
   font-size: 100%;
   margin: 0;
   padding: 0;
+  padding-top: var(--header-offset);  /* <<< FIX: keeps content below fixed header */
   background-color: #FFFFE0;
   line-height: 1.6;
 }
 
 /* MAIN CONTENT */
 main {
-  margin-top: 80px;                /* space for fixed header */
+  margin-top: 0;                   /* <<< FIX: body padding now handles header spacing */
   padding: 10px;
   width: 100%;
   max-width: 1100px;               /* helps “dynamic width” on large screens */
@@ -485,45 +501,6 @@ small { font-size: 0.85em; color: #555; }
   gap: 14px;
 }
 
-/* Individual gallery item */
-.gallery-grid figure {
-  margin: 0;
-  background-color: #FFF8DC;
-  border: 1px solid pink;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.gallery-grid figure:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-}
-
-/* Thumbnail link */
-.gallery-grid figure a {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Thumbnail image */
-.gallery-grid figure img {
-  width: 100%;
-  height: auto;
-  display: block;
-  background-color: #FFFFE0;
-}
-
-/* Caption below thumbnail */
-.gallery-grid figcaption {
-  padding: 8px 10px;
-  font-size: 0.9em;
-  line-height: 1.25;
-  color: #222;
-  border-top: 1px solid #e0caca;
-}
-
 /* Smaller screens */
 @media (max-width: 600px) {
   .gallery-grid {
@@ -536,7 +513,6 @@ small { font-size: 0.85em; color: #555; }
     align-items: flex-start;
   }
 }
-
 
 /* ==========================================================
    REMEMBRANCE PAGES (e.g. Private John Braid)
@@ -632,4 +608,3 @@ small { font-size: 0.85em; color: #555; }
   .remembrance-photo img { max-width: 260px; }
   .remembrance-epitaph { width: 100%; }
 }
-
