@@ -5,36 +5,42 @@
      /photos-with-names/full/<file>
 
    Expects in gallery.html:
-     - an input with id="gallerySearch"
-     - a container with id="galleryGrid"
-     - (optional) a status line with id="galleryStatus"
+     - input#gallery-filter
+     - span#gallery-count
+     - div#gallery-grid
 */
 
 (() => {
   "use strict";
 
   // ---- CONFIG ----
-  const JSON_URL = "photos-with-names/photos.json";
+  const JSON_URL   = "photos-with-names/photos.json";
   const THUMB_BASE = "photos-with-names/thumbnails/";
   const FULL_BASE  = "photos-with-names/full/";
 
-  // If your JSON uses different field names, add them here.
   const TEXT_FIELDS = ["title", "caption", "desc", "description", "text", "label", "name"];
 
   // ---- DOM ----
   const $ = (sel) => document.querySelector(sel);
 
-  const searchEl = $("#gallerySearch");
-  const gridEl   = $("#galleryGrid");
-  const statusEl = $("#galleryStatus");
+  const searchEl = $("#gallery-filter");
+  const gridEl   = $("#gallery-grid");
+  const statusEl = $("#gallery-count");
 
   function setStatus(msg) {
     if (statusEl) statusEl.textContent = msg || "";
   }
 
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, (c) => ({
+      "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+    }[c]));
+  }
+
   function showError(msg) {
     console.error(msg);
     if (!gridEl) return;
+
     gridEl.innerHTML = `
       <div class="gallery-error" style="border:2px solid pink; background:#FFF0F5; padding:12px; border-radius:10px;">
         <strong>Gallery error:</strong>
@@ -46,12 +52,6 @@
     setStatus("");
   }
 
-  function escapeHtml(s) {
-    return String(s).replace(/[&<>"']/g, (c) => ({
-      "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
-    }[c]));
-  }
-
   function normaliseText(s) {
     return String(s || "")
       .toLowerCase()
@@ -60,7 +60,6 @@
   }
 
   function getItemText(item) {
-    // Build a searchable string from filename + known text fields
     const bits = [];
     if (item.filename) bits.push(item.filename);
     if (item.file) bits.push(item.file);
@@ -70,7 +69,6 @@
       if (item[f]) bits.push(item[f]);
     }
 
-    // Sometimes JSON is { "file":"x.jpg", "meta":{"caption":"..." } }
     if (item.meta && typeof item.meta === "object") {
       for (const f of TEXT_FIELDS) {
         if (item.meta[f]) bits.push(item.meta[f]);
@@ -81,12 +79,10 @@
   }
 
   function resolveFilename(item) {
-    // Accept a few common keys
     return item.filename || item.file || item.name || item.image || "";
   }
 
   function resolveTitle(item, fallbackFilename) {
-    // Prefer title/caption fields for the on-page label/alt
     for (const f of ["title", "caption", "description", "desc", "text", "label"]) {
       if (item[f]) return String(item[f]);
     }
@@ -107,8 +103,10 @@
 
     const title = resolveTitle(item, file);
 
+    // Match your CSS structure: <figure><a><img></a><figcaption></figcaption></figure>
+    const fig = document.createElement("figure");
+
     const a = document.createElement("a");
-    a.className = "gallery-item";
     a.href = fullUrl;
     a.target = "_blank";
     a.rel = "noopener";
@@ -118,29 +116,25 @@
     img.src = thumbUrl;
     img.alt = title;
 
-    // If a thumbnail is missing, fall back to full image (still keeps gallery working)
     img.addEventListener("error", () => {
       img.src = fullUrl;
     });
 
-    const cap = document.createElement("div");
-    cap.className = "gallery-caption";
+    const cap = document.createElement("figcaption");
     cap.textContent = title;
 
     a.appendChild(img);
-    a.appendChild(cap);
+    fig.appendChild(a);
+    fig.appendChild(cap);
 
-    return a;
+    return fig;
   }
 
   function render(items, query) {
     if (!gridEl) return;
 
     const q = normaliseText(query);
-
-    const filtered = !q
-      ? items
-      : items.filter((it) => getItemText(it).includes(q));
+    const filtered = !q ? items : items.filter((it) => getItemText(it).includes(q));
 
     gridEl.innerHTML = "";
     const frag = document.createDocumentFragment();
@@ -151,7 +145,6 @@
     }
 
     gridEl.appendChild(frag);
-
     setStatus(`${filtered.length} / ${items.length} photos`);
   }
 
@@ -179,7 +172,6 @@
       return null;
     }
 
-    // Accept either an array, or { photos:[...] }, or { items:[...] }
     const items =
       Array.isArray(data) ? data :
       Array.isArray(data.photos) ? data.photos :
@@ -204,7 +196,7 @@
 
   async function init() {
     if (!gridEl) {
-      console.warn("No #galleryGrid element found — nothing to render.");
+      console.warn("No #gallery-grid element found — nothing to render.");
       return;
     }
 
@@ -221,3 +213,4 @@
 
   document.addEventListener("DOMContentLoaded", init);
 })();
+
