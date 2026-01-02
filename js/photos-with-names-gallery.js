@@ -1,8 +1,13 @@
 /* js/photos-with-names-gallery.js
-   Works with photos.json as either:
-     ["file1.jpg", "file2.jpg", ...]
-   or:
-     [{ "file":"file1.jpg", "title":"...", ... }, ...]
+   Works with:
+     /photos-with-names/photos.json
+     /photos-with-names/thumbnails/<file>
+     /photos-with-names/full/<file>
+
+   Expects in gallery.html:
+     - input#gallery-filter
+     - div#gallery-grid
+     - span#gallery-count   (used for status)
 */
 
 (() => {
@@ -13,14 +18,15 @@
   const THUMB_BASE = "photos-with-names/thumbnails/";
   const FULL_BASE  = "photos-with-names/full/";
 
-  const TEXT_FIELDS = ["title", "caption", "desc", "description", "text", "label", "name"];
+  // Try these fields for captions / searchable text
+  const TEXT_FIELDS = ["title", "caption", "desc", "description", "text", "label", "name", "people", "place", "year"];
 
   // ---- DOM ----
   const $ = (sel) => document.querySelector(sel);
 
   const searchEl = $("#gallery-filter");
   const gridEl   = $("#gallery-grid");
-  const statusEl = $("#gallery-count"); // use your count span as status line
+  const statusEl = $("#gallery-count"); // reuse this as status line
 
   function setStatus(msg) {
     if (statusEl) statusEl.textContent = msg || "";
@@ -47,104 +53,133 @@
   }
 
   function normaliseText(s) {
-    return String(s || "")
-      .toLowerCase()
-      .replace(/\s+/g, " ")
-      .trim();
+    return String(s || "").toLowerCase().replace(/\s+/g, " ").trim();
   }
 
-  // --- Helpers that support BOTH string items and object items ---
-
-  function resolveFilename(item) {
-    if (typeof item === "string") return item;              // <-- KEY FIX
-    if (!item || typeof item !== "object") return "";
-    return item.filename || item.file || item.name || item.image || "";
-  }
-
-  function resolveTitle(item, fallbackFilename) {
-    if (typeof item === "string") return fallbackFilename || item;
-
-    if (item && typeof item === "object") {
-      for (const f of ["title", "caption", "description", "desc", "text", "label"]) {
-        if (item[f]) return String(item[f]);
-      }
-      if (item.meta && typeof item.meta === "object") {
-        for (const f of ["title", "caption", "description", "desc", "text", "label"]) {
-          if (item.meta[f]) return String(item.meta[f]);
-        }
-      }
-    }
-    return fallbackFilename || "Photo";
+  function basename(p) {
+    const s = String(p || "");
+    const q = s.split("?")[0].split("#")[0];
+    const parts = q.split("/");
+    return parts[parts.length - 1] || "";
   }
 
   function getItemText(item) {
-    // Searchable text for filtering
-    if (typeof item === "string") return normaliseText(item);
-
+    // Supports strings or objects
     const bits = [];
-    if (item && typeof item === "object") {
-      if (item.filename) bits.push(item.filename);
-      if (item.file) bits.push(item.file);
-      if (item.name) bits.push(item.name);
 
+    if (typeof item === "string") {
+      bits.push(item);
+      return normaliseText(bits.join(" "));
+    }
+
+    if (!item || typeof item !== "object") return "";
+
+    // possible filename-ish fields
+    for (const k of ["filename", "file", "name", "image", "src", "url", "path", "full", "thumb", "thumbnail"]) {
+      if (item[k]) bits.push(String(item[k]));
+    }
+
+    for (const f of TEXT_FIELDS) {
+      if (item[f]) bits.push(String(item[f]));
+    }
+
+    if (item.meta && typeof item.meta === "object") {
       for (const f of TEXT_FIELDS) {
-        if (item[f]) bits.push(item[f]);
-      }
-
-      if (item.meta && typeof item.meta === "object") {
-        for (const f of TEXT_FIELDS) {
-          if (item.meta[f]) bits.push(item.meta[f]);
-        }
+        if (item.meta[f]) bits.push(String(item.meta[f]));
       }
     }
+
     return normaliseText(bits.join(" "));
   }
 
+  function resolveUrls(item) {
+    // Returns { thumbUrl, fullUrl, title }
+    // Handles:
+    //   - item as "IMG_001.jpg"
+    //   - { file:"IMG_001.jpg", caption:"..." }
+    //   - { full:"photos-with-names/full/IMG_001.jpg", thumb:"photos-with-names/thumbnails/IMG_001.jpg" }
+    //   - { src/url/path: "...jpg" }
+
+    // string item (filename)
+    if (typeof item === "string") {
+      const file = item;
+      return {
+        thumbUrl: THUMB_BASE + encodeURIComponent(file),
+        fullUrl:  FULL_BASE  + encodeURIComponent(file),
+        title: file
+      };
+    }
+
+    if (!item || typeof item !== "object") return null;
+
+    // prefer explicit thumb/full if present
+    const rawThumb = item.thumb || item.thumbnail || (item.urls && item.urls.thumb);
+    const rawFull  = item.full  || item.image     || item.src || item.url || item.path || (item.urls && item.urls.full);
+
+    // If they gave full/thumb as paths/urls, use them directly.
+    // If they gave filenames, build from bases.
+    const thumbFile = rawThumb ? basename(rawThumb) : basename(item.filename || item.file || item.name || "");
+    const fullFile  = rawFull  ? basename(rawFull)  : basename(item.filename || item.file || item.name || "");
+
+    const thumbUrl = rawThumb
+      ? (String(rawThumb).includes("/") ? String(rawThumb) : (THUMB_BASE + encodeURIComponent(String(rawThumb))))
+      : (thumbFile ? THUMB_BASE + encodeURIComponent(thumbFile) : "");
+
+    const fullUrl = rawFull
+      ? (String(rawFull).includes("/") ? String(rawFull) : (FULL_BASE + encodeURIComponent(String(rawFull))))
+      : (fullFile ? FULL_BASE + encodeURIComponent(fullFile) : "");
+
+    // title
+    let title = "";
+    for (const f of ["title", "caption", "description", "desc", "text", "label"]) {
+      if (item[f]) { title = String(item[f]); break; }
+    }
+    if (!title && item.meta && typeof item.meta === "object") {
+      for (const f of ["title", "caption", "description", "desc", "text", "label"]) {
+        if (item.meta[f]) { title = String(item.meta[f]); break; }
+      }
+    }
+    if (!title) title = fullFile || thumbFile || "Photo";
+
+    if (!fullUrl) return null; // must have a full image target to click
+
+    return { thumbUrl, fullUrl, title };
+  }
+
   function makeCard(item) {
-    const file = resolveFilename(item);
-    if (!file) return null;
+    const resolved = resolveUrls(item);
+    if (!resolved) return null;
 
-    const thumbUrl = THUMB_BASE + encodeURIComponent(file);
-    const fullUrl  = FULL_BASE  + encodeURIComponent(file);
-
-    const title = resolveTitle(item, file);
-
-    // Use the structure your CSS expects: figure > a > img and figcaption
-    const figure = document.createElement("figure");
+    const { thumbUrl, fullUrl, title } = resolved;
 
     const a = document.createElement("a");
+    a.className = "gallery-item";
     a.href = fullUrl;
     a.target = "_blank";
     a.rel = "noopener";
-    a.title = title;
 
     const img = document.createElement("img");
     img.loading = "lazy";
-    img.src = thumbUrl;
     img.alt = title;
 
-    img.addEventListener("error", () => {
-      img.src = fullUrl;
-    });
+    // If thumb is missing, use full as the thumbnail
+    img.src = thumbUrl || fullUrl;
+    img.addEventListener("error", () => { img.src = fullUrl; });
 
-    const cap = document.createElement("figcaption");
+    const cap = document.createElement("div");
+    cap.className = "gallery-caption";
     cap.textContent = title;
 
     a.appendChild(img);
-    figure.appendChild(a);
-    figure.appendChild(cap);
-
-    return figure;
+    a.appendChild(cap);
+    return a;
   }
 
   function render(items, query) {
     if (!gridEl) return;
 
     const q = normaliseText(query);
-
-    const filtered = !q
-      ? items
-      : items.filter((it) => getItemText(it).includes(q));
+    const filtered = !q ? items : items.filter((it) => getItemText(it).includes(q));
 
     gridEl.innerHTML = "";
     const frag = document.createDocumentFragment();
@@ -159,7 +194,7 @@
     }
 
     gridEl.appendChild(frag);
-    setStatus(`Rendered ${rendered} of ${items.length} photos`);
+    setStatus(`${rendered} / ${items.length} photos`);
   }
 
   async function loadJson() {
@@ -186,6 +221,7 @@
       return null;
     }
 
+    // Accept either an array, or { photos:[...] }, or { items:[...] }
     const items =
       Array.isArray(data) ? data :
       Array.isArray(data.photos) ? data.photos :
