@@ -1,13 +1,8 @@
 /* js/photos-with-names-gallery.js
-   Gallery loader for:
-     photos-with-names/photos.json
-     photos-with-names/thumbnails/<file>
-     photos-with-names/full/<file>
-
-   Expects in gallery.html:
-     - input#gallery-filter
-     - div#gallery-grid
-     - span#gallery-count
+   Works with photos.json as either:
+     ["file1.jpg", "file2.jpg", ...]
+   or:
+     [{ "file":"file1.jpg", "title":"...", ... }, ...]
 */
 
 (() => {
@@ -18,7 +13,6 @@
   const THUMB_BASE = "photos-with-names/thumbnails/";
   const FULL_BASE  = "photos-with-names/full/";
 
-  // If your JSON uses different field names, add them here.
   const TEXT_FIELDS = ["title", "caption", "desc", "description", "text", "label", "name"];
 
   // ---- DOM ----
@@ -26,7 +20,7 @@
 
   const searchEl = $("#gallery-filter");
   const gridEl   = $("#gallery-grid");
-  const statusEl = $("#gallery-count"); // show "x / y photos" here
+  const statusEl = $("#gallery-count"); // use your count span as status line
 
   function setStatus(msg) {
     if (statusEl) statusEl.textContent = msg || "";
@@ -41,7 +35,6 @@
   function showError(msg) {
     console.error(msg);
     if (!gridEl) return;
-
     gridEl.innerHTML = `
       <div class="gallery-error" style="border:2px solid pink; background:#FFF0F5; padding:12px; border-radius:10px;">
         <strong>Gallery error:</strong>
@@ -60,39 +53,51 @@
       .trim();
   }
 
-  function getItemText(item) {
-    const bits = [];
-    if (item.filename) bits.push(item.filename);
-    if (item.file) bits.push(item.file);
-    if (item.name) bits.push(item.name);
-
-    for (const f of TEXT_FIELDS) {
-      if (item[f]) bits.push(item[f]);
-    }
-
-    if (item.meta && typeof item.meta === "object") {
-      for (const f of TEXT_FIELDS) {
-        if (item.meta[f]) bits.push(item.meta[f]);
-      }
-    }
-
-    return normaliseText(bits.join(" "));
-  }
+  // --- Helpers that support BOTH string items and object items ---
 
   function resolveFilename(item) {
+    if (typeof item === "string") return item;              // <-- KEY FIX
+    if (!item || typeof item !== "object") return "";
     return item.filename || item.file || item.name || item.image || "";
   }
 
   function resolveTitle(item, fallbackFilename) {
-    for (const f of ["title", "caption", "description", "desc", "text", "label"]) {
-      if (item[f]) return String(item[f]);
-    }
-    if (item.meta && typeof item.meta === "object") {
+    if (typeof item === "string") return fallbackFilename || item;
+
+    if (item && typeof item === "object") {
       for (const f of ["title", "caption", "description", "desc", "text", "label"]) {
-        if (item.meta[f]) return String(item.meta[f]);
+        if (item[f]) return String(item[f]);
+      }
+      if (item.meta && typeof item.meta === "object") {
+        for (const f of ["title", "caption", "description", "desc", "text", "label"]) {
+          if (item.meta[f]) return String(item.meta[f]);
+        }
       }
     }
     return fallbackFilename || "Photo";
+  }
+
+  function getItemText(item) {
+    // Searchable text for filtering
+    if (typeof item === "string") return normaliseText(item);
+
+    const bits = [];
+    if (item && typeof item === "object") {
+      if (item.filename) bits.push(item.filename);
+      if (item.file) bits.push(item.file);
+      if (item.name) bits.push(item.name);
+
+      for (const f of TEXT_FIELDS) {
+        if (item[f]) bits.push(item[f]);
+      }
+
+      if (item.meta && typeof item.meta === "object") {
+        for (const f of TEXT_FIELDS) {
+          if (item.meta[f]) bits.push(item.meta[f]);
+        }
+      }
+    }
+    return normaliseText(bits.join(" "));
   }
 
   function makeCard(item) {
@@ -104,11 +109,14 @@
 
     const title = resolveTitle(item, file);
 
+    // Use the structure your CSS expects: figure > a > img and figcaption
+    const figure = document.createElement("figure");
+
     const a = document.createElement("a");
-    a.className = "gallery-item";
     a.href = fullUrl;
     a.target = "_blank";
     a.rel = "noopener";
+    a.title = title;
 
     const img = document.createElement("img");
     img.loading = "lazy";
@@ -119,14 +127,14 @@
       img.src = fullUrl;
     });
 
-    const cap = document.createElement("div");
-    cap.className = "gallery-caption";
+    const cap = document.createElement("figcaption");
     cap.textContent = title;
 
     a.appendChild(img);
-    a.appendChild(cap);
+    figure.appendChild(a);
+    figure.appendChild(cap);
 
-    return a;
+    return figure;
   }
 
   function render(items, query) {
@@ -141,13 +149,17 @@
     gridEl.innerHTML = "";
     const frag = document.createDocumentFragment();
 
+    let rendered = 0;
     for (const item of filtered) {
       const card = makeCard(item);
-      if (card) frag.appendChild(card);
+      if (card) {
+        frag.appendChild(card);
+        rendered++;
+      }
     }
 
     gridEl.appendChild(frag);
-    setStatus(`${filtered.length} / ${items.length} photos`);
+    setStatus(`Rendered ${rendered} of ${items.length} photos`);
   }
 
   async function loadJson() {
