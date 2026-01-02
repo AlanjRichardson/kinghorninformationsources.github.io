@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-20KZGF4994"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-20KZGF4994');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People</title>
+
+  <!-- Main site CSS -->
+  <link rel="stylesheet" href="kinghorn.css">
+
+</head>
+
+<body>
+
+<header>
+  <h1>Kinghorn Information Sources</h1>
+  <button class="navbar-toggler" aria-label="Toggle menu">☰</button>
+  <nav>
+    <ul class="navbar-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="kinghorn_history.html">Historical</a></li>
+      <li><a href="industryhistory.html">Industrial</a></li>
+      <li><a href="naturalhistory.html">Natural</a></li>
+      <li><a href="maps.html">Old-Maps</a></li>
+      <li><a href="documents.html">Documents</a></li>
+      <li><a href="Software.html">Software</a></li>
+      <li><a href="Culture.html">People</a></li>
+      <li><a href="names-search.html">Name Search</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===================== -->
+<!-- GALLERY MAIN CONTENT -->
+<!-- ===================== -->
+
+<main class="content">
+
+  <section class="gallery-header">
+    <h2>Photos With Names</h2>
+    <p class="gallery-intro">
+      A pictorial index of identified people, places, and scenes from Kinghorn’s past.
+      Click any image to view it full size.
+    </p>
+
+    <div class="gallery-controls">
+      <input
+        id="gallery-filter"
+        type="search"
+        placeholder="Filter by name, place, year…"
+        aria-label="Filter photos">
+      <span id="gallery-count"></span>
+    </div>
+  </section>
+
+  <section>
+    <div id="gallery-grid" class="gallery-grid"></div>
+  </section>
+
+</main>
+
+<!-- ===================== -->
+
+<footer>
+  Editor Alan Richardson
+  <a href="ContactForm.html">Contact me by email</a>
+</footer>
+
+<!-- Existing site JS -->
+<script src="js/menu.js"></script>
+
+<!-- Gallery JS -->
+<script src="js/gallery.js"></script>
+
+</body>
+</html>
+
