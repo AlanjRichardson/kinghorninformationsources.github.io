@@ -1,35 +1,31 @@
 /* js/photos-with-names-gallery.js
    Works with:
      /photos-with-names/photos.json
-     /photos-with-names/thumbnails/<file>
-     /photos-with-names/full/<file>
+
+   Where each JSON item looks like:
+     { "full":"full/xxx.jpg", "thumb":"thumbnails/xxx.jpg", "title":"..." }
 
    Expects in gallery.html:
      - input#gallery-filter
      - div#gallery-grid
-     - span#gallery-count   (used for status)
+     - span#gallery-count
 */
 
 (() => {
   "use strict";
 
-  // ---- CONFIG ----
-  const JSON_URL   = "photos-with-names/photos.json";
-  const THUMB_BASE = "photos-with-names/thumbnails/";
-  const FULL_BASE  = "photos-with-names/full/";
+  // Base folder that contains photos.json AND the full/ + thumbnails/ folders
+  const BASE = "photos-with-names/";
+  const JSON_URL = BASE + "photos.json";
 
-  // Try these fields for captions / searchable text
-  const TEXT_FIELDS = ["title", "caption", "desc", "description", "text", "label", "name", "people", "place", "year"];
-
-  // ---- DOM ----
   const $ = (sel) => document.querySelector(sel);
 
   const searchEl = $("#gallery-filter");
   const gridEl   = $("#gallery-grid");
-  const statusEl = $("#gallery-count"); // reuse this as status line
+  const countEl  = $("#gallery-count");
 
-  function setStatus(msg) {
-    if (statusEl) statusEl.textContent = msg || "";
+  function setCount(msg) {
+    if (countEl) countEl.textContent = msg || "";
   }
 
   function escapeHtml(s) {
@@ -41,164 +37,87 @@
   function showError(msg) {
     console.error(msg);
     if (!gridEl) return;
+
     gridEl.innerHTML = `
       <div class="gallery-error" style="border:2px solid pink; background:#FFF0F5; padding:12px; border-radius:10px;">
         <strong>Gallery error:</strong>
         <div style="margin-top:6px;">${escapeHtml(msg)}</div>
         <div style="margin-top:10px; font-size:0.95em;">
-          Check that <code>${JSON_URL}</code> exists and paths match your repo structure.
+          Check that <code>${JSON_URL}</code> exists and that your JSON items contain <code>thumb</code> and <code>full</code>.
         </div>
       </div>`;
-    setStatus("");
+    setCount("");
   }
 
   function normaliseText(s) {
     return String(s || "").toLowerCase().replace(/\s+/g, " ").trim();
   }
 
-  function basename(p) {
-    const s = String(p || "");
-    const q = s.split("?")[0].split("#")[0];
-    const parts = q.split("/");
-    return parts[parts.length - 1] || "";
-  }
-
-  function getItemText(item) {
-    // Supports strings or objects
-    const bits = [];
-
-    if (typeof item === "string") {
-      bits.push(item);
-      return normaliseText(bits.join(" "));
-    }
-
-    if (!item || typeof item !== "object") return "";
-
-    // possible filename-ish fields
-    for (const k of ["filename", "file", "name", "image", "src", "url", "path", "full", "thumb", "thumbnail"]) {
-      if (item[k]) bits.push(String(item[k]));
-    }
-
-    for (const f of TEXT_FIELDS) {
-      if (item[f]) bits.push(String(item[f]));
-    }
-
-    if (item.meta && typeof item.meta === "object") {
-      for (const f of TEXT_FIELDS) {
-        if (item.meta[f]) bits.push(String(item.meta[f]));
-      }
-    }
-
-    return normaliseText(bits.join(" "));
-  }
-
-  function resolveUrls(item) {
-    // Returns { thumbUrl, fullUrl, title }
-    // Handles:
-    //   - item as "IMG_001.jpg"
-    //   - { file:"IMG_001.jpg", caption:"..." }
-    //   - { full:"photos-with-names/full/IMG_001.jpg", thumb:"photos-with-names/thumbnails/IMG_001.jpg" }
-    //   - { src/url/path: "...jpg" }
-
-    // string item (filename)
-    if (typeof item === "string") {
-      const file = item;
-      return {
-        thumbUrl: THUMB_BASE + encodeURIComponent(file),
-        fullUrl:  FULL_BASE  + encodeURIComponent(file),
-        title: file
-      };
-    }
-
-    if (!item || typeof item !== "object") return null;
-
-    // prefer explicit thumb/full if present
-    const rawThumb = item.thumb || item.thumbnail || (item.urls && item.urls.thumb);
-    const rawFull  = item.full  || item.image     || item.src || item.url || item.path || (item.urls && item.urls.full);
-
-    // If they gave full/thumb as paths/urls, use them directly.
-    // If they gave filenames, build from bases.
-    const thumbFile = rawThumb ? basename(rawThumb) : basename(item.filename || item.file || item.name || "");
-    const fullFile  = rawFull  ? basename(rawFull)  : basename(item.filename || item.file || item.name || "");
-
-    const thumbUrl = rawThumb
-      ? (String(rawThumb).includes("/") ? String(rawThumb) : (THUMB_BASE + encodeURIComponent(String(rawThumb))))
-      : (thumbFile ? THUMB_BASE + encodeURIComponent(thumbFile) : "");
-
-    const fullUrl = rawFull
-      ? (String(rawFull).includes("/") ? String(rawFull) : (FULL_BASE + encodeURIComponent(String(rawFull))))
-      : (fullFile ? FULL_BASE + encodeURIComponent(fullFile) : "");
-
-    // title
-    let title = "";
-    for (const f of ["title", "caption", "description", "desc", "text", "label"]) {
-      if (item[f]) { title = String(item[f]); break; }
-    }
-    if (!title && item.meta && typeof item.meta === "object") {
-      for (const f of ["title", "caption", "description", "desc", "text", "label"]) {
-        if (item.meta[f]) { title = String(item.meta[f]); break; }
-      }
-    }
-    if (!title) title = fullFile || thumbFile || "Photo";
-
-    if (!fullUrl) return null; // must have a full image target to click
-
-    return { thumbUrl, fullUrl, title };
+  function getSearchText(item) {
+    // Search by title + file paths (handy if you type part of filename)
+    return normaliseText([
+      item.title || "",
+      item.full  || "",
+      item.thumb || ""
+    ].join(" "));
   }
 
   function makeCard(item) {
-    const resolved = resolveUrls(item);
-    if (!resolved) return null;
+    // Your JSON uses "thumb" and "full"
+    if (!item || !item.thumb || !item.full) return null;
 
-    const { thumbUrl, fullUrl, title } = resolved;
+    const thumbUrl = BASE + item.thumb;
+    const fullUrl  = BASE + item.full;
+    const title    = item.title ? String(item.title) : "Photo";
+
+    // Use <figure> so your existing CSS for .gallery-grid figure/figcaption applies
+    const fig = document.createElement("figure");
 
     const a = document.createElement("a");
-    a.className = "gallery-item";
     a.href = fullUrl;
     a.target = "_blank";
     a.rel = "noopener";
 
     const img = document.createElement("img");
     img.loading = "lazy";
+    img.src = thumbUrl;
     img.alt = title;
 
-    // If thumb is missing, use full as the thumbnail
-    img.src = thumbUrl || fullUrl;
-    img.addEventListener("error", () => { img.src = fullUrl; });
+    // Thumbnail missing? fall back to full image
+    img.addEventListener("error", () => {
+      img.src = fullUrl;
+    });
 
-    const cap = document.createElement("div");
-    cap.className = "gallery-caption";
+    const cap = document.createElement("figcaption");
     cap.textContent = title;
 
     a.appendChild(img);
-    a.appendChild(cap);
-    return a;
+    fig.appendChild(a);
+    fig.appendChild(cap);
+
+    return fig;
   }
 
   function render(items, query) {
     if (!gridEl) return;
 
     const q = normaliseText(query);
-    const filtered = !q ? items : items.filter((it) => getItemText(it).includes(q));
+    const filtered = !q ? items : items.filter((it) => getSearchText(it).includes(q));
 
     gridEl.innerHTML = "";
     const frag = document.createDocumentFragment();
 
-    let rendered = 0;
     for (const item of filtered) {
       const card = makeCard(item);
-      if (card) {
-        frag.appendChild(card);
-        rendered++;
-      }
+      if (card) frag.appendChild(card);
     }
 
     gridEl.appendChild(frag);
-    setStatus(`${rendered} / ${items.length} photos`);
+    setCount(`${filtered.length} / ${items.length} photos`);
   }
 
-  async function loadJson() {
-    setStatus("Loading photos…");
+  async function loadItems() {
+    setCount("Loading photos…");
 
     let resp;
     try {
@@ -221,19 +140,12 @@
       return null;
     }
 
-    // Accept either an array, or { photos:[...] }, or { items:[...] }
-    const items =
-      Array.isArray(data) ? data :
-      Array.isArray(data.photos) ? data.photos :
-      Array.isArray(data.items) ? data.items :
-      null;
-
-    if (!items) {
-      showError(`Unexpected JSON structure in ${JSON_URL}. Expected an array, or { "photos": [...] }.`);
+    if (!Array.isArray(data)) {
+      showError(`Unexpected JSON structure in ${JSON_URL}. Expected a top-level array: [ {...}, {...} ]`);
       return null;
     }
 
-    return items;
+    return data;
   }
 
   function debounce(fn, ms = 120) {
@@ -245,12 +157,9 @@
   }
 
   async function init() {
-    if (!gridEl) {
-      console.warn("No #gallery-grid element found — nothing to render.");
-      return;
-    }
+    if (!gridEl) return;
 
-    const items = await loadJson();
+    const items = await loadItems();
     if (!items) return;
 
     render(items, "");
