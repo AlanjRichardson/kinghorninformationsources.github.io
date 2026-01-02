@@ -1,5 +1,9 @@
 /* js/photos-with-names-gallery.js
-   Gallery driven by people-index.json (from people-data.js)
+   Uses people index:
+     /photos-with-names/people-index.json  (array of {surname, fullName, photoFile, ...})
+   Images live in:
+     /photos-with-names/thumbnails/<file>
+     /photos-with-names/full/<file>
 
    Expects in gallery.html:
      - input#gallery-filter
@@ -10,16 +14,17 @@
 (() => {
   "use strict";
 
-  // ---- CONFIG (paths are relative to gallery.html in repo root) ----
-  const INDEX_URL = "photos-with-names/people-index.json";
+  // ---- CONFIG ----
+  const INDEX_URL  = "photos-with-names/people-index.json";
   const THUMB_BASE = "photos-with-names/thumbnails/";
   const FULL_BASE  = "photos-with-names/full/";
 
   // ---- DOM ----
   const $ = (sel) => document.querySelector(sel);
+
   const searchEl = $("#gallery-filter");
   const gridEl   = $("#gallery-grid");
-  const statusEl = $("#gallery-count"); // we use this as the status/count line
+  const statusEl = $("#gallery-count");
 
   function setStatus(msg) {
     if (statusEl) statusEl.textContent = msg || "";
@@ -39,7 +44,7 @@
         <strong>Gallery error:</strong>
         <div style="margin-top:6px;">${escapeHtml(msg)}</div>
         <div style="margin-top:10px; font-size:0.95em;">
-          Check that <code>${INDEX_URL}</code> exists and that your folder paths match.
+          Check that <code>${INDEX_URL}</code> exists and paths match your repo structure.
         </div>
       </div>`;
     setStatus("");
@@ -52,52 +57,71 @@
       .trim();
   }
 
-  // Year extraction rule:
-  // Find first 4-digit year 1800–2099 anywhere in filename (handles School1948a.jpg etc.)
+  // Year extraction rule (your requested behaviour):
+  // - find a 4-digit year in the filename (e.g. School1948a.jpg -> 1948)
+  // - allow suffix letters (a,b,c) and various cases
   function extractYearFromFilename(filename) {
-    const m = String(filename || "").match(/\b(18\d{2}|19\d{2}|20\d{2})\b/);
+    const m = String(filename || "").match(/(18\d{2}|19\d{2}|20\d{2})/);
     return m ? m[1] : "";
   }
 
-  function resolveFile(item) {
-    // Your index should have photoFile
-    return item.photoFile || item.file || item.filename || "";
+  function isYearQuery(q) {
+    return /^(18\d{2}|19\d{2}|20\d{2})$/.test(q);
   }
 
-  function resolveTitle(item, file) {
-    // Prefer "Surname — FullName" if available, otherwise fallback to file
-    const surname = item.surname ? String(item.surname).trim() : "";
-    const fullName = item.fullName ? String(item.fullName).trim() : "";
-    if (surname && fullName) return `${surname} — ${fullName}`;
-    if (fullName) return fullName;
-    if (surname) return surname;
-    return file || "Photo";
+  function debounce(fn, ms = 120) {
+    let t = null;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), ms);
+    };
   }
 
-  function getSearchText(item) {
-    const file = resolveFile(item);
-    const year = extractYearFromFilename(file);
-
-    const bits = [
-      item.surname || "",
-      item.fullName || "",
-      file || "",
-      year || ""
-    ];
-
-    return normaliseText(bits.join(" "));
+  function resolveFilename(item) {
+    // people-index.json likely uses photoFile
+    return item.photoFile || item.filename || item.file || item.name || item.image || "";
   }
 
-  function makeCard(item) {
-    const file = resolveFile(item);
-    if (!file) return null;
+  // Build grouped photo records from per-person rows:
+  // { file, year, allNames:Set, searchText }
+  function groupByPhoto(rows) {
+    const map = new Map();
+
+    for (const r of rows) {
+      const file = resolveFilename(r);
+      if (!file) continue;
+
+      let rec = map.get(file);
+      if (!rec) {
+        rec = {
+          file,
+          year: extractYearFromFilename(file),
+          allNames: new Set(),
+          // We'll build searchText later
+          searchText: ""
+        };
+        map.set(file, rec);
+      }
+
+      if (r.fullName) rec.allNames.add(String(r.fullName));
+      // surname can help searching too
+      if (r.surname) rec.allNames.add(String(r.surname));
+    }
+
+    // Create searchable strings per photo
+    for (const rec of map.values()) {
+      const names = Array.from(rec.allNames).join(" ");
+      rec.searchText = normaliseText([rec.file, rec.year, names].join(" "));
+    }
+
+    return Array.from(map.values());
+  }
+
+  function makeCard(photoRec, captionText) {
+    const file = photoRec.file;
 
     const thumbUrl = THUMB_BASE + encodeURIComponent(file);
     const fullUrl  = FULL_BASE  + encodeURIComponent(file);
-
-    const year = extractYearFromFilename(file);
-    const title = resolveTitle(item, file);
-    const caption = year ? `${title} (${year})` : title;
 
     const a = document.createElement("a");
     a.className = "gallery-item";
@@ -108,46 +132,75 @@
     const img = document.createElement("img");
     img.loading = "lazy";
     img.src = thumbUrl;
-    img.alt = caption;
+    img.alt = captionText || file;
 
-    // If thumbnail missing, fall back to full image
+    // If thumbnail missing, fall back to full
     img.addEventListener("error", () => {
       img.src = fullUrl;
     });
 
     const cap = document.createElement("div");
     cap.className = "gallery-caption";
-    cap.textContent = caption;
+    cap.textContent = captionText || file;
 
     a.appendChild(img);
     a.appendChild(cap);
-
     return a;
   }
 
-  function render(items, query) {
+  function render(photoRecs, query) {
     if (!gridEl) return;
 
     const q = normaliseText(query);
+    const yearMode = isYearQuery(q);
 
+    // Filter photos
     const filtered = !q
-      ? items
-      : items.filter((it) => getSearchText(it).includes(q));
+      ? photoRecs
+      : photoRecs.filter((p) => p.searchText.includes(q));
 
-    gridEl.innerHTML = "";
+    // Build captions:
+    // - year search: keep it simple (file without extension, or file)
+    // - name search: show matching names only
     const frag = document.createDocumentFragment();
+    gridEl.innerHTML = "";
 
-    for (const item of filtered) {
-      const card = makeCard(item);
-      if (card) frag.appendChild(card);
+    for (const p of filtered) {
+      let caption = "";
+
+      if (!q) {
+        caption = p.file.replace(/\.[^.]+$/, ""); // default title: filename minus extension
+      } else if (yearMode) {
+        caption = p.file.replace(/\.[^.]+$/, ""); // year browsing: no names
+      } else {
+        // Name browsing: show only names that match the query words
+        // (simple contains match, good enough and fast)
+        const qWords = q.split(" ").filter(Boolean);
+        const names = Array.from(p.allNames)
+          .filter((nm) => {
+            const n = normaliseText(nm);
+            return qWords.every((w) => n.includes(w));
+          });
+
+        if (names.length === 0) {
+          // fallback
+          caption = p.file.replace(/\.[^.]+$/, "");
+        } else if (names.length <= 3) {
+          caption = names.join(", ");
+        } else {
+          caption = `${names.slice(0, 3).join(", ")} (+${names.length - 3} more)`;
+        }
+      }
+
+      frag.appendChild(makeCard(p, caption));
     }
 
     gridEl.appendChild(frag);
-    setStatus(`${filtered.length} / ${items.length} entries`);
+    setStatus(`${filtered.length} / ${photoRecs.length} photos`);
   }
 
   async function loadIndex() {
-    setStatus("Loading…");
+    setStatus("Loading photos…");
 
     let resp;
     try {
@@ -162,28 +215,20 @@
       return null;
     }
 
-    let data;
+    let rows;
     try {
-      data = await resp.json();
+      rows = await resp.json();
     } catch (e) {
       showError(`JSON parse error in ${INDEX_URL}: ${e}`);
       return null;
     }
 
-    if (!Array.isArray(data)) {
+    if (!Array.isArray(rows)) {
       showError(`Unexpected JSON structure in ${INDEX_URL}. Expected an array.`);
       return null;
     }
 
-    return data;
-  }
-
-  function debounce(fn, ms = 120) {
-    let t = null;
-    return (...args) => {
-      clearTimeout(t);
-      t = setTimeout(() => fn(...args), ms);
-    };
+    return rows;
   }
 
   async function init() {
@@ -192,13 +237,17 @@
       return;
     }
 
-    const items = await loadIndex();
-    if (!items) return;
+    const rows = await loadIndex();
+    if (!rows) return;
 
-    render(items, "");
+    const photoRecs = groupByPhoto(rows);
 
+    // Initial render
+    render(photoRecs, "");
+
+    // Search
     if (searchEl) {
-      const onInput = debounce(() => render(items, searchEl.value), 120);
+      const onInput = debounce(() => render(photoRecs, searchEl.value), 120);
       searchEl.addEventListener("input", onInput);
     }
   }
