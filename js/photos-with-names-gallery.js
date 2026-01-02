@@ -1,13 +1,13 @@
 /* js/photos-with-names-gallery.js
    Gallery loader for:
-     /photos-with-names/photos.json
-     /photos-with-names/thumbnails/<file>
-     /photos-with-names/full/<file>
+     photos-with-names/photos.json
+     photos-with-names/thumbnails/<file>
+     photos-with-names/full/<file>
 
    Expects in gallery.html:
      - input#gallery-filter
-     - span#gallery-count
      - div#gallery-grid
+     - span#gallery-count
 */
 
 (() => {
@@ -18,6 +18,7 @@
   const THUMB_BASE = "photos-with-names/thumbnails/";
   const FULL_BASE  = "photos-with-names/full/";
 
+  // If your JSON uses different field names, add them here.
   const TEXT_FIELDS = ["title", "caption", "desc", "description", "text", "label", "name"];
 
   // ---- DOM ----
@@ -25,7 +26,7 @@
 
   const searchEl = $("#gallery-filter");
   const gridEl   = $("#gallery-grid");
-  const statusEl = $("#gallery-count");
+  const statusEl = $("#gallery-count"); // show "x / y photos" here
 
   function setStatus(msg) {
     if (statusEl) statusEl.textContent = msg || "";
@@ -103,10 +104,8 @@
 
     const title = resolveTitle(item, file);
 
-    // Match your CSS structure: <figure><a><img></a><figcaption></figcaption></figure>
-    const fig = document.createElement("figure");
-
     const a = document.createElement("a");
+    a.className = "gallery-item";
     a.href = fullUrl;
     a.target = "_blank";
     a.rel = "noopener";
@@ -120,21 +119,24 @@
       img.src = fullUrl;
     });
 
-    const cap = document.createElement("figcaption");
+    const cap = document.createElement("div");
+    cap.className = "gallery-caption";
     cap.textContent = title;
 
     a.appendChild(img);
-    fig.appendChild(a);
-    fig.appendChild(cap);
+    a.appendChild(cap);
 
-    return fig;
+    return a;
   }
 
   function render(items, query) {
     if (!gridEl) return;
 
     const q = normaliseText(query);
-    const filtered = !q ? items : items.filter((it) => getItemText(it).includes(q));
+
+    const filtered = !q
+      ? items
+      : items.filter((it) => getItemText(it).includes(q));
 
     gridEl.innerHTML = "";
     const frag = document.createDocumentFragment();
@@ -213,4 +215,3 @@
 
   document.addEventListener("DOMContentLoaded", init);
 })();
-
