@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-20KZGF4994"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-20KZGF4994');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name-Search</title>
+  <link rel="stylesheet" href="kinghorn.css">
+
+  <!-- Data + search logic (defer ensures DOM exists before code runs) -->
+  <script defer src="js/people-data.js"></script>
+  <script defer src="js/names-search.js"></script>
+  <script defer src="js/menu.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Kinghorn Information Sources</h1>
+    <button class="navbar-toggler" aria-label="Toggle menu">☰</button>
+    <nav>
+      <ul class="navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="kinghorn_history.html">Historical</a></li>
+        <li><a href="industryhistory.html">Industrial</a></li>
+        <li><a href="naturalhistory.html">Natural</a></li>
+        <li><a href="maps.html">Old-Maps</a></li>
+        <li><a href="documents.html">Documents</a></li>
+        <li><a href="Software.html">Software</a></li>
+        <li><a href="Culture.html">People</a></li>
+        <li><a href="names-search.html">Name Search</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Photo Name Search</h2>
+
+    <p>
+      Use this page to search the Kinghorn Photos with Names album.
+      Enter the first three letters or more of a surname (for example, <strong>McA</strong> for McAndrew)
+      to see the photo file(s) they appear in.
+    </p>
+
+    <div id="name-search-panel">
+  <label for="surnameInput">Surname (first 3 letters or more):</label>
+
+  <input type="text"
+         id="surnameInput"
+         maxlength="20"
+         placeholder="e.g. McA">
+
+  <!-- Search/Clear row -->
+  <div class="ns-row ns-row-primary">
+    <button type="button" class="ns-btn" onclick="performSearch()">Search</button>
+    <button type="button" class="ns-btn" onclick="clearSearch()">Clear</button>
+  </div>
+
+  <div id="resultsInfo" class="ns-info"></div>
+
+  <!-- Tools shown only after a successful search -->
+  <div id="resultsTools" style="display:none;">
+
+    <!-- Guidance (appears after search) -->
+    <div id="guidanceText" class="ns-guidance">
+      <small>
+        Tick entries in the results. First choose a <strong>Copy mode</strong> noting that <strong>Photo only</strong> allows you to select just one photo file that you can <strong>Copy</strong> then <strong>Open</strong> the Album and paste into it's search box to find and display the image. Selecting <strong>Name + photo</strong> allows you to copy and save multiple selected entries to your device.
+      </small>
+    </div>
+
+    <!-- Copy mode (two rows) -->
+    <div class="ns-radio-block">
+      <div class="ns-radio-row">
+        <strong>Copy mode:</strong>
+        <label class="ns-radio">
+          <input type="radio" name="copyMode" value="photo" checked>
+          Photo only
+        </label>
+      </div>
+
+      <div class="ns-radio-row">
+        <span class="ns-radio-spacer"></span>
+        <label class="ns-radio">
+          <input type="radio" name="copyMode" value="full">
+          Name + photo
+        </label>
+      </div>
+    </div>
+
+    <div class="ns-tools-label"><small>Selected tools:</small></div>
+
+    <!-- Copy/Open/Clear row (left/centre/right) -->
+    <div class="ns-row ns-row-tools">
+      <button type="button" class="ns-btn" onclick="copySelected()">Copy</button>
+      <button type="button" class="ns-btn" onclick="openDriveFolder()">Open</button>
+      <button type="button" class="ns-btn" onclick="clearSelected()">Clear</button>
+    </div>
+
+  </div>
+</div>
+
+<div id="resultsArea"></div>
+
+  </main>
+
+  <footer>
+    Editor: Alan Richardson <a href="ContactForm.html">Contact me by email</a>
+  </footer>
+</body>
+</html>
+
+
