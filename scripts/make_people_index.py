@@ -9,8 +9,10 @@ if sys.prefix == sys.base_prefix:
     print("WARNING: virtual environment not active")
 
 
-PEOPLE_JS = Path("js/people-data.js")   # change if yours is elsewhere
-OUT_JSON  = Path("photos-with-names/people-index.json")  # output for gallery use
+REPO_ROOT = Path("/home/alan/kinghorninformationsources.github.io")
+
+PEOPLE_JS = REPO_ROOT / "js" / "people-data.js"   # change if yours is elsewhere
+OUT_JSON  = REPO_ROOT / "photos-with-names" / "people-index.json"  # output for gallery use
 
 def die(msg):
     print(f"ERROR: {msg}", file=sys.stderr)
