@@ -4,6 +4,11 @@ import re
 import sys
 from pathlib import Path
 
+import sys
+if sys.prefix == sys.base_prefix:
+    print("WARNING: virtual environment not active")
+
+
 PEOPLE_JS = Path("js/people-data.js")   # change if yours is elsewhere
 OUT_JSON  = Path("photos-with-names/people-index.json")  # output for gallery use
 
