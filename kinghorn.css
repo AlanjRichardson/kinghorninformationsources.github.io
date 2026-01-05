@@ -52,6 +52,18 @@ a {
 a:hover {
   text-decoration: underline;
 }
+/* FOOTER LINE LAYOUT */
+.footer-line {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;        /* spacing between footer items */
+  flex-wrap: wrap;   /* wrap nicely on small screens */
+  margin: 0;
+}
+
+.footer-item {
+  white-space: nowrap;
+}
 
 /* ===================== */
 /* HEADER STYLES – only the main site header */
