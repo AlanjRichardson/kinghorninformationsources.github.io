@@ -1,11 +1,17 @@
 # Kinghorn Information Sources
 
 This repository hosts the Kinghorn Information Sources website, maintained by
-Alan Richardson. The site documents the people, places, industries, and social
-history of Kinghorn through text, photographs, and curated archival material.
+Alan Richardson.
 
-The site is published using GitHub Pages and is intentionally static,
-lightweight, and preservation-focused.
+The site brings together material on the people, places, industries, natural
+history, old maps, and everyday life of Kinghorn, using text, photographs, and
+archival sources built up over many years.
+
+It is intended as a long-term, independent historical record rather than a
+general-purpose blog or wiki.
+
+The site is published using GitHub Pages and is intentionally static and
+lightweight, with an emphasis on longevity, clarity, and ease of maintenance.
 
 ------------------------------------------------------------
 
@@ -40,6 +46,7 @@ kinghorninformationsources.github.io/
   scripts/
     make_people_js.py
     make_people_index.py
+    make_thumbnails.py
 
   data/
     photo_names_sorted.ods
@@ -52,8 +59,10 @@ kinghorninformationsources.github.io/
 
 PHOTOS WITH NAMES – GALLERY SYSTEM
 
-The Photos With Names gallery is driven by structured data generated from a
-master spreadsheet.
+The Photos With Names gallery is driven entirely by structured data generated
+offline. The public-facing site is read-only.
+
+------------------------------------------------------------
 
 SOURCE OF TRUTH
 
@@ -63,10 +72,10 @@ The authoritative source is a LibreOffice spreadsheet:
 
 This file contains:
 - Surname
-- Full Name
-- Photo File Name
+- Full name
+- Photo file name
 
-All downstream files are generated from this spreadsheet.
+All downstream files used by the gallery are generated from this spreadsheet.
 
 ------------------------------------------------------------
 
@@ -85,6 +94,7 @@ Daily use:
   source .venv/bin/activate
   python scripts/make_people_js.py
   python scripts/make_people_index.py
+  python scripts/make_thumbnails.py
 
 The scripts will warn if the virtual environment is not active.
 
@@ -101,7 +111,7 @@ Copy the image into:
   photos-with-names/full/
 
 File naming rules:
-- Include a year where possible, e.g. School1948.jpg
+- Include a year where possible (e.g. School1948.jpg)
 - If multiple photos exist for a year, suffix with a letter:
   School1948a.jpg, School1948b.jpg
 - Use consistent spelling and casing
@@ -111,12 +121,16 @@ File naming rules:
 
 STEP 2 – Update the spreadsheet
 
-Edit data/photo_names_sorted.ods and add one row per identified person.
+Edit:
+
+  data/photo_names_sorted.ods
+
+Add one row per identified person.
 
 Rules:
 - Use the EXACT filename, including .jpg
-- Multiple people may reference the same photo file
-- Fix spelling errors here, not later
+- Multiple people may reference the same photo
+- Correct spelling errors here, not later
 
 ------------------------------------------------------------
 
@@ -148,18 +162,21 @@ This file:
 - Deduplicates photos
 - Extracts years from filenames
 - Aggregates names per photo
-- Powers gallery searching
+- Powers gallery searching and filtering
 
 ------------------------------------------------------------
 
-STEP 5 – Generate thumbnails (if required)
+STEP 5 – Generate thumbnails
 
-If thumbnails do not already exist:
+Run:
 
-  mkdir -p photos-with-names/thumbnails
+  python scripts/make_thumbnails.py
 
-  magick mogrify -path photos-with-names/thumbnails -resize 600x600\> -strip \
-    photos-with-names/full/*.jpg
+This creates or updates:
+
+  photos-with-names/thumbnails/
+
+Thumbnails are generated automatically from the full-size images.
 
 ------------------------------------------------------------
 
@@ -193,15 +210,15 @@ GALLERY SEARCH BEHAVIOUR
 
 READ-ONLY DESIGN
 
-The gallery is intentionally read-only.
-All curation happens offline via the spreadsheet and scripts.
-This protects historical integrity.
+The public gallery is intentionally read-only.
+All editing and correction happens offline via the spreadsheet and scripts.
+This protects historical accuracy and consistency.
 
 ------------------------------------------------------------
 
 MAINTENANCE RULES
 
-- Always fix filename errors in the spreadsheet first
+- Always fix filename or name errors in the spreadsheet first
 - Regenerate downstream files after every change
 - Never manually edit:
   - people-data.js
@@ -209,9 +226,20 @@ MAINTENANCE RULES
 
 ------------------------------------------------------------
 
-Maintained by
-Alan Richardson
+IMAGE WORKING FILES
+
+High-resolution GIMP (.xcf) files are retained locally as authoritative working
+masters. These preserve editable text layers (names) and annotations so that
+identifications and information can be corrected or expanded over time.
+
+Only exported JPEG derivatives are included in this repository.
+
+------------------------------------------------------------
+
+Maintained by  
+Alan Richardson  
 Kinghorn Information Sources
+
 
 
 
