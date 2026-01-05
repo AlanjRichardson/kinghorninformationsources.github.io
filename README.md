@@ -46,7 +46,7 @@ kinghorninformationsources.github.io/
   scripts/
     make_people_js.py
     make_people_index.py
-    make_thumbnails.py
+ 
 
   data/
     photo_names_sorted.ods
