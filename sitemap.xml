@@ -1,53 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/index.html</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <priority>1.0</priority>
   </url>
+
   <url>
     <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/kinghorn_history.html</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/industryhistory.html</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <priority>0.8</priority>
   </url>
+
   <url>
     <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/naturalhistory.html</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/maps.html</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <priority>0.7</priority>
   </url>
+
   <url>
     <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/documents.html</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/Software.html</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <priority>0.6</priority>
   </url>
+
   <url>
     <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/Culture.html</loc>
-    <lastmod>2025-10-30</lastmod>
+    <lastmod>2026-01-07</lastmod>
     <priority>0.6</priority>
   </url>
-<url>
-    <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/names-search.html</loc>
-    <lastmod>2025-10-30</lastmod>
+
+  <url>
+    <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/gallery.html</loc>
+    <lastmod>2026-01-07</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/WarMemorial.html</loc>
+    <lastmod>2026-01-07</lastmod>
     <priority>0.6</priority>
   </url>
+
+  <url>
+    <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/epitaph.html</loc>
+    <lastmod>2026-01-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+
   <url>
     <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/ContactForm.html</loc>
-    <lastmod>2025-10-30</lastmod>
-    <priority>0.6</priority>
+    <lastmod>2026-01-07</lastmod>
+    <priority>0.5</priority>
   </url>
+
+  <url>
+    <loc>https://alanjrichardson.github.io/kinghorninformationsources.github.io/about.html</loc>
+    <lastmod>2026-01-07</lastmod>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>
+
