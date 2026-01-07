@@ -37,6 +37,7 @@ kinghorninformationsources.github.io/
     menu.js
     photos-with-names-gallery.js
     people-data.js
+    epitaph-data.js
 
   photos-with-names/
     full/
@@ -205,6 +206,26 @@ READ-ONLY DESIGN
 The public gallery is intentionally read-only.
 All editing and correction happens offline via the spreadsheet and scripts.
 This protects historical accuracy and consistency.
+
+
+------------------------------------------------------------
+
+WAR MEMORIAL – EPITAPHS SYSTEM
+
+The War Memorial pages link individual names to a shared epitaph display page
+(epitaph.html). Each name link includes a unique identifier which is used to
+load the correct epitaph content.
+
+Epitaph text and related information are stored in:
+
+  js/epitaphs-data.js
+
+This file is maintained manually. New epitaphs, corrections, or additions must
+be edited directly in the JavaScript file; there is no automated generation
+step for this part of the site.
+
+This approach reflects the small, sensitive nature of the material and allows
+careful control over wording and presentation.
 
 ------------------------------------------------------------
 
