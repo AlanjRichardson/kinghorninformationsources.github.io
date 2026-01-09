@@ -30,7 +30,8 @@ kinghorninformationsources.github.io/
   maps.html
   documents.html
   Culture.html
-
+  
+  README.md
   kinghorn.css
 
   js/
@@ -51,10 +52,17 @@ kinghorninformationsources.github.io/
 
   data/
     photo_names_sorted.ods
+    Supporting Pdfs
 
-  README.md
+ 
 
   .venv/        (local Python virtual environment – not committed)
+  
+------------------------------------------------------------
+  
+SUPPORTING DOCUMENTS
+
+All supporting documents referenced across the site (primarily PDF files) are stored directly within the repository’s data/ directory and are served locally via GitHub Pages. This approach avoids reliance on third-party hosting, ensures long-term link stability, and keeps primary source material closely coupled to the pages that reference it. The collection functions as a small, self-contained reference library, intended to complement and extend the narrative content of the site.
 
 ------------------------------------------------------------
 
