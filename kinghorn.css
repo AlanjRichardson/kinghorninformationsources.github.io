@@ -9,62 +9,6 @@ body {
   line-height: 1.6;
 }
 
-/* MAIN CONTENT */
-main {
-  margin-top: 120px;               /* increased to clear fixed header */
-  padding: 10px;
-  width: 100%;
-  max-width: 1100px;               /* helps “dynamic width” on large screens */
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #FFFFE0;
-  border: 1px solid pink;
-  box-sizing: border-box;
-}
-
-/* Divider line for section separation */
-.divider {
-  width: 80%;
-  margin: 2em auto;
-  border: none;
-  border-top: 1px solid #b68c7b;
-  opacity: 0.6;
-}
-
-/* FOOTER */
-footer {
-  margin: 0 auto;
-  padding: 1em;
-  width: 100%;
-  max-width: 1100px;
-  color: black;
-  font-size: 1em;
-  text-align: center;
-  border-top: 2px solid pink;
-  box-sizing: border-box;
-}
-
-/* LINKS */
-a {
-  color: #0645AD;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-/* FOOTER LINE LAYOUT */
-.footer-line {
-  display: flex;
-  justify-content: center;
-  gap: 1.4rem;        /* spacing between footer items */
-  flex-wrap: wrap;   /* wrap nicely on small screens */
-  margin: 0;
-}
-
-.footer-item {
-  white-space: nowrap;
-}
-
 /* ===================== */
 /* HEADER STYLES – only the main site header */
 body > header {
@@ -104,6 +48,11 @@ body > header h1 {
   box-sizing: border-box;
 }
 
+.navbar-nav li {
+  margin: 0;
+  padding: 0;
+}
+
 .navbar-nav li a {
   text-decoration: none;
   color: #FFFFFF;
@@ -121,6 +70,128 @@ body > header h1 {
   transition: all 0.3s ease;
 }
 
+/* ===================== */
+/* MAIN CONTENT */
+main {
+  margin-top: 120px;               /* increased to clear fixed header */
+  padding: 10px;
+  width: 100%;
+  max-width: 1100px;               /* helps “dynamic width” on large screens */
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFFFE0;
+  border: 1px solid pink;
+  box-sizing: border-box;
+}
+
+main p { margin: 0 0 1em 0; }
+
+/* Divider line for section separation */
+.divider {
+  width: 80%;
+  margin: 2em auto;
+  border: none;
+  border-top: 1px solid #b68c7b;
+  opacity: 0.6;
+}
+
+/* ===================== */
+/* FOOTER */
+footer {
+  margin: 0 auto;
+  padding: 1em;
+  width: 100%;
+  max-width: 1100px;
+  color: black;
+  font-size: 1em;
+  text-align: center;
+  border-top: 2px solid pink;
+  box-sizing: border-box;
+}
+
+/* LINKS */
+a {
+  color: #0645AD;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER LINE LAYOUT */
+.footer-line {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;        /* spacing between footer items */
+  flex-wrap: wrap;    /* wrap nicely on small screens */
+  margin: 0;
+}
+
+.footer-item {
+  white-space: nowrap;
+}
+
+/* ===================== */
+/* HOVER IMAGE PREVIEW (inline links)
+   HTML pattern:
+   <a class="hover-image-link" ...>Text <span><img ...></span></a>
+*/
+.hover-image-link {
+  position: relative;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hover-image-link span {
+  display: none;
+  position: absolute;
+  top: 1.6em;
+  left: 0;
+  z-index: 1100;
+  background: #ffffff;
+  padding: 6px;
+  border: 1px solid #888;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+}
+
+.hover-image-link span img {
+  max-width: 320px;
+  height: auto;
+  display: block;
+}
+
+.hover-image-link:hover span {
+  display: block;
+}
+
+/* Tablet: allow a slightly larger preview if there’s room */
+@media (max-width: 1024px) {
+  .hover-image-link span img {
+    width: min(50vw, 450px);
+    max-width: none;
+  }
+}
+
+/* Mobile safety: prevent image going off screen */
+@media (max-width: 768px) {
+  .hover-image-link span img {
+    max-width: 90vw;
+  }
+}
+
+/* Smaller phones: position popup beneath link */
+@media (max-width: 600px) {
+  .hover-image-link span {
+    left: 0;
+    top: 110%;
+  }
+  .hover-image-link span img {
+    width: 80vw;
+    max-width: none;
+  }
+}
+
+/* ===================== */
 /* HIDE MOBILE HAMBURGER ON DESKTOP */
 .navbar-toggler {
   display: none;
@@ -200,14 +271,10 @@ h4 { font-weight: bold; font-size: 1.5em; color: black; text-align: left; }
 h5 { font-weight: bold; font-size: 1em; text-align: left; color: black; }
 
 /* ===================== */
-/* LIST STYLING */
-ul, li {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  font-size: 1em;
-  color: black;
-}
+/* LIST STYLING
+   NOTE: Do NOT remove bullets globally (keeps content lists readable).
+   Navigation list styling is handled above by .navbar-nav.
+*/
 
 /* ===================== */
 /* FORM STYLING */
@@ -248,54 +315,7 @@ img {
 figure { margin: 1em 0; text-align: center; }
 figcaption { font-size: 0.95em; color: #555; margin-top: 0.5em; }
 
-/* ===================== */
-/* HOVER IMAGE LINK */
-.hover-image-link {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  color: darkblue;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.hover-image-link span {
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 10px);
-  transform: translateY(-50%);
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
-  z-index: 10;
-  pointer-events: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .hover-image-link:hover span {
-    visibility: visible;
-    opacity: 1;
-    transition-delay: 0s;
-  }
-}
-
-.hover-image-link span img {
-  display: block;
-  width: min(40vw, 500px);
-  height: auto;
-  border: 2px solid pink;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  background-color: #FFFFE0;
-}
-
-@media (max-width: 1024px) {
-  .hover-image-link span img { width: min(50vw, 450px); }
-}
-@media (max-width: 600px) {
-  .hover-image-link span { left: 0; top: 110%; transform: translateY(0); }
-  .hover-image-link span img { width: 80vw; }
-}
+small { font-size: 0.85em; color: #555; }
 
 /* ===================== */
 /* TABLE OF CONTENTS */
@@ -317,8 +337,6 @@ figcaption { font-size: 0.95em; color: #555; margin-top: 0.5em; }
 #toc ul { padding-left: 20px; }
 #toc ul li { margin: 5px 0; }
 
-main p { margin: 0 0 1em 0; }
-
 main blockquote {
   margin: 10px 0 10px 20px;
   padding: 10px 15px;
@@ -335,8 +353,6 @@ main pre, main code {
   font-family: monospace;
   overflow-x: auto;
 }
-
-small { font-size: 0.85em; color: #555; }
 
 /* ==========================================================
    NAME SEARCH PAGE (names-search.html)
