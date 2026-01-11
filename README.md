@@ -55,9 +55,6 @@ Supporting PDFs
 
 .venv/ (local Python virtual environment – not committed)
 
-sql
-Copy code
-
 ------------------------------------------------------------
 
 ## Supporting documents
