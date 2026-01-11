@@ -22,22 +22,22 @@ purpose.
 
 kinghorninformationsources.github.io/
 
-index.html
-gallery.html
-kinghorn_history.html
-industryhistory.html
-naturalhistory.html
-maps.html
-documents.html
+index.html, 
+gallery.html, 
+kinghorn_history.html, 
+industryhistory.html, 
+naturalhistory.html, 
+maps.html, 
+documents.html, 
 Culture.html
 
-README.md
+README.md, 
 kinghorn.css
 
 js/
-menu.js
-photos-with-names-gallery.js
-people-data.js
+menu.js, 
+photos-with-names-gallery.js, 
+people-data.js, 
 epitaphs-data.js
 
 photos-with-names/
@@ -46,11 +46,11 @@ thumbnails/
 people-index.json
 
 scripts/
-make_people_js.py
+make_people_js.py, 
 make_people_index.py
 
 data/
-photo_names_sorted.ods
+photo_names_sorted.ods, 
 Supporting PDFs
 
 .venv/ (local Python virtual environment – not committed)
@@ -83,8 +83,6 @@ The authoritative source for named photographs is a LibreOffice spreadsheet:
 
 data/photo_names_sorted.ods
 
-sql
-Copy code
 
 This file contains:
 - Surname
@@ -105,17 +103,11 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-csharp
-Copy code
-
 Use as required:
 
 source .venv/bin/activate
 python scripts/make_people_js.py
 python scripts/make_people_index.py
-
-sql
-Copy code
 
 The scripts will warn if the virtual environment is not active.
 
@@ -130,9 +122,6 @@ Follow these steps **in order**.
 Copy the image into:
 
 photos-with-names/full/
-
-markdown
-Copy code
 
 File naming rules:
 - Include a year where possible (e.g. `School1948.jpg`)
@@ -149,9 +138,6 @@ Edit:
 
 data/photo_names_sorted.ods
 
-markdown
-Copy code
-
 Add one row per identified person.
 
 Rules:
@@ -167,22 +153,13 @@ Run:
 
 python scripts/make_people_js.py
 
-yaml
-Copy code
-
 This overwrites:
 
 js/people-data.js
 
-python
-Copy code
-
 It also creates or updates:
 
 photos-with-names/thumbnails/
-
-csharp
-Copy code
 
 Thumbnails are generated automatically from the full-size images.
 
@@ -196,15 +173,9 @@ Run:
 
 python scripts/make_people_index.py
 
-yaml
-Copy code
-
 This produces:
 
 photos-with-names/people-index.json
-
-markdown
-Copy code
 
 This file:
 - Deduplicates photos
@@ -219,9 +190,6 @@ This file:
 git add .
 git commit -m "Add new named photos"
 git push
-
-markdown
-Copy code
 
 GitHub Pages updates automatically.
 
@@ -263,9 +231,6 @@ load the correct epitaph content.
 Epitaph text and related information are stored in:
 
 js/epitaphs-data.js
-
-markdown
-Copy code
 
 This file is maintained manually. New epitaphs, corrections, or additions are
 edited directly in the JavaScript file; there is no automated generation step for
