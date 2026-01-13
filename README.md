@@ -40,10 +40,12 @@ photos-with-names-gallery.js,
 people-data.js, 
 epitaphs-data.js
 
-photos-with-names/
-full/
-thumbnails/
-people-index.json
+photos-with-names/people-index.json, photos.json
+
+full/		'All full size images in .jpg format
+
+thumbnails/ 'Thumbnails of full size images
+
 
 scripts/
 make_people_js.py, 
@@ -107,8 +109,8 @@ Use as required:
 
 source .venv/bin/activate
 
-python scripts/make_people_js.py
-python scripts/make_people_index.py
+scripts/make_people_js.py
+scripts/make_people_index.py
 
 The scripts will warn if the virtual environment is not active.
 
@@ -152,7 +154,7 @@ Rules:
 
 Run:
 
-python scripts/make_people_js.py
+scripts/make_people_js.py
 
 This overwrites:
 
@@ -172,7 +174,7 @@ Thumbnails are generated automatically from the full-size images.
 
 Run:
 
-python scripts/make_people_index.py
+scripts/make_people_index.py
 
 This produces:
 
