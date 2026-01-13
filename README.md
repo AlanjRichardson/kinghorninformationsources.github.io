@@ -59,9 +59,9 @@ Supporting PDFs
 
 ## Supporting documents
 
-All supporting documents referenced across the site (primarily PDF files) are
+Many of the supporting documents that are referenced across the site (primarily PDF files) are
 stored directly within the repository’s `data/` directory and are served locally
-via GitHub Pages. This avoids reliance on third-party hosting, ensures long-term
+via GitHub Pages. This reduces reliance on third-party hosting, ensures long-term
 link stability, and keeps primary source material closely coupled to the pages
 that reference it.
 
@@ -106,6 +106,7 @@ pip install -r requirements.txt
 Use as required:
 
 source .venv/bin/activate
+
 python scripts/make_people_js.py
 python scripts/make_people_index.py
 
