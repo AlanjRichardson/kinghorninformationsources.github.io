@@ -55,6 +55,7 @@ data/
 photo_names_sorted.ods, 
 Supporting PDFs
 
+
 .venv/ (local Python virtual environment – not committed)
 
 ------------------------------------------------------------
