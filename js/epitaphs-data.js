@@ -45,4 +45,25 @@ const EPITAPHS = {
       "At the time, the family lived at 28 High Street, Kinghorn."
     ]
   }
+  
+    "william-wilson": {
+    fullName: "Sergeant William Wilson",
+    rank: "Sergeant",
+    unit: "2nd Battalion, Scots Guards",
+    conflict: "Second World War (1939–1945)",
+    subtitle: "Scots Guards · Killed in action, Western Europe, 7 April 1945, aged 23",
+    image: "images/WilliamWilson.jpg",
+    imageCaption: "Sergeant William Wilson, 2nd Battalion Scots Guards",
+    shortQuote: "A loving son, a brother dear, a faithful friend.",
+    quoteSource: "Family memorial card",
+    tributeBy: "Family memorial card",
+    paragraphs: [
+      "Sergeant William Wilson of the 2nd Battalion, Scots Guards, was the younger and dearly loved son of Mr and Mrs T. Wilson of Abden Farm, Kinghorn.",
+      "He served with distinction during the Second World War and was killed in action in Western Europe on 7 April 1945, aged 23, only weeks before the end of the conflict.",
+      "William was remembered by his family as a devoted son, a dear brother, and a faithful friend. Though he lies in a foreign grave, he remains close in memory at home.",
+      "His name is recorded with honour on the Kinghorn War Memorial, among those who gave their lives in service during the war."
+    ]
+  }
+
+  
 };
