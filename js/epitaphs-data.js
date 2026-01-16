@@ -44,9 +44,9 @@ const EPITAPHS = {
       "He was killed in action in April 1917. John, along with many others, is remembered on Kinghorn’s War Memorial.",
       "At the time, the family lived at 28 High Street, Kinghorn."
     ]
-  }
-  
-    "william-wilson": {
+  },
+
+  "william-wilson": {
     fullName: "Sergeant William Wilson",
     rank: "Sergeant",
     unit: "2nd Battalion, Scots Guards",
@@ -64,6 +64,4 @@ const EPITAPHS = {
       "His name is recorded with honour on the Kinghorn War Memorial, among those who gave their lives in service during the war."
     ]
   }
-
-  
 };
