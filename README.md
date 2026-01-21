@@ -202,7 +202,7 @@ GitHub Pages updates automatically.
 ## Gallery search behaviour
 
 - **Year search** (e.g. `1948`)
-  - Shows each photo once
+  - Shows all photos for the selected year
   - No names shown
   - Intended for visual browsing
 
@@ -212,7 +212,7 @@ GitHub Pages updates automatically.
   - No duplicate photo tiles
 
 - **Empty search**
-  - Shows all photos
+  - Shows all the gallery photos
   - Caption shows filename (no extension)
 
 ------------------------------------------------------------
