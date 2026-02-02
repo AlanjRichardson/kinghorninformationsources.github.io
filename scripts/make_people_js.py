@@ -7,11 +7,13 @@ from pathlib import Path
 import pandas as pd
 
 import sys
+from pathlib import Path
+
 if sys.prefix == sys.base_prefix:
     print("WARNING: virtual environment not active")
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
-REPO_ROOT = Path("/home/alan/kinghorninformationsources.github.io")
 
 INPUT_ODS = REPO_ROOT / "data" / "photo_names_sorted.ods"
 OUTPUT_JS = REPO_ROOT / "js" / "people-data.js"

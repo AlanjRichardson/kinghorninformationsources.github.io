@@ -4,15 +4,17 @@ import re
 import sys
 from pathlib import Path
 
-import sys
 if sys.prefix == sys.base_prefix:
     print("WARNING: virtual environment not active")
 
 
-REPO_ROOT = Path("/home/alan/kinghorninformationsources.github.io")
+REPO_ROOT = Path(__file__).resolve().parents[1]
 
-PEOPLE_JS = REPO_ROOT / "js" / "people-data.js"   # change if yours is elsewhere
-OUT_JSON  = REPO_ROOT / "photos-with-names" / "people-index.json"  # output for gallery use
+PEOPLE_JS = REPO_ROOT / "js" / "people-data.js"
+OUT_JSON  = REPO_ROOT / "photos-with-names" / "people-index.json"
+
+
+
 
 def die(msg):
     print(f"ERROR: {msg}", file=sys.stderr)
