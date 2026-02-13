@@ -2,18 +2,15 @@
 import json
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 import pandas as pd
-
-import sys
-from pathlib import Path
 
 if sys.prefix == sys.base_prefix:
     print("WARNING: virtual environment not active")
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-
 
 INPUT_ODS = REPO_ROOT / "data" / "photo_names_sorted.ods"
 OUTPUT_JS = REPO_ROOT / "js" / "people-data.js"
@@ -22,7 +19,7 @@ OUTPUT_JS = REPO_ROOT / "js" / "people-data.js"
 FULL_DIR = REPO_ROOT / "photos-with-names" / "full"
 THUMB_DIR = REPO_ROOT / "photos-with-names" / "thumbnails"
 
-# Default thumbnail settings (match your earlier approach)
+# Default thumbnail settings
 THUMB_MAX = "420x"      # max width 420, keep aspect
 JPEG_QUALITY = "82"
 
@@ -46,9 +43,23 @@ def norm_photo_file(s: str) -> str:
 
     return s
 
-def magick_available() -> bool:
+def find_imagemagick_cmd() -> str | None:
+    """
+    Return the ImageMagick CLI command to use.
+    - ImageMagick 7 typically provides `magick`
+    - Ubuntu 24.04 provides ImageMagick 6, typically `convert`
+    """
+    # Avoid importing shutil if you prefer; but it's fine:
+    import shutil
+    return shutil.which("magick") or shutil.which("convert")
+
+def imagemagick_available(cmd: str) -> bool:
+    """
+    Check whether the given ImageMagick command is usable.
+    `convert -version` works for IM6, `magick -version` works for IM7.
+    """
     try:
-        subprocess.run(["magick", "-version"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+        subprocess.run([cmd, "-version"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
         return True
     except Exception:
         return False
@@ -58,13 +69,14 @@ def ensure_thumbnails(files: list[str]) -> None:
     Create thumbnails only for files that exist in FULL_DIR
     and are missing in THUMB_DIR.
     """
-    if not magick_available():
-        print("NOTE: ImageMagick 'magick' not found. Skipping thumbnail generation.")
+    im_cmd = find_imagemagick_cmd()
+    if not im_cmd or not imagemagick_available(im_cmd):
+        print("NOTE: ImageMagick not found (expected 'convert' on Ubuntu 24.04). Skipping thumbnail generation.")
         return
 
     THUMB_DIR.mkdir(parents=True, exist_ok=True)
 
-    to_make = []
+    to_make: list[str] = []
     for fn in sorted(set(files)):
         if not fn:
             continue
@@ -72,7 +84,6 @@ def ensure_thumbnails(files: list[str]) -> None:
         thumb_path = THUMB_DIR / fn
 
         if not full_path.exists():
-            # Don't error; just warn
             print(f"WARNING: full image missing: {full_path}")
             continue
 
@@ -83,16 +94,22 @@ def ensure_thumbnails(files: list[str]) -> None:
         print("Thumbnails: all present (no new thumbnails needed).")
         return
 
-    print(f"Thumbnails: generating {len(to_make)} new thumbnail(s)…")
+    print(f"Thumbnails: generating {len(to_make)} new thumbnail(s) using '{Path(im_cmd).name}'…")
 
-    # Create one by one (safer with odd filenames)
     for fn in to_make:
         full_path = FULL_DIR / fn
         thumb_path = THUMB_DIR / fn
+
+        # Ensure subfolders exist if filenames ever include paths
+        thumb_path.parent.mkdir(parents=True, exist_ok=True)
+
         try:
+            # Works for both:
+            # IM7: magick input ... output
+            # IM6: convert input ... output
             subprocess.run(
                 [
-                    "magick",
+                    im_cmd,
                     str(full_path),
                     "-thumbnail", THUMB_MAX,
                     "-strip",
@@ -108,16 +125,17 @@ def main():
     if not INPUT_ODS.exists():
         raise SystemExit(f"ERROR: Cannot find {INPUT_ODS.resolve()}")
 
-    # Read the .ods
     df = pd.read_excel(INPUT_ODS, engine="odf")
 
     required_cols = ["Surname", "Full Name", "Photo File Name"]
     for c in required_cols:
         if c not in df.columns:
-            raise SystemExit(f"ERROR: Column '{c}' not found in {INPUT_ODS.name}. Found: {list(df.columns)}")
+            raise SystemExit(
+                f"ERROR: Column '{c}' not found in {INPUT_ODS.name}. Found: {list(df.columns)}"
+            )
 
-    records = []
-    photo_files = []
+    records: list[dict] = []
+    photo_files: list[str] = []
 
     for _, row in df.iterrows():
         surname = str(row.get("Surname", "") or "").strip()
@@ -139,7 +157,6 @@ def main():
         if photo_file:
             photo_files.append(photo_file)
 
-    # Write JS file
     OUTPUT_JS.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT_JS.open("w", encoding="utf-8") as f:
         f.write("const people = [\n")
@@ -150,10 +167,10 @@ def main():
     print(f"Wrote {len(records)} records to {OUTPUT_JS}")
 
     # Optional: generate missing thumbnails
-    # Comment this out if you don't want it automatic
     ensure_thumbnails(photo_files)
 
 if __name__ == "__main__":
     main()
+
 
 
