@@ -108,7 +108,7 @@ pip install -r requirements.txt
 
 Use as required:
 
-source .venv/bin/activate
+source ~/venvs/kinghorn/bin/activate
 
 scripts/make_people_js.py
 scripts/make_people_index.py

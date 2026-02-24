@@ -305,6 +305,11 @@
     "photoFile": "School1987.jpg"
   },
   {
+    "surname": "Balfour",
+    "fullName": "Mollie Balfour",
+    "photoFile": "School1992.jpg"
+  },
+  {
     "surname": "Ballantyne",
     "fullName": "Anne Ballantyne",
     "photoFile": "School1971.jpg"
@@ -1130,6 +1135,11 @@
     "photoFile": "School1948a.jpg"
   },
   {
+    "surname": "Cairns",
+    "fullName": "David Cairns",
+    "photoFile": "FamilyMcCool1963.jpg"
+  },
+  {
     "surname": "Cameron",
     "fullName": "Colin Cameron",
     "photoFile": "School1962.jpg"
@@ -1778,6 +1788,11 @@
     "surname": "Cummings",
     "fullName": "Susan Cummings",
     "photoFile": "School1971.jpg"
+  },
+  {
+    "surname": "Cummings",
+    "fullName": "Olive Cummings",
+    "photoFile": "FamilyMcCool1963.jpg"
   },
   {
     "surname": "Cunningham",
@@ -3343,6 +3358,11 @@
     "surname": "Hay",
     "fullName": "Jimmy Hay",
     "photoFile": "GalaQueen1950a.jpg"
+  },
+  {
+    "surname": "Haynes",
+    "fullName": "Ken Haynes",
+    "photoFile": "KenEddie1960.jpg"
   },
   {
     "surname": "Henderson",
@@ -5095,6 +5115,21 @@
     "photoFile": "FamilyMcCool1963.jpg"
   },
   {
+    "surname": "McCool",
+    "fullName": "Jerry McCool",
+    "photoFile": "FamilyMcCool1963.jpg"
+  },
+  {
+    "surname": "McCool",
+    "fullName": "Michael McCool",
+    "photoFile": "FamilyMcCool1963.jpg"
+  },
+  {
+    "surname": "McCool",
+    "fullName": "Katie McCool",
+    "photoFile": "FamilyMcCool1963.jpg"
+  },
+  {
     "surname": "McCrae",
     "fullName": "Andrew.McCrae",
     "photoFile": "Cleekworks1910.jpg"
@@ -5745,6 +5780,11 @@
     "photoFile": "School1928.jpg"
   },
   {
+    "surname": "McNicol",
+    "fullName": "Rober McNicol",
+    "photoFile": "School1992.jpg"
+  },
+  {
     "surname": "McQuarrie",
     "fullName": "Dave McQuarrie",
     "photoFile": "GroupBillyWardsWedding1962.jpg"
@@ -5798,6 +5838,11 @@
     "surname": "Melville",
     "fullName": "S Melville",
     "photoFile": "School1945.jpg"
+  },
+  {
+    "surname": "Melville",
+    "fullName": "Deborah",
+    "photoFile": "School1992.jpg"
   },
   {
     "surname": "Menzies",
@@ -6113,6 +6158,16 @@
     "surname": "Morris",
     "fullName": "Margaret Morris",
     "photoFile": "FamilyFrancesMargaretMorris1958.jpg"
+  },
+  {
+    "surname": "Morris",
+    "fullName": "Mr Morris",
+    "photoFile": "GroupMorrisPrize.jpg"
+  },
+  {
+    "surname": "Morris",
+    "fullName": "Mrs Morris",
+    "photoFile": "GroupMorrisPrize.jpg"
   },
   {
     "surname": "Morrison",
@@ -7478,6 +7533,11 @@
     "surname": "Robertson",
     "fullName": "Maitland Robertson",
     "photoFile": "School1946.jpg"
+  },
+  {
+    "surname": "Robertson",
+    "fullName": "Eddie Robertson",
+    "photoFile": "KenEddie1960.jpg"
   },
   {
     "surname": "Rollo",
@@ -9148,6 +9208,11 @@
     "surname": "Young",
     "fullName": "Willie Young",
     "photoFile": "bowlingclub1967.jpg"
+  },
+  {
+    "surname": "Young",
+    "fullName": "Gill Young",
+    "photoFile": "School1992.jpg"
   },
   {
     "surname": "Zieleniec",
