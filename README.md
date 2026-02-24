@@ -104,7 +104,6 @@ The Python scripts in this repository require a virtual environment.
 
 Create a shared virtual environment outside the repository:
 
-```bash
 mkdir -p ~/venvs
 python3 -m venv ~/venvs/kinghorn
 source ~/venvs/kinghorn/bin/activate
