@@ -98,17 +98,27 @@ All downstream files used by the gallery are generated from this spreadsheet.
 
 ## Python environment
 
-The Python scripts require a virtual environment.
+The Python scripts in this repository require a virtual environment.
 
-One-time setup (from the repository root):
+### One-time setup (recommended: central venv)
 
-python3 -m venv .venv
-source .venv/bin/activate
+Create a shared virtual environment outside the repository:
+
+```bash
+mkdir -p ~/venvs
+python3 -m venv ~/venvs/kinghorn
+source ~/venvs/kinghorn/bin/activate
 pip install -r requirements.txt
 
-Use as required:
+The virtual environment is kept outside the repository so build files are not committed and the site remains purely static.
+
+## Using the scripts
+
+Activate the virtual environment from any directory:
 
 source ~/venvs/kinghorn/bin/activate
+
+From the repository root (kinghorninformationsources.github.io), run:
 
 scripts/make_people_js.py
 scripts/make_people_index.py
