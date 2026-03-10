@@ -13,73 +13,62 @@ if sys.prefix == sys.base_prefix:
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
 INPUT_ODS = REPO_ROOT / "data" / "photo_names_sorted.ods"
-OUTPUT_JS = REPO_ROOT / "js" / "people-data.js"
 
-# Where your gallery images live
+OUTPUT_JS = REPO_ROOT / "js" / "people-data.js"
+OUTPUT_JSON = REPO_ROOT / "photos-with-names" / "people-index.json"
+
 FULL_DIR = REPO_ROOT / "photos-with-names" / "full"
 THUMB_DIR = REPO_ROOT / "photos-with-names" / "thumbnails"
 
-# Default thumbnail settings
-THUMB_MAX = "420x"      # max width 420, keep aspect
+THUMB_MAX = "420x"
 JPEG_QUALITY = "82"
 
+
 # -------- HELPERS --------
+
 def norm_photo_file(s: str) -> str:
-    """
-    Normalise photo file names coming from the spreadsheet:
-    - trim whitespace
-    - remove any leading folder like 'full/' or 'thumbnails/'
-    - if no extension, assume .jpg
-    - DO NOT change case (GitHub Pages is case-sensitive)
-    """
     s = (s or "").strip()
 
-    # Remove accidental leading folders
     s = re.sub(r"^(?:full/|thumbnails/)+", "", s, flags=re.IGNORECASE)
 
-    # Add .jpg if no extension present
     if s and not re.search(r"\.[A-Za-z0-9]{2,4}$", s):
         s += ".jpg"
 
     return s
 
-def find_imagemagick_cmd() -> str | None:
-    """
-    Return the ImageMagick CLI command to use.
-    - ImageMagick 7 typically provides `magick`
-    - Ubuntu 24.04 provides ImageMagick 6, typically `convert`
-    """
-    # Avoid importing shutil if you prefer; but it's fine:
+
+def find_imagemagick_cmd():
     import shutil
     return shutil.which("magick") or shutil.which("convert")
 
-def imagemagick_available(cmd: str) -> bool:
-    """
-    Check whether the given ImageMagick command is usable.
-    `convert -version` works for IM6, `magick -version` works for IM7.
-    """
+
+def imagemagick_available(cmd):
     try:
-        subprocess.run([cmd, "-version"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
+        subprocess.run([cmd, "-version"],
+                       stdout=subprocess.DEVNULL,
+                       stderr=subprocess.DEVNULL,
+                       check=True)
         return True
     except Exception:
         return False
 
-def ensure_thumbnails(files: list[str]) -> None:
-    """
-    Create thumbnails only for files that exist in FULL_DIR
-    and are missing in THUMB_DIR.
-    """
+
+def ensure_thumbnails(files):
+
     im_cmd = find_imagemagick_cmd()
+
     if not im_cmd or not imagemagick_available(im_cmd):
-        print("NOTE: ImageMagick not found (expected 'convert' on Ubuntu 24.04). Skipping thumbnail generation.")
+        print("NOTE: ImageMagick not found — skipping thumbnail generation.")
         return
 
     THUMB_DIR.mkdir(parents=True, exist_ok=True)
 
-    to_make: list[str] = []
+    to_make = []
+
     for fn in sorted(set(files)):
         if not fn:
             continue
+
         full_path = FULL_DIR / fn
         thumb_path = THUMB_DIR / fn
 
@@ -91,86 +80,115 @@ def ensure_thumbnails(files: list[str]) -> None:
             to_make.append(fn)
 
     if not to_make:
-        print("Thumbnails: all present (no new thumbnails needed).")
+        print("Thumbnails: all present.")
         return
 
-    print(f"Thumbnails: generating {len(to_make)} new thumbnail(s) using '{Path(im_cmd).name}'…")
+    print(f"Thumbnails: generating {len(to_make)} new thumbnail(s)…")
 
     for fn in to_make:
+
         full_path = FULL_DIR / fn
         thumb_path = THUMB_DIR / fn
 
-        # Ensure subfolders exist if filenames ever include paths
         thumb_path.parent.mkdir(parents=True, exist_ok=True)
 
         try:
-            # Works for both:
-            # IM7: magick input ... output
-            # IM6: convert input ... output
-            subprocess.run(
-                [
-                    im_cmd,
-                    str(full_path),
-                    "-thumbnail", THUMB_MAX,
-                    "-strip",
-                    "-quality", JPEG_QUALITY,
-                    str(thumb_path),
-                ],
-                check=True,
-            )
+            subprocess.run([
+                im_cmd,
+                str(full_path),
+                "-thumbnail", THUMB_MAX,
+                "-strip",
+                "-quality", JPEG_QUALITY,
+                str(thumb_path),
+            ], check=True)
+
         except subprocess.CalledProcessError as e:
             print(f"ERROR: failed to thumbnail {fn}: {e}")
 
-def main():
+
+# -------- MAIN LOGIC --------
+
+def load_records():
+
     if not INPUT_ODS.exists():
-        raise SystemExit(f"ERROR: Cannot find {INPUT_ODS.resolve()}")
+        raise SystemExit(f"ERROR: Cannot find {INPUT_ODS}")
 
     df = pd.read_excel(INPUT_ODS, engine="odf")
 
     required_cols = ["Surname", "Full Name", "Photo File Name"]
+
     for c in required_cols:
         if c not in df.columns:
             raise SystemExit(
-                f"ERROR: Column '{c}' not found in {INPUT_ODS.name}. Found: {list(df.columns)}"
+                f"ERROR: Column '{c}' not found in {INPUT_ODS.name}"
             )
 
-    records: list[dict] = []
-    photo_files: list[str] = []
+    records = []
+    photo_files = []
 
     for _, row in df.iterrows():
+
         surname = str(row.get("Surname", "") or "").strip()
         full_name = str(row.get("Full Name", "") or "").strip()
         photo_file_raw = str(row.get("Photo File Name", "") or "").strip()
 
-        # Skip obvious empty rows
         if not surname and not full_name and not photo_file_raw:
             continue
 
         photo_file = norm_photo_file(photo_file_raw)
 
-        records.append({
+        rec = {
             "surname": surname,
             "fullName": full_name,
             "photoFile": photo_file
-        })
+        }
+
+        records.append(rec)
 
         if photo_file:
             photo_files.append(photo_file)
 
+    return records, photo_files
+
+
+def write_people_js(records):
+
     OUTPUT_JS.parent.mkdir(parents=True, exist_ok=True)
+
     with OUTPUT_JS.open("w", encoding="utf-8") as f:
+
         f.write("const people = [\n")
+
         for rec in records:
             f.write("  " + json.dumps(rec, ensure_ascii=False) + ",\n")
+
         f.write("];\n")
 
-    print(f"Wrote {len(records)} records to {OUTPUT_JS}")
+    print(f"Wrote {len(records)} records → {OUTPUT_JS}")
 
-    # Optional: generate missing thumbnails
+
+def write_people_json(records):
+
+    OUTPUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+
+    OUTPUT_JSON.write_text(
+        json.dumps(records, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+
+    print(f"Wrote {len(records)} records → {OUTPUT_JSON}")
+
+
+def main():
+
+    records, photo_files = load_records()
+
+    write_people_js(records)
+
+    write_people_json(records)
+
     ensure_thumbnails(photo_files)
+
 
 if __name__ == "__main__":
     main()
-
-
-

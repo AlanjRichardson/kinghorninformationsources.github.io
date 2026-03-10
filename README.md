@@ -22,39 +22,35 @@ purpose.
 
 kinghorninformationsources.github.io/
 
-index.html, 
-gallery.html, 
-kinghorn_history.html, 
-industryhistory.html, 
-naturalhistory.html, 
-maps.html, 
-documents.html, 
-Culture.html
+index.html  
+gallery.html  
+kinghorn_history.html  
+industryhistory.html  
+naturalhistory.html  
+maps.html  
+documents.html  
+Culture.html  
 
-README.md, 
-kinghorn.css
+README.md  
+kinghorn.css  
 
-js/
-menu.js, 
-photos-with-names-gallery.js, 
-people-data.js, 
-epitaphs-data.js
+js/  
+&nbsp;&nbsp;&nbsp;&nbsp;menu.js  
+&nbsp;&nbsp;&nbsp;&nbsp;photos-with-names-gallery.js  
+&nbsp;&nbsp;&nbsp;&nbsp;people-data.js  
+&nbsp;&nbsp;&nbsp;&nbsp;epitaphs-data.js  
 
-photos-with-names/people-index.json, photos.json
+photos-with-names/  
+&nbsp;&nbsp;&nbsp;&nbsp;full/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;All full size images in `.jpg` format  
+&nbsp;&nbsp;&nbsp;&nbsp;thumbnails/ &nbsp;&nbsp;&nbsp;Generated thumbnails  
+&nbsp;&nbsp;&nbsp;&nbsp;people-index.json  
 
-full/		'All full size images in .jpg format
+scripts/  
+&nbsp;&nbsp;&nbsp;&nbsp;build_people.py  
 
-thumbnails/ 'Thumbnails of full size images
-
-
-scripts/
-make_people_js.py, 
-make_people_index.py
-
-data/
-photo_names_sorted.ods, 
-Supporting PDFs
-
+data/  
+&nbsp;&nbsp;&nbsp;&nbsp;photo_names_sorted.ods  
+&nbsp;&nbsp;&nbsp;&nbsp;Supporting PDFs  
 
 .venv/ (local Python virtual environment – not committed)
 
@@ -62,11 +58,12 @@ Supporting PDFs
 
 ## Supporting documents
 
-Many of the supporting documents that are referenced across the site (primarily PDF files) are
-stored directly within the repository’s `data/` directory and are served locally
-via GitHub Pages. This reduces reliance on third-party hosting, ensures long-term
-link stability, and keeps primary source material closely coupled to the pages
-that reference it.
+Many of the supporting documents referenced across the site (primarily PDF files)
+are stored directly within the repository’s `data/` directory and are served
+locally via GitHub Pages.
+
+This reduces reliance on third-party hosting, ensures long-term link stability,
+and keeps primary source material closely coupled to the pages that reference it.
 
 Taken together, these documents form a small, self-contained reference library
 intended to complement and extend the narrative content of the site.
@@ -75,7 +72,7 @@ intended to complement and extend the narrative content of the site.
 
 ## Photos with Names – gallery system
 
-The *Photos With Names* gallery is driven entirely by structured data generated
+The **Photos With Names** gallery is driven entirely by structured data generated
 offline. The public-facing site is read-only.
 
 ------------------------------------------------------------
@@ -86,13 +83,13 @@ The authoritative source for named photographs is a LibreOffice spreadsheet:
 
 data/photo_names_sorted.ods
 
-
 This file contains:
+
 - Surname
 - Full name
 - Photo file name
 
-All downstream files used by the gallery are generated from this spreadsheet.
+All gallery data files are generated from this spreadsheet.
 
 ------------------------------------------------------------
 
@@ -104,25 +101,33 @@ The Python scripts in this repository require a virtual environment.
 
 Create a shared virtual environment outside the repository:
 
+```
 mkdir -p ~/venvs
 python3 -m venv ~/venvs/kinghorn
 source ~/venvs/kinghorn/bin/activate
 pip install -r requirements.txt
+```
 
-The virtual environment is kept outside the repository so build files are not committed and the site remains purely static.
+The virtual environment is kept outside the repository so build files are not
+committed and the site remains purely static.
 
-## Using the scripts
+------------------------------------------------------------
+
+## Using the script
 
 Activate the virtual environment from any directory:
 
+```
 source ~/venvs/kinghorn/bin/activate
+```
 
-From the repository root (kinghorninformationsources.github.io), run:
+From the repository root (`kinghorninformationsources.github.io`), run:
 
-scripts/make_people_js.py
-scripts/make_people_index.py
+```
+scripts/build_people.py
+```
 
-The scripts will warn if the virtual environment is not active.
+The script will warn if the virtual environment is not active.
 
 ------------------------------------------------------------
 
@@ -130,15 +135,20 @@ The scripts will warn if the virtual environment is not active.
 
 Follow these steps **in order**.
 
+------------------------------------------------------------
+
 ### Step 1 – Add the full-size photo
 
 Copy the image into:
 
+```
 photos-with-names/full/
+```
 
 File naming rules:
+
 - Include a year where possible (e.g. `School1948.jpg`)
-- If multiple photos exist for a year, suffix with a letter:
+- If multiple photos exist for a year, suffix with a letter  
   `School1948a.jpg`, `School1948b.jpg`
 - Use consistent spelling and casing
 - Always include the `.jpg` extension
@@ -149,60 +159,48 @@ File naming rules:
 
 Edit:
 
+```
 data/photo_names_sorted.ods
+```
 
-Add one row per identified person.
+Add **one row per identified person**.
 
 Rules:
-- Use the **exact** filename, including `.jpg`
+
+- Use the **exact filename**, including `.jpg`
 - Multiple people may reference the same photo
 - Correct spelling errors here, not later
 
 ------------------------------------------------------------
 
-### Step 3 – Generate `people-data.js`
+### Step 3 – Build gallery data
 
 Run:
 
-scripts/make_people_js.py
+```
+scripts/build_people.py
+```
 
-This overwrites:
+This script:
 
-js/people-data.js
+- Reads `photo_names_sorted.ods`
+- Generates `js/people-data.js`
+- Generates `photos-with-names/people-index.json`
+- Creates or updates thumbnails in `photos-with-names/thumbnails/`
 
-It also creates or updates:
+These files are **generated automatically**.
 
-photos-with-names/thumbnails/
-
-Thumbnails are generated automatically from the full-size images.
-
-**Do not edit this file manually.**
-
-------------------------------------------------------------
-
-### Step 4 – Generate the photo index
-
-Run:
-
-scripts/make_people_index.py
-
-This produces:
-
-photos-with-names/people-index.json
-
-This file:
-- Deduplicates photos
-- Extracts years from filenames
-- Aggregates names per photo
-- Powers gallery searching and filtering
+**Do not edit them manually.**
 
 ------------------------------------------------------------
 
-### Step 5 – Commit and publish
+### Step 4 – Commit and publish
 
+```
 git add .
 git commit -m "Add new named photos"
 git push
+```
 
 GitHub Pages updates automatically.
 
@@ -210,26 +208,30 @@ GitHub Pages updates automatically.
 
 ## Gallery search behaviour
 
-- **Year search** (e.g. `1948`)
-  - Shows all photos for the selected year
-  - No names shown
-  - Intended for visual browsing
+### Year search (e.g. `1948`)
 
-- **Name search** (e.g. `Richardson`)
-  - Shows matching photos
-  - Caption shows full names only
-  - No duplicate photo tiles
+- Shows all photos for the selected year
+- No names shown
+- Intended for visual browsing
 
-- **Empty search**
-  - Shows all the gallery photos
-  - Caption shows filename (no extension)
+### Name search (e.g. `Richardson`)
+
+- Shows matching photos
+- Caption shows full names only
+- No duplicate photo tiles
+
+### Empty search
+
+- Shows all gallery photos
+- Caption shows filename (no extension)
 
 ------------------------------------------------------------
 
 ## Read-only design
 
-The public gallery is intentionally read-only.  
-All editing and correction happens offline via the spreadsheet and scripts.
+The public gallery is intentionally read-only.
+
+All editing and correction happens offline via the spreadsheet and build script.
 
 This approach protects historical accuracy and internal consistency.
 
@@ -243,7 +245,9 @@ load the correct epitaph content.
 
 Epitaph text and related information are stored in:
 
+```
 js/epitaphs-data.js
+```
 
 This file is maintained manually. New epitaphs, corrections, or additions are
 edited directly in the JavaScript file; there is no automated generation step for
@@ -277,9 +281,3 @@ Only exported JPEG derivatives are included in this repository.
 Maintained by  
 **Alan Richardson**  
 Kinghorn Information Sources
-
-
-
-
-
-
