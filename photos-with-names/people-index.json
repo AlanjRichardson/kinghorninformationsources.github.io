@@ -1280,6 +1280,11 @@
     "photoFile": "GroupStClairsEntry.jpg"
   },
   {
+    "surname": "Chalmers",
+    "fullName": "J. Chalmers",
+    "photoFile": "Scouts1912.jpg"
+  },
+  {
     "surname": "Charles",
     "fullName": "Bobby Charles",
     "photoFile": "School1947.jpg"
@@ -2235,6 +2240,11 @@
     "photoFile": "GalaQueen1950a.jpg"
   },
   {
+    "surname": "Duncan",
+    "fullName": "H. Duncan",
+    "photoFile": "Scouts1912.jpg"
+  },
+  {
     "surname": "Dunn",
     "fullName": "Willie Dunn",
     "photoFile": "Bowling1950.jpg"
@@ -2553,6 +2563,11 @@
     "surname": "Fisher",
     "fullName": "Iain Fisher",
     "photoFile": "School1971.jpg"
+  },
+  {
+    "surname": "Fisher",
+    "fullName": "J. Fisher",
+    "photoFile": "Scouts1912.jpg"
   },
   {
     "surname": "Fitzpatrick",
@@ -3975,6 +3990,11 @@
     "photoFile": "BurntislandSchool1962.jpg"
   },
   {
+    "surname": "Julian",
+    "fullName": "H. Julian",
+    "photoFile": "Scouts1912.jpg"
+  },
+  {
     "surname": "Keillor",
     "fullName": "Jim Keillor",
     "photoFile": "Scouts1962.jpg"
@@ -4238,6 +4258,11 @@
     "surname": "Lawson",
     "fullName": "Edith Lawson",
     "photoFile": "School1948.jpg"
+  },
+  {
+    "surname": "Lawson",
+    "fullName": "J. Lawson",
+    "photoFile": "Scouts1912.jpg"
   },
   {
     "surname": "Leach",
@@ -4905,6 +4930,16 @@
     "photoFile": "School1934.jpg"
   },
   {
+    "surname": "Mathieson",
+    "fullName": "J. Mathieson",
+    "photoFile": "Scouts1912.jpg"
+  },
+  {
+    "surname": "Mathieson",
+    "fullName": "S. Mathieson",
+    "photoFile": "Scouts1912.jpg"
+  },
+  {
     "surname": "Matthewson",
     "fullName": "Lt. Matthewson",
     "photoFile": "GroupOfficers1915.jpg"
@@ -5536,7 +5571,7 @@
   },
   {
     "surname": "McKay",
-    "fullName": "McKay",
+    "fullName": "W. McKay",
     "photoFile": "Scouts1912.jpg"
   },
   {
@@ -6465,6 +6500,11 @@
     "photoFile": "GroupLesJimBill1955.jpg"
   },
   {
+    "surname": "Murray",
+    "fullName": "G. Murray",
+    "photoFile": "Scouts1912.jpg"
+  },
+  {
     "surname": "Myles",
     "fullName": "Douglas Myles",
     "photoFile": "School1970a.jpg"
@@ -6518,6 +6558,11 @@
     "surname": "Nicol",
     "fullName": "T. Nicol",
     "photoFile": "Group1936.jpg"
+  },
+  {
+    "surname": "Nicol",
+    "fullName": "W. Nicol",
+    "photoFile": "Scouts1912.jpg"
   },
   {
     "surname": "Nisbet",
@@ -6866,7 +6911,7 @@
   },
   {
     "surname": "Paterson",
-    "fullName": "Mr. Paterson",
+    "fullName": "W. Paterson",
     "photoFile": "Scouts1912.jpg"
   },
   {
@@ -7685,6 +7730,11 @@
     "photoFile": "GalaQueen1950a.jpg"
   },
   {
+    "surname": "Rutherford",
+    "fullName": "G. Rutherford",
+    "photoFile": "Scouts1912.jpg"
+  },
+  {
     "surname": "Salvona",
     "fullName": "Collett Salvona",
     "photoFile": "School1972.jpg"
@@ -8298,6 +8348,11 @@
     "surname": "Smith",
     "fullName": "Hamish Smith",
     "photoFile": "GalaQueen1950.jpg"
+  },
+  {
+    "surname": "Smith",
+    "fullName": "J. Smith",
+    "photoFile": "Scouts1912.jpg"
   },
   {
     "surname": "Sordecchia",
