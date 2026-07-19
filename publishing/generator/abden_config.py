@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Central configuration for the Abden Publishing Generator v0.3.0."""
+"""Central configuration for the Abden Publishing Generator v0.3.3."""
 
 from pathlib import Path
 
@@ -18,7 +18,8 @@ PROJECT = {
     "title": "Historical Synopsis and Reconstruction Guide",
     "author": "Alan Richardson",
     "imprint": "Kinghorn Information Sources",
-    "generator_version": "0.3.0",
+    "publication_year": "2026",
+    "generator_version": "0.3.3",
 }
 
 PAGE = {
@@ -60,6 +61,18 @@ TYPOGRAPHY = {
     "archive_leading": 12.5,
     "bibliography_size": 10.5,
     "bibliography_leading": 13.0,
+    "title_series_size": 13.0,
+    "title_series_leading": 17.0,
+    "title_main_size": 28.0,
+    "title_main_leading": 34.0,
+    "title_volume_size": 14.0,
+    "title_volume_leading": 18.0,
+    "title_subtitle_size": 17.0,
+    "title_subtitle_leading": 22.0,
+    "title_author_size": 13.0,
+    "title_author_leading": 17.0,
+    "title_imprint_size": 10.0,
+    "title_imprint_leading": 13.0,
 }
 
 MASTER_PAGES = {

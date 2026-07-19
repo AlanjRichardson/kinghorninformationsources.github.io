@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Master-page creation for the Abden Publishing Generator.
 
-Version 0.3.2, Phase 2
+Version 0.3.4, Phase 3 margin correction
 
 Phase 2 retains the tested left/right masters and adds the chapter-opening
 master. Chapter-specific number and title frames are deliberately created on
@@ -82,6 +82,45 @@ def _running_header(right_hand, text, name):
     scribus.setTextAlignment(alignment, frame)
     return frame
 
+
+
+def create_title_master_page():
+    """Create the title master page.
+
+    The master intentionally contains no fixed text and no page number. Title
+    content is created as editable document-page objects so metadata can be
+    changed without altering or detaching master-page items.
+    """
+    name = MASTER_PAGES["title"]
+    _create_or_edit(name)
+    _close_master()
+
+
+def _title_text_frame(y, height, text, style, name):
+    """Create one centred title-page text frame."""
+    # The title page is a right-hand page: its inside margin is on the left.
+    x = PAGE["inside_mm"]
+    width = PAGE["width_mm"] - PAGE["inside_mm"] - PAGE["outside_mm"]
+    frame = scribus.createText(x, y, width, height, name)
+    scribus.setText(text, frame)
+    apply_whole_frame(frame, style)
+    scribus.setTextAlignment(1, frame)
+    return frame
+
+
+def create_title_page_content(project=None):
+    """Add editable, metadata-driven title-page content to the current page."""
+    data = PROJECT if project is None else project
+    frames = []
+    frames.append(_title_text_frame(38.0, 12.0, data["series"], "Abden Title Series", "Title_Series"))
+    frames.append(_title_text_frame(61.0, 34.0, "ABDEN SHIPYARD", "Abden Title Main", "Title_Main"))
+    frames.append(_title_text_frame(98.0, 18.0, "RECONSTRUCTION PROJECT", "Abden Title Series", "Title_Project"))
+    frames.append(_title_text_frame(132.0, 12.0, data["volume"], "Abden Title Volume", "Title_Volume"))
+    frames.append(_title_text_frame(149.0, 28.0, data["title"], "Abden Title Subtitle", "Title_Subtitle"))
+    frames.append(_title_text_frame(203.0, 12.0, data["author"], "Abden Title Author", "Title_Author"))
+    imprint_text = data["imprint"] + "\n" + data["publication_year"]
+    frames.append(_title_text_frame(247.0, 20.0, imprint_text, "Abden Title Imprint", "Title_Imprint"))
+    return tuple(frames)
 
 def create_left_master_page():
     """Create the normal left-hand master page."""
@@ -172,7 +211,9 @@ def create_left_right_master_pages():
 
 def create_master_pages():
     """Create the complete v0.3 master-page set."""
-    for key in ("title", "copyright", "blank"):
+    create_title_master_page()
+
+    for key in ("copyright", "blank"):
         name = MASTER_PAGES[key]
         _create_or_edit(name)
         _close_master()
