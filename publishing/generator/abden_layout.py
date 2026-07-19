@@ -2,7 +2,7 @@
 """Page geometry, guides and specimen-page construction."""
 
 import scribus
-from abden_config import FIGURE_LAYOUT, PAGE, PROJECT
+from abden_config import CONTENTS_LAYOUT, FIGURE_LAYOUT, PAGE, PROJECT
 from abden_styles import apply_whole_frame
 
 
@@ -114,21 +114,50 @@ def create_copyright_page():
     set_frame_text(frame, text, "Abden Footnote")
 
 
-def create_contents_page():
-    page = 3
+def create_contents_page(page=3):
+    """Create an editable contents page prepared for later TOC automation.
+
+    Each specimen line contains a tab before its page number. The associated
+    paragraph styles provide a right-aligned tab stop, allowing future TOC
+    generation to replace the sample text without redesigning the page.
+    """
     scribus.gotoPage(page)
     x, _, width, _ = content_box(page)
-    heading = scribus.createText(x, 48, width, 24, "Contents_Heading")
+    c = CONTENTS_LAYOUT
+
+    heading = scribus.createText(
+        x, c["heading_y_mm"], width, c["heading_height_mm"],
+        "Contents_Heading",
+    )
     set_frame_text(heading, "Contents", "Abden Chapter Title")
 
-    body = scribus.createText(x, 88, width, 145, "Contents_Sample")
-    text = (
-        "Preface\nAcknowledgements\nList of Figures\nList of Maps\n"
-        "Chapter 1   Before the First Keel\n"
-        "Chapter 2   Establishment of the Shipyard\n"
-        "Appendix\nBibliography"
+    body = scribus.createText(
+        x, c["entries_y_mm"], width, c["entries_height_mm"],
+        "Contents_Entries",
     )
-    set_frame_text(body, text, "Abden Body First")
+    entries = [
+        ("Abden Contents Entry", "Preface\tvii"),
+        ("Abden Contents Entry", "Acknowledgements\tix"),
+        ("Abden Contents Entry", "List of Figures\txi"),
+        ("Abden Contents Entry", "List of Maps\txiii"),
+        ("Abden Contents Chapter", "Chapter 1   Before the First Keel\t1"),
+        ("Abden Contents Chapter", "Chapter 2   Establishment of the Shipyard\t19"),
+        ("Abden Contents Chapter", "Chapter 3   Development and Expansion\t47"),
+        ("Abden Contents Entry", "Appendix A   Documentary Sources\t181"),
+        ("Abden Contents Entry", "Bibliography\t193"),
+        ("Abden Contents Entry", "Index\t205"),
+    ]
+
+    full_text = "\n".join(text for _, text in entries)
+    scribus.setText(full_text, body)
+
+    start = 0
+    for style, text in entries:
+        scribus.selectText(start, len(text), body)
+        scribus.setParagraphStyle(style, body)
+        start += len(text) + 1
+
+    return heading, body
 
 
 def create_chapter_specimen(page=4):

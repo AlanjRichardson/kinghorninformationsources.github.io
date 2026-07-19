@@ -1,4 +1,4 @@
-# Abden Scribus Generator — Version 0.3.0
+# Abden Scribus Generator — Version 0.3.7
 
 This is the complete replacement for Version 2.
 
@@ -59,8 +59,24 @@ so this placeholder is intentional.
 4. Open the Style Manager and confirm the expanded Abden styles.
 5. Save, close and reopen the generated `.sla`.
 
-## Version 0.3.0 scope
+## Version 0.3.7 scope
 
 This release establishes the permanent architecture and master-page system. It does
 not yet generate a complete book, table of contents or dynamically updated chapter
 running heads. Those belong to later generator stages.
+
+
+## Version 0.3.7 — full-page figure layout
+
+Page 7 now contains an editable figure specimen consisting of an image frame,
+caption frame and source/credit frame. The G-Full Page Figure master supplies
+the outside page number. Figure content remains on the document page so each
+illustration can be changed independently.
+
+
+## Version 0.3.7 — Contents page
+
+The C-Contents specimen now uses a dedicated editable entries frame and
+right-aligned tab stops for page numbers. Two paragraph styles are supplied:
+`Abden Contents Entry` and `Abden Contents Chapter`. The frame is ready to be
+replaced by an automated table-of-contents process in a later release.

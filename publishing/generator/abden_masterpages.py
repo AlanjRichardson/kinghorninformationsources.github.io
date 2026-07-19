@@ -63,7 +63,7 @@ def _running_header(right_hand, text, name):
 
 
 def create_master_pages():
-    """Create the complete Version 0.3.6 master-page set."""
+    """Create the complete Version 0.3.7 master-page set."""
     for key in ("title", "copyright", "blank"):
         name = MASTER_PAGES[key]
         _create_or_edit(name)

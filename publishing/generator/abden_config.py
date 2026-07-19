@@ -18,7 +18,7 @@ PROJECT = {
     "title": "Historical Synopsis and Reconstruction Guide",
     "author": "Alan Richardson",
     "imprint": "Kinghorn Information Sources",
-    "generator_version": "0.3.6",
+    "generator_version": "0.3.7",
 }
 
 PAGE = {
@@ -33,6 +33,17 @@ PAGE = {
     "header_height_mm": 6.0,
     "footer_y_mm": 278.0,
     "footer_height_mm": 7.0,
+}
+
+CONTENTS_LAYOUT = {
+    # Geometry for the editable contents heading and entry frame.
+    "heading_y_mm": 48.0,
+    "heading_height_mm": 24.0,
+    "entries_y_mm": 86.0,
+    "entries_height_mm": 164.0,
+    # Right-aligned tab position within the text frame. Scribus 1.6.x
+    # expects paragraph-style tab positions in points rather than millimetres.
+    "page_number_tab_mm": 160.0,
 }
 
 FIGURE_LAYOUT = {

@@ -76,6 +76,8 @@ def create_character_styles(fonts):
         ("Abden Archive Character", fonts["serif_regular"], t["archive_size"]),
         ("Abden Note Character", fonts["serif_regular"], t["body_size"]),
         ("Abden Bibliography Character", fonts["serif_regular"], t["bibliography_size"]),
+        ("Abden Contents Character", fonts["serif_regular"], t["body_size"]),
+        ("Abden Contents Chapter Character", fonts["sans_regular"], t["body_size"]),
     ]
 
     existing = set(scribus.getCharStyles())
@@ -179,6 +181,16 @@ def create_paragraph_styles():
              linespacing=t["bibliography_leading"], alignment=0,
              leftmargin=mm5, firstindent=-mm5, gapbefore=0.0, gapafter=4.0,
              charstyle="Abden Bibliography Character"),
+        dict(name="Abden Contents Entry", linespacingmode=0,
+             linespacing=t["body_leading"], alignment=0,
+             firstindent=0.0, gapbefore=0.0, gapafter=4.0,
+             tabs=[(453.5433, 1)],
+             charstyle="Abden Contents Character"),
+        dict(name="Abden Contents Chapter", linespacingmode=0,
+             linespacing=t["body_leading"], alignment=0,
+             firstindent=0.0, gapbefore=6.0, gapafter=4.0,
+             tabs=[(453.5433, 1)],
+             charstyle="Abden Contents Chapter Character"),
     ]
 
     existing = set(scribus.getParagraphStyles())
