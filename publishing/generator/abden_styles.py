@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Font discovery and reusable Scribus styles for Generator v0.3.3."""
+"""Font discovery and reusable Scribus styles for Generator v0.3.5."""
 
 import scribus
 from abden_config import TYPOGRAPHY
@@ -59,6 +59,9 @@ def create_character_styles(fonts):
         ("Abden Title Subtitle Character", fonts["serif_regular"], t["title_subtitle_size"]),
         ("Abden Title Author Character", fonts["serif_regular"], t["title_author_size"]),
         ("Abden Title Imprint Character", fonts["sans_regular"], t["title_imprint_size"]),
+        ("Abden Copyright Heading Character", fonts["sans_bold"], t["copyright_heading_size"]),
+        ("Abden Copyright Body Character", fonts["serif_regular"], t["copyright_body_size"]),
+        ("Abden Copyright Small Character", fonts["sans_regular"], t["copyright_small_size"]),
     ]
     existing = set(scribus.getCharStyles())
     for name, font, size in definitions:
@@ -95,6 +98,9 @@ def create_paragraph_styles():
         dict(name="Abden Title Subtitle", linespacingmode=0, linespacing=t["title_subtitle_leading"], alignment=1, firstindent=0.0, gapbefore=0.0, gapafter=0.0, charstyle="Abden Title Subtitle Character"),
         dict(name="Abden Title Author", linespacingmode=0, linespacing=t["title_author_leading"], alignment=1, firstindent=0.0, gapbefore=0.0, gapafter=0.0, charstyle="Abden Title Author Character"),
         dict(name="Abden Title Imprint", linespacingmode=0, linespacing=t["title_imprint_leading"], alignment=1, firstindent=0.0, gapbefore=0.0, gapafter=0.0, charstyle="Abden Title Imprint Character"),
+        dict(name="Abden Copyright Heading", linespacingmode=0, linespacing=t["copyright_heading_leading"], alignment=0, firstindent=0.0, gapbefore=0.0, gapafter=6.0, charstyle="Abden Copyright Heading Character"),
+        dict(name="Abden Copyright Body", linespacingmode=0, linespacing=t["copyright_body_leading"], alignment=0, firstindent=0.0, gapbefore=0.0, gapafter=0.0, charstyle="Abden Copyright Body Character"),
+        dict(name="Abden Copyright Small", linespacingmode=0, linespacing=t["copyright_small_leading"], alignment=0, firstindent=0.0, gapbefore=0.0, gapafter=0.0, charstyle="Abden Copyright Small Character"),
     ]
     existing = set(scribus.getParagraphStyles())
     for definition in definitions:

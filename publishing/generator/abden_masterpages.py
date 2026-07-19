@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Master-page creation for the Abden Publishing Generator.
 
-Version 0.3.4, Phase 3 margin correction
+Version 0.3.5, Phase 4 copyright page
 
 Phase 2 retains the tested left/right masters and adds the chapter-opening
 master. Chapter-specific number and title frames are deliberately created on
@@ -122,6 +122,60 @@ def create_title_page_content(project=None):
     frames.append(_title_text_frame(247.0, 20.0, imprint_text, "Abden Title Imprint", "Title_Imprint"))
     return tuple(frames)
 
+
+def create_copyright_master_page():
+    """Create the unnumbered copyright master page."""
+    name = MASTER_PAGES["copyright"]
+    _create_or_edit(name)
+    _close_master()
+
+
+def _copyright_text_frame(y, height, text, style, name):
+    """Create one left-aligned copyright-page text frame."""
+    # Copyright is conventionally a left-hand page: outside margin on the left.
+    x = PAGE["outside_mm"]
+    width = PAGE["width_mm"] - PAGE["outside_mm"] - PAGE["inside_mm"]
+    frame = scribus.createText(x, y, width, height, name)
+    scribus.setText(text, frame)
+    apply_whole_frame(frame, style)
+    scribus.setTextAlignment(0, frame)
+    return frame
+
+
+def create_copyright_page_content(project=None):
+    """Add editable, metadata-driven copyright content to the current page."""
+    data = PROJECT if project is None else project
+    frames = []
+
+    heading = data["series"] + "\n" + data["volume"] + " — " + data["title"]
+    frames.append(_copyright_text_frame(48.0, 24.0, heading, "Abden Copyright Heading", "Copyright_Heading"))
+
+    copyright_line = "Copyright © {year} {holder}".format(
+        year=data["publication_year"],
+        holder=data.get("rights_holder", data["author"]),
+    )
+    frames.append(_copyright_text_frame(88.0, 12.0, copyright_line, "Abden Copyright Body", "Copyright_Line"))
+
+    publication = "Published by\n" + data["imprint"]
+    frames.append(_copyright_text_frame(112.0, 22.0, publication, "Abden Copyright Body", "Copyright_Publisher"))
+
+    frames.append(_copyright_text_frame(148.0, 55.0, data["rights_notice"], "Abden Copyright Body", "Copyright_Rights"))
+
+    production = (
+        "Prepared using the Abden Publishing System v" + data["generator_version"]
+        + "\nTypeset with Scribus"
+    )
+    frames.append(_copyright_text_frame(220.0, 22.0, production, "Abden Copyright Small", "Copyright_Production"))
+
+    identifiers = data.get("edition", "")
+    if data.get("isbn"):
+        identifiers += "\nISBN: " + data["isbn"]
+    if data.get("doi"):
+        identifiers += "\nDOI: " + data["doi"]
+    frames.append(_copyright_text_frame(252.0, 24.0, identifiers, "Abden Copyright Small", "Copyright_Identifiers"))
+
+    return tuple(frames)
+
 def create_left_master_page():
     """Create the normal left-hand master page."""
     name = MASTER_PAGES["left"]
@@ -212,11 +266,11 @@ def create_left_right_master_pages():
 def create_master_pages():
     """Create the complete v0.3 master-page set."""
     create_title_master_page()
+    create_copyright_master_page()
 
-    for key in ("copyright", "blank"):
-        name = MASTER_PAGES[key]
-        _create_or_edit(name)
-        _close_master()
+    name = MASTER_PAGES["blank"]
+    _create_or_edit(name)
+    _close_master()
 
     _create_or_edit(MASTER_PAGES["contents"])
     try:

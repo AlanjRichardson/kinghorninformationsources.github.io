@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Central configuration for the Abden Publishing Generator v0.3.3."""
+"""Central configuration for the Abden Publishing Generator v0.3.5."""
 
 from pathlib import Path
 
@@ -19,7 +19,18 @@ PROJECT = {
     "author": "Alan Richardson",
     "imprint": "Kinghorn Information Sources",
     "publication_year": "2026",
-    "generator_version": "0.3.3",
+    "generator_version": "0.3.5",
+    "edition": "First Edition",
+    "isbn": "",
+    "doi": "",
+    "rights_holder": "Alan Richardson",
+    "rights_notice": (
+        "All rights reserved.\n\n"
+        "No part of this publication may be reproduced, stored in a retrieval "
+        "system, or transmitted in any form or by any means without prior "
+        "written permission, except for brief quotations used in scholarly "
+        "review or criticism."
+    ),
 }
 
 PAGE = {
@@ -73,6 +84,12 @@ TYPOGRAPHY = {
     "title_author_leading": 17.0,
     "title_imprint_size": 10.0,
     "title_imprint_leading": 13.0,
+    "copyright_heading_size": 12.0,
+    "copyright_heading_leading": 15.0,
+    "copyright_body_size": 10.5,
+    "copyright_body_leading": 13.0,
+    "copyright_small_size": 9.0,
+    "copyright_small_leading": 11.0,
 }
 
 MASTER_PAGES = {
