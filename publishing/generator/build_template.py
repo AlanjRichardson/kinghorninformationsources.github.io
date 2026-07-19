@@ -16,6 +16,7 @@ from abden_layout import (
     create_contents_page,
     create_copyright_page,
     create_design_guides,
+    create_figure_specimen,
     create_style_specimen,
     create_title_page,
 )
@@ -38,7 +39,7 @@ def build():
 
     if scribus.haveDoc():
         response = scribus.messageBox(
-            "Abden Generator v0.3.0",
+            "Abden Generator v0.3.6",
             "A document is already open.\n\nThe generator will create a new document.",
             scribus.ICON_INFORMATION,
             scribus.BUTTON_OK | scribus.BUTTON_CANCEL,
@@ -68,7 +69,7 @@ def build():
     scribus.setInfo(
         PROJECT["author"],
         PROJECT["series"],
-        "Abden Publishing Generator v0.3.0 master-page and house-style proof.",
+        "Abden Publishing Generator v0.3.6 master-page and house-style proof.",
     )
     scribus.setBleeds(0.0, 0.0, 0.0, 0.0)
 
@@ -85,6 +86,7 @@ def build():
         create_contents_page()
         create_chapter_specimen(4)
         create_style_specimen(5)
+        create_figure_specimen(7)
 
         scribus.gotoPage(1)
         create_design_guides()
@@ -95,7 +97,7 @@ def build():
         scribus.redrawAll()
 
     scribus.messageBox(
-        "Abden Generator v0.3.0",
+        "Abden Generator v0.3.6",
         "Created:\n\n" + str(OUTPUT_TEMPLATE)
         + "\n\nThe document contains eight master pages, running furniture, "
           "automatic page-number tokens and the expanded Abden house style.",
@@ -111,7 +113,7 @@ if __name__ == "__main__":
         details = traceback.format_exc()
         try:
             scribus.messageBox(
-                "Abden Generator v0.3.0 — error",
+                "Abden Generator v0.3.6 — error",
                 details,
                 scribus.ICON_CRITICAL,
                 scribus.BUTTON_OK,

@@ -2,7 +2,7 @@
 """Page geometry, guides and specimen-page construction."""
 
 import scribus
-from abden_config import PAGE, PROJECT
+from abden_config import FIGURE_LAYOUT, PAGE, PROJECT
 from abden_styles import apply_whole_frame
 
 
@@ -184,3 +184,57 @@ def create_style_specimen(page=5):
         scribus.selectText(start, length, frame)
         scribus.setParagraphStyle(style, frame)
         start += length + 1
+
+
+
+def create_figure_specimen(page=7):
+    """Create an editable full-page figure layout on a document page.
+
+    The master page supplies the outside page number. The image, caption and
+    source frames belong to the document page so that each figure can be edited
+    independently without detaching master-page objects.
+    """
+    scribus.gotoPage(page)
+    x, _, width, _ = content_box(page)
+    f = FIGURE_LAYOUT
+
+    image = scribus.createImage(
+        x,
+        f["image_y_mm"],
+        width,
+        f["image_height_mm"],
+        "Figure_Image",
+    )
+    # Keep imported images proportional and centred in the frame.
+    if hasattr(scribus, "setScaleImageToFrame"):
+        scribus.setScaleImageToFrame(True, True, image)
+
+    caption_y = f["image_y_mm"] + f["image_height_mm"] + f["caption_gap_mm"]
+    caption = scribus.createText(
+        x,
+        caption_y,
+        width,
+        f["caption_height_mm"],
+        "Figure_Caption",
+    )
+    set_frame_text(
+        caption,
+        "Figure 1. Full-page figure caption. Replace this text with a concise description of the map, plan, photograph or reconstruction.",
+        "Abden Figure Caption",
+    )
+
+    source_y = caption_y + f["caption_height_mm"] + f["source_gap_mm"]
+    source = scribus.createText(
+        x,
+        source_y,
+        width,
+        f["source_height_mm"],
+        "Figure_Source",
+    )
+    set_frame_text(
+        source,
+        "Source/Credit: archive reference, map licence, photographer or collection.",
+        "Abden Figure Source",
+    )
+
+    return image, caption, source

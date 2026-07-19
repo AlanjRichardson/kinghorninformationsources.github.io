@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Central configuration for the Abden Publishing Generator v0.3.5."""
+"""Central configuration for the Abden Publishing Generator v0.3.0."""
 
 from pathlib import Path
 
@@ -18,19 +18,7 @@ PROJECT = {
     "title": "Historical Synopsis and Reconstruction Guide",
     "author": "Alan Richardson",
     "imprint": "Kinghorn Information Sources",
-    "publication_year": "2026",
-    "generator_version": "0.3.5",
-    "edition": "First Edition",
-    "isbn": "",
-    "doi": "",
-    "rights_holder": "Alan Richardson",
-    "rights_notice": (
-        "All rights reserved.\n\n"
-        "No part of this publication may be reproduced, stored in a retrieval "
-        "system, or transmitted in any form or by any means without prior "
-        "written permission, except for brief quotations used in scholarly "
-        "review or criticism."
-    ),
+    "generator_version": "0.3.6",
 }
 
 PAGE = {
@@ -45,6 +33,17 @@ PAGE = {
     "header_height_mm": 6.0,
     "footer_y_mm": 278.0,
     "footer_height_mm": 7.0,
+}
+
+FIGURE_LAYOUT = {
+    # Vertical arrangement for a full-page figure on a normal text page.
+    # Values are millimetres and are shared by the generator and tests.
+    "image_y_mm": 28.0,
+    "image_height_mm": 190.0,
+    "caption_gap_mm": 5.0,
+    "caption_height_mm": 22.0,
+    "source_gap_mm": 1.5,
+    "source_height_mm": 12.0,
 }
 
 TYPOGRAPHY = {
@@ -72,24 +71,6 @@ TYPOGRAPHY = {
     "archive_leading": 12.5,
     "bibliography_size": 10.5,
     "bibliography_leading": 13.0,
-    "title_series_size": 13.0,
-    "title_series_leading": 17.0,
-    "title_main_size": 28.0,
-    "title_main_leading": 34.0,
-    "title_volume_size": 14.0,
-    "title_volume_leading": 18.0,
-    "title_subtitle_size": 17.0,
-    "title_subtitle_leading": 22.0,
-    "title_author_size": 13.0,
-    "title_author_leading": 17.0,
-    "title_imprint_size": 10.0,
-    "title_imprint_leading": 13.0,
-    "copyright_heading_size": 12.0,
-    "copyright_heading_leading": 15.0,
-    "copyright_body_size": 10.5,
-    "copyright_body_leading": 13.0,
-    "copyright_small_size": 9.0,
-    "copyright_small_leading": 11.0,
 }
 
 MASTER_PAGES = {
