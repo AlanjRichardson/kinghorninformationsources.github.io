@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Central configuration for the Abden Publishing Generator v0.3.0."""
+"""Central configuration for the Abden Publishing Generator v0.4.0."""
 
 from pathlib import Path
 
@@ -18,7 +18,7 @@ PROJECT = {
     "title": "Historical Synopsis and Reconstruction Guide",
     "author": "Alan Richardson",
     "imprint": "Kinghorn Information Sources",
-    "generator_version": "0.3.7",
+    "generator_version": "0.4.0",
 }
 
 PAGE = {
