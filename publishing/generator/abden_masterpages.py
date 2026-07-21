@@ -25,16 +25,9 @@ def _close_master():
 def _page_number_frame(right_hand, name):
     width = 25.0
     x = PAGE["width_mm"] - PAGE["outside_mm"] - width if right_hand else PAGE["outside_mm"]
-    frame = scribus.createText(
-        x,
-        PAGE["footer_y_mm"],
-        width,
-        PAGE["footer_height_mm"],
-        name,
-    )
+    frame = scribus.createText(x, PAGE["footer_y_mm"], width, PAGE["footer_height_mm"], name)
     scribus.insertText(PAGE_NUMBER_TOKEN, 0, frame)
-    style = "Abden Page Number Right" if right_hand else "Abden Page Number Left"
-    apply_whole_frame(frame, style)
+    apply_whole_frame(frame, "Abden Page Number Right" if right_hand else "Abden Page Number Left")
     return frame
 
 
@@ -47,15 +40,8 @@ def _running_header(right_hand, text, name):
         x = PAGE["outside_mm"]
         right_margin = PAGE["inside_mm"]
         alignment = 0
-
     width = PAGE["width_mm"] - x - right_margin
-    frame = scribus.createText(
-        x,
-        PAGE["header_y_mm"],
-        width,
-        PAGE["header_height_mm"],
-        name,
-    )
+    frame = scribus.createText(x, PAGE["header_y_mm"], width, PAGE["header_height_mm"], name)
     scribus.setText(text, frame)
     apply_whole_frame(frame, "Abden Running Header")
     scribus.setTextAlignment(alignment, frame)
@@ -63,10 +49,9 @@ def _running_header(right_hand, text, name):
 
 
 def create_master_pages():
-    """Create the complete Version 0.4.0 master-page set."""
+    """Create the permanent eight-page master-page set."""
     for key in ("title", "copyright", "blank"):
-        name = MASTER_PAGES[key]
-        _create_or_edit(name)
+        _create_or_edit(MASTER_PAGES[key])
         _close_master()
 
     _create_or_edit(MASTER_PAGES["contents"])
@@ -93,7 +78,7 @@ def create_master_pages():
 
 
 def apply_master_pages():
-    """Apply representative masters to the generated specimen pages."""
+    """Apply masters to the v0.5.1 framework-freeze pages."""
     assignments = {
         1: MASTER_PAGES["title"],
         2: MASTER_PAGES["copyright"],
@@ -102,7 +87,13 @@ def apply_master_pages():
         5: MASTER_PAGES["right"],
         6: MASTER_PAGES["left"],
         7: MASTER_PAGES["figure"],
-        8: MASTER_PAGES["blank"],
+        8: MASTER_PAGES["left"],
+        9: MASTER_PAGES["right"],
+        10: MASTER_PAGES["left"],
+        11: MASTER_PAGES["right"],
+        12: MASTER_PAGES["left"],
+        13: MASTER_PAGES["right"],
+        14: MASTER_PAGES["blank"],
     }
     for page_number, master_name in assignments.items():
         scribus.applyMasterPage(master_name, page_number)

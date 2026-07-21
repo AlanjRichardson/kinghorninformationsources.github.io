@@ -1,53 +1,55 @@
-# Abden Scribus Generator — Version 0.4.0
+# Abden Scribus Generator — Version 0.5.1
 
-Version 0.4.0 completes and freezes the eight-page master-page architecture for the Abden publishing system.
+Version 0.5.1 is the **Framework Freeze** release for Volume I of the Abden Shipyard Reconstruction Project.
 
-## Installation location
+## Corrections from the v0.5.0 visual test
 
-Copy the generator files into:
+- Production guide lines have been removed.
+- The Chapter 1 status panel has been shortened and moved upward so that it clears the bottom margin and page-number frame.
+- Pages 1, 2 and 14 remain intentionally without visible page numbers: title, copyright and blank masters respectively.
+- Page 14 remains intentionally blank for pagination control.
+
+## Working pages generated
+
+1. Title
+2. Copyright and document metadata
+3. Full Volume I contents
+4. Chapter 1 — The Geography of Abden, with internal status panel
+5. Preface
+6. Executive Summary
+7. Research Methodology
+8. Feature Record
+9. Historical Map Analysis
+10. Photograph Analysis
+11. LiDAR and Terrain Analysis
+12. Blender Reconstruction Specification
+13. Appendix A — Feature Register
+14. Intentionally blank page
+
+The permanent eight-master-page architecture and the v0.5.0 style set are frozen. Future changes should normally be restricted to genuine defects.
+
+## Running
+
+Place the files in `publishing/generator/`, then in Scribus 1.6.x choose **Script → Execute Script…** and run `build_template.py`.
+
+Output:
 
 ```text
-publishing/generator/
+publishing/templates/Abden_Master_Template_v0.5.1_working.sla
 ```
 
-Copy the tests into:
+Inspect all fourteen pages before committing the generated `.sla`.
 
-```text
-publishing/tests/
+## Suggested Git release sequence
+
+```bash
+git status
+git diff
+git add publishing/generator publishing/templates/Abden_Master_Template_v0.5.1_working.sla
+git commit -m "Freeze Abden Scribus framework at v0.5.1"
+git tag -a v0.5.1-framework-freeze -m "Abden Scribus framework freeze"
+git push
+git push origin v0.5.1-framework-freeze
 ```
 
-The generator writes its output to:
-
-```text
-publishing/templates/Abden_Master_Template.sla
-```
-
-No personal or machine-specific path is hard-coded.
-
-## Master pages
-
-- A-Title
-- B-Copyright
-- C-Contents
-- D-Chapter Opening
-- E-Left Page
-- F-Right Page
-- G-Full Page Figure
-- H-Blank Page
-
-The H-Blank Page master is intentionally empty: it has no header, page number or other object. It is used when pagination requires a blank verso before a chapter begins on a recto page.
-
-## Running the generator
-
-1. Open Scribus 1.6.x.
-2. Choose **Script → Execute Script…**.
-3. Select `publishing/generator/build_template.py`.
-4. Open `publishing/templates/Abden_Master_Template.sla`.
-
-## Tests
-
-Run the individual scripts in `publishing/tests/` from Scribus. The blank-page test checks that the H-Blank Page master creates no objects.
-
-## Version 0.4.0 scope
-
-This release completes the permanent page architecture. Later versions can concentrate on document assembly, automated contents, figure numbering, bibliography support, cross-references, PDF export and pre-flight checks without changing the eight core master pages.
+The Python source can be syntax-checked outside Scribus, but the Scribus API and page rendering must be tested inside Scribus.

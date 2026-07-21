@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Proof test for the intentionally empty H-Blank Page master."""

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Build the Abden Master Template with Scribus 1.6.x."""
+"""Build the Abden framework-freeze template with Scribus 1.6.x."""
 
 import sys
 import traceback
@@ -12,24 +12,24 @@ except ImportError:
 
 from abden_config import OUTPUT_TEMPLATE, PAGE, PROJECT
 from abden_layout import (
-    create_chapter_specimen,
+    create_analysis_page,
+    create_appendix_page,
+    create_chapter_opening,
     create_contents_page,
     create_copyright_page,
-    create_design_guides,
-    create_figure_specimen,
-    create_style_specimen,
+        create_feature_record,
+        create_reconstruction_page,
+    create_front_matter_pages,
     create_title_page,
 )
 from abden_masterpages import apply_master_pages, create_master_pages
-from abden_styles import (
-    create_character_styles,
-    create_paragraph_styles,
-    discover_fonts,
-)
+from abden_styles import create_character_styles, create_paragraph_styles, discover_fonts
+
+PAGE_COUNT = 14
 
 
-def _ensure_eight_pages():
-    while scribus.pageCount() < 8:
+def _ensure_pages():
+    while scribus.pageCount() < PAGE_COUNT:
         scribus.newPage(-1)
 
 
@@ -39,7 +39,7 @@ def build():
 
     if scribus.haveDoc():
         response = scribus.messageBox(
-            "Abden Generator v0.4.0",
+            "Abden Generator v%s" % PROJECT["generator_version"],
             "A document is already open.\n\nThe generator will create a new document.",
             scribus.ICON_INFORMATION,
             scribus.BUTTON_OK | scribus.BUTTON_CANCEL,
@@ -49,12 +49,7 @@ def build():
 
     created = scribus.newDocument(
         scribus.PAPER_A4_MM,
-        (
-            PAGE["inside_mm"],
-            PAGE["outside_mm"],
-            PAGE["top_mm"],
-            PAGE["bottom_mm"],
-        ),
+        (PAGE["inside_mm"], PAGE["outside_mm"], PAGE["top_mm"], PAGE["bottom_mm"]),
         scribus.PORTRAIT,
         1,
         scribus.UNIT_MILLIMETERS,
@@ -69,13 +64,14 @@ def build():
     scribus.setInfo(
         PROJECT["author"],
         PROJECT["series"],
-        "Abden Publishing Generator v0.4.0 master-page and house-style proof.",
+        "Abden Publishing Generator v%s research environment; manuscript %s."
+        % (PROJECT["generator_version"], PROJECT["manuscript_version"]),
     )
     scribus.setBleeds(0.0, 0.0, 0.0, 0.0)
 
     scribus.setRedraw(False)
     try:
-        _ensure_eight_pages()
+        _ensure_pages()
         create_character_styles(fonts)
         create_paragraph_styles()
         create_master_pages()
@@ -83,13 +79,17 @@ def build():
 
         create_title_page(fonts)
         create_copyright_page()
-        create_contents_page()
-        create_chapter_specimen(4)
-        create_style_specimen(5)
-        create_figure_specimen(7)
+        create_contents_page(3)
+        create_chapter_opening(4)
+        create_front_matter_pages()
+        create_feature_record(8)
+        create_analysis_page(9, "Historical Map Analysis", "Map or plan")
+        create_analysis_page(10, "Photograph Analysis", "Photograph")
+        create_analysis_page(11, "LiDAR and Terrain Analysis", "LiDAR dataset")
+        create_reconstruction_page(12)
+        create_appendix_page(13)
 
         scribus.gotoPage(1)
-        create_design_guides()
         scribus.docChanged(True)
         scribus.saveDocAs(str(OUTPUT_TEMPLATE))
     finally:
@@ -97,10 +97,10 @@ def build():
         scribus.redrawAll()
 
     scribus.messageBox(
-        "Abden Generator v0.4.0",
-        "Created:\n\n" + str(OUTPUT_TEMPLATE)
-        + "\n\nThe document contains eight master pages, running furniture, "
-          "automatic page-number tokens and the expanded Abden house style.",
+        "Abden Generator v%s" % PROJECT["generator_version"],
+        "Created:\n\n%s\n\nThe permanent eight-master architecture is retained. "
+        "The document now includes fourteen working pages for the frozen research, "
+        "evidence and Blender-specification framework." % OUTPUT_TEMPLATE,
         scribus.ICON_INFORMATION,
         scribus.BUTTON_OK,
     )
@@ -113,7 +113,7 @@ if __name__ == "__main__":
         details = traceback.format_exc()
         try:
             scribus.messageBox(
-                "Abden Generator v0.4.0 — error",
+                "Abden Generator v%s — error" % PROJECT["generator_version"],
                 details,
                 scribus.ICON_CRITICAL,
                 scribus.BUTTON_OK,
