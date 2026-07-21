@@ -1,55 +1,29 @@
-# Abden Scribus Generator — Version 0.5.1
+# Abden Publishing Framework v0.5.2
 
-Version 0.5.1 is the **Framework Freeze** release for Volume I of the Abden Shipyard Reconstruction Project.
+This release corrects the facing-page margin semantics in v0.5.1.
 
-## Corrections from the v0.5.0 visual test
+## Cause of the defect
 
-- Production guide lines have been removed.
-- The Chapter 1 status panel has been shortened and moved upward so that it clears the bottom margin and page-number frame.
-- Pages 1, 2 and 14 remain intentionally without visible page numbers: title, copyright and blank masters respectively.
-- Page 14 remains intentionally blank for pagination control.
+Scribus stores facing-page margins semantically: `BORDERLEFT` is the **inside** margin and `BORDERRIGHT` is the **outside** margin. Version 0.5.1 swapped those XML values on physical left pages. Scribus then mirrored the already-swapped values, so the visible outside guide became 25 mm while the text frame remained at 20 mm.
 
-## Working pages generated
+## Correct v0.5.2 geometry
 
-1. Title
-2. Copyright and document metadata
-3. Full Volume I contents
-4. Chapter 1 — The Geography of Abden, with internal status panel
-5. Preface
-6. Executive Summary
-7. Research Methodology
-8. Feature Record
-9. Historical Map Analysis
-10. Photograph Analysis
-11. LiDAR and Terrain Analysis
-12. Blender Reconstruction Specification
-13. Appendix A — Feature Register
-14. Intentionally blank page
+- Inside margin: 25 mm
+- Outside margin: 20 mm
+- Main text width: 165 mm
+- Physical left page frame begins 20 mm from the left page edge
+- Physical right page frame begins 25 mm from the left page edge
 
-The permanent eight-master-page architecture and the v0.5.0 style set are frozen. Future changes should normally be restricted to genuine defects.
+## Visual acceptance test in Scribus 1.6.1
 
-## Running
+1. Open `Abden_Master_Template_v0.5.2.sla`.
+2. Check page 2 (copyright): its frame must align with the left blue margin guide.
+3. Check a normal left page and a normal right page.
+4. Save, close, and reopen the file.
+5. Repeat the alignment check.
 
-Place the files in `publishing/generator/`, then in Scribus 1.6.x choose **Script → Execute Script…** and run `build_template.py`.
-
-Output:
-
-```text
-publishing/templates/Abden_Master_Template_v0.5.1_working.sla
-```
-
-Inspect all fourteen pages before committing the generated `.sla`.
-
-## Suggested Git release sequence
+Run the automated check with:
 
 ```bash
-git status
-git diff
-git add publishing/generator publishing/templates/Abden_Master_Template_v0.5.1_working.sla
-git commit -m "Freeze Abden Scribus framework at v0.5.1"
-git tag -a v0.5.1-framework-freeze -m "Abden Scribus framework freeze"
-git push
-git push origin v0.5.1-framework-freeze
+python3 validate_scribus.py Abden_Master_Template_v0.5.2.sla
 ```
-
-The Python source can be syntax-checked outside Scribus, but the Scribus API and page rendering must be tested inside Scribus.

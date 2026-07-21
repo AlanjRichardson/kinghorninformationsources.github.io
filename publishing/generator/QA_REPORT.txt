@@ -1,0 +1,10 @@
+Abden Scribus QA Report
+========================
+File: /mnt/data/Abden_v0.5.2_release/Abden_Master_Template_v0.5.2.sla
+Pages: 14 | Master pages: 10
+
+✓ Facing-page margin semantics are correct
+✓ Page-side flags are consistent with spread positions
+✓ Required master pages are present
+
+Result: 0 error(s), 0 warning(s)
