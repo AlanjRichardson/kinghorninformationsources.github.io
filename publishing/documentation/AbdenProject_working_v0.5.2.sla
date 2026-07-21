@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <SCRIBUSUTF8NEW Version="1.6.1">
     <DOCUMENT ANZPAGES="14" PAGEWIDTH="595.275590551181" PAGEHEIGHT="841.889763779528" BORDERLEFT="70.8661417322835" BORDERRIGHT="56.6929133858268" BORDERTOP="56.6929133858268" BORDERBOTTOM="70.8661417322835" PRESET="0" BleedTop="0" BleedLeft="0" BleedRight="0" BleedBottom="0" ORIENTATION="0" PAGESIZE="Custom" FIRSTNUM="1" BOOK="1" AUTOSPALTEN="1" ABSTSPALTEN="0" UNITS="1" DFONT="DejaVu Sans Book" DSIZE="12" DCOL="1" DGAP="0" TabFill="" TabWidth="36" TextDistLeft="0" TextDistRight="0" TextDistBottom="0" TextDistTop="0" FirstLineOffset="1" AUTHOR="Alan Richardson" COMMENTS="Abden Publishing Generator v0.5.2; corrected facing-page margin semantics; manuscript Draft 0.1." KEYWORDS="" PUBLISHER="" DOCDATE="" DOCTYPE="" DOCFORMAT="" DOCIDENT="" DOCSOURCE="" DOCLANGINFO="" DOCRELATION="" DOCCOVER="" DOCRIGHTS="" DOCCONTRIB="" TITLE="The Abden Shipyard Reconstruction Project" SUBJECT="" VHOCH="33" VHOCHSC="66" VTIEF="33" VTIEFSC="66" VKAPIT="75" BASEGRID="14.4" BASEO="0" AUTOL="100" UnderlinePos="-1" UnderlineWidth="-1" StrikeThruPos="-1" StrikeThruWidth="-1" GROUPC="1" HCMS="0" DPSo="0" DPSFo="0" DPuse="0" DPgam="0" DPbla="1" DPPr="ISO Coated v2 300% (basICColor)" DPIn="sRGB display profile (ICC v2.2)" DPInCMYK="ISO Coated v2 300% (basICColor)" DPIn2="sRGB display profile (ICC v2.2)" DPIn3="ISO Coated v2 300% (basICColor)" DISc="1" DIIm="0" ALAYER="0" LANGUAGE="en_US" AUTOMATIC="1" AUTOCHECK="0" GUIDELOCK="0" SnapToGuides="0" SnapToGrid="0" SnapToElement="0" MINGRID="20.002" MAJGRID="100.001" SHOWGRID="0" SHOWGUIDES="1" showcolborders="1" SHOWFRAME="1" SHOWControl="0" SHOWLAYERM="0" SHOWMARGIN="1" SHOWBASE="0" SHOWPICT="1" SHOWLINK="0" rulerMode="1" showrulers="1" showBleed="1" rulerXoffset="0" rulerYoffset="0" GuideRad="10" GRAB="4" POLYC="4" POLYF="0.502" POLYR="0" POLYIR="0" POLYCUR="0" POLYOCUR="0" POLYS="0" arcStartAngle="30" arcSweepAngle="300" spiralStartAngle="0" spiralEndAngle="1080" spiralFactor="1.2" AutoSave="1" AutoSaveTime="600000" AutoSaveCount="1" AutoSaveKeep="0" AUtoSaveInDocDir="1" AutoSaveDir="" ScratchBottom="20.002" ScratchLeft="100.001" ScratchRight="100.001" ScratchTop="20.002" GapHorizontal="0" GapVertical="40.003" StartArrow="0" EndArrow="0" PEN="Black" BRUSH="None" PENLINE="Black" PENTEXT="Black" StrokeText="Black" TextBackGround="None" TextLineColor="None" TextBackGroundShade="100" TextLineShade="100" TextPenShade="100" TextStrokeShade="100" STIL="1" STILLINE="1" WIDTH="1" WIDTHLINE="1" PENSHADE="100" LINESHADE="100" BRUSHSHADE="100" CPICT="None" PICTSHADE="100" CSPICT="None" PICTSSHADE="100" PICTSCX="1" PICTSCY="1" PSCALE="1" PASPECT="1" EmbeddedPath="0" HalfRes="1" dispX="10.001" dispY="10.001" constrain="15" MINORC="#00ff00" MAJORC="#00ff00" GuideC="#000080" BaseC="#c0c0c0" renderStack="2 0 4 1 3" GridType="0" PAGEC="#ffffff" MARGC="#0000ff" RANDF="0" currentProfile="PDF 1.4" calligraphicPenFillColor="Black" calligraphicPenLineColor="Black" calligraphicPenFillColorShade="100" calligraphicPenLineColorShade="100" calligraphicPenLineWidth="1" calligraphicPenAngle="0" calligraphicPenWidth="10" calligraphicPenStyle="1">
         <CheckProfile Name="PDF 1.3" ignoreErrors="0" autoCheck="1" checkGlyphs="1" checkOrphans="1" checkOverflow="1" checkPictures="1" checkPartFilledImageFrames="0" checkResolution="1" checkTransparency="1" minResolution="144" maxResolution="2400" checkAnnotations="0" checkRasterPDF="1" checkForGIF="1" ignoreOffLayers="0" checkNotCMYKOrSpot="0" checkDeviceColorsAndOutputIntent="0" checkFontNotEmbedded="1" checkFontIsOpenType="1" checkAppliedMasterDifferentSide="1" checkEmptyTextFrames="1"/>
@@ -116,6 +116,7 @@
         <LAYERS NUMMER="0" LEVEL="0" NAME="Background" SICHTBAR="1" DRUCKEN="1" EDIT="1" SELECT="0" FLOW="1" TRANS="1" BLEND="0" OUTL="0" LAYERC="#000000"/>
         <Printer firstUse="1" toFile="0" useAltPrintCommand="0" outputSeparations="0" useSpotColors="1" useColor="1" mirrorH="0" mirrorV="0" useICC="0" doGCR="0" doClip="0" setDevParam="0" useDocBleeds="1" cropMarks="0" bleedMarks="0" registrationMarks="0" colorMarks="0" includePDFMarks="1" PSLevel="3" PrintEngine="3" markLength="20.0016" markOffset="0" BleedTop="0" BleedLeft="0" BleedRight="0" BleedBottom="0" printer="File" filename="" separationName="All" printerCommand=""/>
         <PDF firstUse="1" Thumbnails="0" Articles="0" Bookmarks="0" Compress="1" CMethod="0" Quality="0" EmbedPDF="0" MirrorH="0" MirrorV="0" Clip="0" rangeSel="0" rangeTxt="" RotateDeg="0" PresentMode="0" RecalcPic="0" FontEmbedding="0" Grayscale="0" RGBMode="1" UseProfiles="0" UseProfiles2="0" Binding="0" PicRes="300" Resolution="300" Version="14" Intent="1" Intent2="0" SolidP="sRGB display profile (ICC v2.2)" ImageP="sRGB display profile (ICC v2.2)" PrintP="ISO Coated v2 300% (basICColor)" InfoString="" BTop="0" BLeft="0" BRight="0" BBottom="0" useDocBleeds="1" cropMarks="0" bleedMarks="0" registrationMarks="0" colorMarks="0" docInfoMarks="0" markLength="20.0016" markOffset="0" ImagePr="0" PassOwner="" PassUser="" Permissions="-4" Encrypt="0" UseLayers="0" UseLpi="0" UseSpotColors="1" doMultiFile="0" displayBookmarks="0" displayFullscreen="0" displayLayers="0" displayThumbs="0" hideMenuBar="0" hideToolBar="0" fitWindow="0" openAfterExport="0" PageLayout="0" openAction="">
+            <LPI Color="" Frequency="0" Angle="0" SpotFunction="0"/>
             <LPI Color="Black" Frequency="133" Angle="45" SpotFunction="3"/>
             <LPI Color="Cyan" Frequency="133" Angle="105" SpotFunction="3"/>
             <LPI Color="Magenta" Frequency="133" Angle="75" SpotFunction="3"/>
@@ -170,99 +171,99 @@
         <PAGE PAGEXPOS="695.276590551181" PAGEYPOS="4429.46581889764" PAGEWIDTH="595.275590551181" PAGEHEIGHT="841.889763779528" BORDERLEFT="70.8661417322835" BORDERRIGHT="56.6929133858268" BORDERTOP="56.6929133858268" BORDERBOTTOM="70.8661417322835" NUM="10" NAM="" MNAM="F-Right Page" Size="Custom" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="" AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0" pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
         <PAGE PAGEXPOS="100.001" PAGEYPOS="5311.35858267717" PAGEWIDTH="595.275590551181" PAGEHEIGHT="841.889763779528" BORDERLEFT="70.8661417322835" BORDERRIGHT="56.6929133858268" BORDERTOP="56.6929133858268" BORDERBOTTOM="70.8661417322835" NUM="11" NAM="" MNAM="E-Left Page" Size="Custom" Orientation="0" LEFT="1" PRESET="0" VerticalGuides="" HorizontalGuides="" AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0" pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
         <PAGE PAGEXPOS="695.276590551181" PAGEYPOS="5311.35858267717" PAGEWIDTH="595.275590551181" PAGEHEIGHT="841.889763779528" BORDERLEFT="70.8661417322835" BORDERRIGHT="56.6929133858268" BORDERTOP="56.6929133858268" BORDERBOTTOM="70.8661417322835" NUM="12" NAM="" MNAM="F-Right Page" Size="Custom" Orientation="0" LEFT="0" PRESET="0" VerticalGuides="" HorizontalGuides="" AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0" pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
-        <PAGE PAGEXPOS="100.001" PAGEYPOS="6193.25134645669" PAGEWIDTH="595.275590551181" PAGEHEIGHT="841.889763779528" BORDERLEFT="70.8661417322835" BORDERRIGHT="56.6929133858268" BORDERTOP="56.6929133858268" BORDERBOTTOM="70.8661417322835" NUM="13" NAM="" MNAM="H-Blank Page" Size="Custom" Orientation="0" LEFT="1" PRESET="0" VerticalGuides="" HorizontalGuides="" AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0" pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
-        <MASTEROBJECT XPOS="567.717535433071" YPOS="808.033496062992" OwnPage="5" ItemID="863319821" PTYPE="4" WIDTH="70.8661417322835" HEIGHT="19.8425196850394" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Contents_Page_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" copath="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" OnMasterPage="C-Contents" gXpos="567.717535433071" gYpos="808.033496062992" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGE PAGEXPOS="100.001" PAGEYPOS="6193.2513464567" PAGEWIDTH="595.275590551181" PAGEHEIGHT="841.889763779528" BORDERLEFT="70.8661417322835" BORDERRIGHT="56.6929133858268" BORDERTOP="56.6929133858268" BORDERBOTTOM="70.8661417322835" NUM="13" NAM="" MNAM="H-Blank Page" Size="Custom" Orientation="0" LEFT="1" PRESET="0" VerticalGuides="" HorizontalGuides="" AGhorizontalAutoGap="0" AGverticalAutoGap="0" AGhorizontalAutoCount="0" AGverticalAutoCount="0" AGhorizontalAutoRefer="0" AGverticalAutoRefer="0" AGSelection="0 0 0 0" pageEffectDuration="1" pageViewDuration="1" effectType="0" Dm="0" M="0" Di="0"/>
+        <MASTEROBJECT XPOS="567.717535433071" YPOS="808.033496062992" OwnPage="5" ItemID="2028576627" PTYPE="4" WIDTH="70.8661417322835" HEIGHT="19.8425196850394" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Contents_Page_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" copath="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" OnMasterPage="C-Contents" gXpos="99383.4655669294" gYpos="147202.232283465" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <var name="pgno"/>
                 <trail PARENT="Abden Page Number Right"/>
             </StoryText>
         </MASTEROBJECT>
-        <MASTEROBJECT XPOS="156.693913385827" YPOS="808.033496062992" OwnPage="6" ItemID="863414541" PTYPE="4" WIDTH="70.8661417322835" HEIGHT="19.8425196850394" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Chapter_Page_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" copath="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" OnMasterPage="D-Chapter Opening" gXpos="156.693913385827" gYpos="808.033496062992" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <MASTEROBJECT XPOS="156.693913385827" YPOS="808.033496062992" OwnPage="6" ItemID="2044626483" PTYPE="4" WIDTH="70.8661417322835" HEIGHT="19.8425196850394" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Chapter_Page_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" copath="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" OnMasterPage="D-Chapter Opening" gXpos="156.693913385827" gYpos="293596.431070866" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <var name="pgno"/>
                 <trail PARENT="Abden Page Number Left"/>
             </StoryText>
         </MASTEROBJECT>
-        <MASTEROBJECT XPOS="156.693913385827" YPOS="51.1831023622047" OwnPage="7" ItemID="863422925" PTYPE="4" WIDTH="467.716535433071" HEIGHT="17.007874015748" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Left_Running_Header" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 17.0079 L0 17.0079 L0 0 Z" copath="M0 0 L467.717 0 L467.717 17.0079 L0 17.0079 L0 0 Z" OnMasterPage="E-Left Page" gXpos="156.693913385827" gYpos="51.1831023622047" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <MASTEROBJECT XPOS="156.693913385827" YPOS="51.1831023622047" OwnPage="7" ItemID="2041506979" PTYPE="4" WIDTH="467.716535433071" HEIGHT="17.007874015748" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Left_Running_Header" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 17.0079 L0 17.0079 L0 0 Z" copath="M0 0 L467.717 0 L467.717 17.0079 L0 17.0079 L0 0 Z" OnMasterPage="E-Left Page" gXpos="156.693913385827" gYpos="2635146.76127559" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="The Abden Shipyard Reconstruction Project"/>
                 <trail PARENT="Abden Running Header" ALIGN="0"/>
             </StoryText>
         </MASTEROBJECT>
-        <MASTEROBJECT XPOS="156.693913385827" YPOS="808.033496062992" OwnPage="7" ItemID="863483053" PTYPE="4" WIDTH="70.8661417322835" HEIGHT="19.8425196850394" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Left_Page_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" copath="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" OnMasterPage="E-Left Page" gXpos="156.693913385827" gYpos="808.033496062992" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <MASTEROBJECT XPOS="156.693913385827" YPOS="808.033496062992" OwnPage="7" ItemID="2039441443" PTYPE="4" WIDTH="70.8661417322835" HEIGHT="19.8425196850394" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Left_Page_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" copath="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" OnMasterPage="E-Left Page" gXpos="156.693913385827" gYpos="2635903.61166929" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <var name="pgno"/>
                 <trail PARENT="Abden Page Number Left"/>
             </StoryText>
         </MASTEROBJECT>
-        <MASTEROBJECT XPOS="170.867141732283" YPOS="51.1831023622047" OwnPage="8" ItemID="863446445" PTYPE="4" WIDTH="467.716535433071" HEIGHT="17.007874015748" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Right_Running_Header" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 17.0079 L0 17.0079 L0 0 Z" copath="M0 0 L467.717 0 L467.717 17.0079 L0 17.0079 L0 0 Z" OnMasterPage="F-Right Page" gXpos="170.867141732283" gYpos="51.1831023622047" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <MASTEROBJECT XPOS="170.867141732283" YPOS="51.1831023622047" OwnPage="8" ItemID="2043112771" PTYPE="4" WIDTH="467.716535433071" HEIGHT="17.007874015748" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Right_Running_Header" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 17.0079 L0 17.0079 L0 0 Z" copath="M0 0 L467.717 0 L467.717 17.0079 L0 17.0079 L0 0 Z" OnMasterPage="F-Right Page" gXpos="395433.85926772" gYpos="2488752.56248819" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Chapter Title"/>
                 <trail PARENT="Abden Running Header" ALIGN="2"/>
             </StoryText>
         </MASTEROBJECT>
-        <MASTEROBJECT XPOS="567.717535433071" YPOS="808.033496062992" OwnPage="8" ItemID="863545997" PTYPE="4" WIDTH="70.8661417322835" HEIGHT="19.8425196850394" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Right_Page_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" copath="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" OnMasterPage="F-Right Page" gXpos="567.717535433071" gYpos="808.033496062992" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <MASTEROBJECT XPOS="567.717535433071" YPOS="808.033496062992" OwnPage="8" ItemID="2042964531" PTYPE="4" WIDTH="70.8661417322835" HEIGHT="19.8425196850394" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Right_Page_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" copath="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" OnMasterPage="F-Right Page" gXpos="395830.709661421" gYpos="2489509.41288189" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <var name="pgno"/>
                 <trail PARENT="Abden Page Number Right"/>
             </StoryText>
         </MASTEROBJECT>
-        <MASTEROBJECT XPOS="567.717535433071" YPOS="808.033496062992" OwnPage="9" ItemID="863557101" PTYPE="4" WIDTH="70.8661417322835" HEIGHT="19.8425196850394" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Figure_Page_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" copath="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" OnMasterPage="G-Full Page Figure" gXpos="567.717535433071" gYpos="808.033496062992" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <MASTEROBJECT XPOS="567.717535433071" YPOS="808.033496062992" OwnPage="9" ItemID="2044437475" PTYPE="4" WIDTH="70.8661417322835" HEIGHT="19.8425196850394" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="MP_Figure_Page_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" copath="M0 0 L70.8661 0 L70.8661 19.8425 L0 19.8425 L0 0 Z" OnMasterPage="G-Full Page Figure" gXpos="99383.4655669294" gYpos="439990.62985827" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <var name="pgno"/>
                 <trail PARENT="Abden Page Number Right"/>
             </StoryText>
         </MASTEROBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="150.395700787402" OwnPage="0" ItemID="863605661" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Series" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="766.142732283465" gYpos="150.395700787402" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="150.395700787402" OwnPage="0" ItemID="2045838355" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Series" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="766.142732283465" gYpos="150.395700787402" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle ALIGN="1" FONT="Linux Biolinum O Regular" FONTSIZE="14"/>
                 <ITEXT FONT="Linux Biolinum O Regular" FONTSIZE="14" CH="The Abden Shipyard Reconstruction Project"/>
                 <trail ALIGN="1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="263.781527559055" OwnPage="0" ItemID="863680397" PTYPE="4" WIDTH="467.716535433071" HEIGHT="39.6850393700787" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Volume" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" copath="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" gXpos="766.142732283465" gYpos="263.781527559055" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="263.781527559055" OwnPage="0" ItemID="2039207091" PTYPE="4" WIDTH="467.716535433071" HEIGHT="39.6850393700787" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Volume" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" copath="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" gXpos="766.142732283465" gYpos="263.781527559055" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle ALIGN="1" FONT="Linux Biolinum O Bold" FONTSIZE="16"/>
                 <ITEXT FONT="Linux Biolinum O Bold" FONTSIZE="16" CH="Volume I"/>
                 <trail ALIGN="1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="337.48231496063" OwnPage="0" ItemID="863640445" PTYPE="4" WIDTH="467.716535433071" HEIGHT="56.6929133858268" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Main_1" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" copath="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" gXpos="766.142732283465" gYpos="337.48231496063" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="337.48231496063" OwnPage="0" ItemID="2028950899" PTYPE="4" WIDTH="467.716535433071" HEIGHT="56.6929133858268" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Main_1" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" copath="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" gXpos="766.142732283465" gYpos="337.48231496063" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle ALIGN="1" FONT="Linux Biolinum O Bold" FONTSIZE="25"/>
                 <ITEXT FONT="Linux Biolinum O Bold" FONTSIZE="25" CH="Historical Synopsis"/>
                 <trail ALIGN="1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="425.356330708661" OwnPage="0" ItemID="863756285" PTYPE="4" WIDTH="467.716535433071" HEIGHT="56.6929133858268" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Main_2" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" copath="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" gXpos="766.142732283465" gYpos="425.356330708661" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="425.356330708661" OwnPage="0" ItemID="2044230995" PTYPE="4" WIDTH="467.716535433071" HEIGHT="56.6929133858268" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Main_2" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" copath="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" gXpos="766.142732283465" gYpos="425.356330708661" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle ALIGN="1" FONT="Linux Biolinum O Bold" FONTSIZE="25"/>
                 <ITEXT FONT="Linux Biolinum O Bold" FONTSIZE="25" CH="and Reconstruction Guide"/>
                 <trail ALIGN="1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="601.104362204724" OwnPage="0" ItemID="863797965" PTYPE="4" WIDTH="467.716535433071" HEIGHT="39.6850393700787" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Author" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" copath="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" gXpos="766.142732283465" gYpos="601.104362204724" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="601.104362204724" OwnPage="0" ItemID="2045651059" PTYPE="4" WIDTH="467.716535433071" HEIGHT="39.6850393700787" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Author" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" copath="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" gXpos="766.142732283465" gYpos="601.104362204724" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle ALIGN="1" FONT="Linux Libertine O Regular" FONTSIZE="13"/>
                 <ITEXT FONT="Linux Libertine O Regular" FONTSIZE="13" CH="Alan Richardson"/>
                 <trail ALIGN="1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="717.324834645669" OwnPage="0" ItemID="863793277" PTYPE="4" WIDTH="467.716535433071" HEIGHT="39.6850393700787" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Imprint" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" copath="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" gXpos="766.142732283465" gYpos="717.324834645669" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="717.324834645669" OwnPage="0" ItemID="2034333075" PTYPE="4" WIDTH="467.716535433071" HEIGHT="39.6850393700787" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Title_Imprint" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" copath="M0 0 L467.717 0 L467.717 39.685 L0 39.685 L0 0 Z" gXpos="766.142732283465" gYpos="717.324834645669" gWidth="0" gHeight="0" ALIGN="1" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle ALIGN="1" FONT="Linux Biolinum O Regular" FONTSIZE="11"/>
                 <ITEXT FONT="Linux Biolinum O Regular" FONTSIZE="11" CH="Kinghorn Information Sources"/>
                 <trail ALIGN="1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="1349.76877952756" OwnPage="1" ItemID="863833277" PTYPE="4" WIDTH="467.716535433071" HEIGHT="266.456692913386" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Copyright_Text" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 266.457 L0 266.457 L0 0 Z" copath="M0 0 L467.717 0 L467.717 266.457 L0 266.457 L0 0 Z" gXpos="156.693913385827" gYpos="1349.76877952756" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="1349.76877952756" OwnPage="1" ItemID="2023568579" PTYPE="4" WIDTH="467.716535433071" HEIGHT="266.456692913386" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Copyright_Text" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 266.457 L0 266.457 L0 0 Z" copath="M0 0 L467.717 0 L467.717 266.457 L0 266.457 L0 0 Z" gXpos="156.693913385827" gYpos="1349.76877952756" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="The Abden Shipyard Reconstruction Project"/>
@@ -301,14 +302,14 @@
                 <trail PARENT="Abden Footnote"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="1001.10736220472" OwnPage="2" ItemID="864202461" PTYPE="4" WIDTH="467.716535433071" HEIGHT="56.6929133858268" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Contents_Heading" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" copath="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" gXpos="766.142732283465" gYpos="1001.10736220472" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="1001.10736220472" OwnPage="2" ItemID="2045416131" PTYPE="4" WIDTH="467.716535433071" HEIGHT="56.6929133858268" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Contents_Heading" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" copath="M0 0 L467.717 0 L467.717 56.6929 L0 56.6929 L0 0 Z" gXpos="766.142732283465" gYpos="1001.10736220472" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Contents"/>
                 <trail PARENT="Abden Chapter Title"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="1077.64279527559" OwnPage="2" ItemID="864214765" PTYPE="4" WIDTH="467.716535433071" HEIGHT="561.259842519685" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Contents_Entries" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 561.26 L0 561.26 L0 0 Z" copath="M0 0 L467.717 0 L467.717 561.26 L0 561.26 L0 0 Z" gXpos="766.142732283465" gYpos="1077.64279527559" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="1077.64279527559" OwnPage="2" ItemID="2045897683" PTYPE="4" WIDTH="467.716535433071" HEIGHT="561.259842519685" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Contents_Entries" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 561.26 L0 561.26 L0 0 Z" copath="M0 0 L467.717 0 L467.717 561.26 L0 561.26 L0 0 Z" gXpos="766.142732283465" gYpos="1077.64279527559" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Preface"/>
@@ -481,37 +482,161 @@
                 <trail PARENT="Abden Contents Entry"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="1908.51193700787" OwnPage="3" ItemID="864164269" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_1_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="156.693913385827" gYpos="1908.51193700787" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="1908.51193700787" OwnPage="3" ItemID="2043721875" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_1_Number" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="156.693913385827" gYpos="1908.51193700787" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Chapter 1"/>
                 <trail PARENT="Abden Chapter Number"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="1976.54343307087" OwnPage="3" ItemID="865281613" PTYPE="4" WIDTH="467.716535433071" HEIGHT="104.88188976378" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_1_Title" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 104.882 L0 104.882 L0 0 Z" copath="M0 0 L467.717 0 L467.717 104.882 L0 104.882 L0 0 Z" gXpos="156.693913385827" gYpos="1976.54343307087" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="1976.54343307087" OwnPage="3" ItemID="2044320835" PTYPE="4" WIDTH="467.716535433071" HEIGHT="104.88188976378" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_1_Title" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 104.882 L0 104.882 L0 0 Z" copath="M0 0 L467.717 0 L467.717 104.882 L0 104.882 L0 0 Z" gXpos="156.693913385827" gYpos="1976.54343307087" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="The Geography of Abden"/>
                 <trail PARENT="Abden Chapter Title"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="2112.60642519685" OwnPage="3" ItemID="865379469" PTYPE="4" WIDTH="467.716535433071" HEIGHT="107.716535433071" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_1_Introduction" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 107.717 L0 107.717 L0 0 Z" copath="M0 0 L467.717 0 L467.717 107.717 L0 107.717 L0 0 Z" gXpos="156.693913385827" gYpos="2112.60642519685" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="2112.60642519685" OwnPage="3" ItemID="2000526291" PTYPE="4" WIDTH="467.716535433071" HEIGHT="107.716535433071" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_1_Introduction" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 107.717 L0 107.717 L0 0 Z" copath="M0 0 L467.717 0 L467.717 107.717 L0 107.717 L0 0 Z" gXpos="156.693913385827" gYpos="2112.60642519685" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
-                <ITEXT CH="This chapter establishes the physical setting of Abden and identifies the natural and altered landscape features that governed the development of the shipyard."/>
-                <para PARENT="Abden Body First"/>
-                <ITEXT CH="Its purpose is to provide the geographical foundation for the historical narrative and the later QGIS and Blender reconstruction."/>
-                <trail PARENT="Abden Body"/>
+                <ITEXT CH="&lt;!-- ===================================================== --&gt;"/>
+                <para PARENT="Abden Body"/>
+                <ITEXT CH="&lt;!-- Volume I                                              --&gt;"/>
+                <para/>
+                <ITEXT CH="&lt;!-- Part I : Historical Development                       --&gt;"/>
+                <para/>
+                <ITEXT CH="&lt;!-- Chapter 1                                             --&gt;"/>
+                <para/>
+                <ITEXT CH="&lt;!-- The Physical Geography and Geological Setting of Abden--&gt;"/>
+                <para/>
+                <ITEXT CH="&lt;!-- Draft 0.1                                             --&gt;"/>
+                <para/>
+                <ITEXT CH="&lt;!-- ===================================================== --&gt;"/>
+                <para/>
+                <para/>
+                <ITEXT CH="# Chapter 1"/>
+                <para/>
+                <para/>
+                <ITEXT CH="# The Physical Geography and Geological Setting of Abden"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Introduction"/>
+                <para/>
+                <para/>
+                <ITEXT CH="The physical landscape of Abden determined both the opportunities and the constraints that shaped the development of the shipyard. Long before industrial activity began, the coastline, geology and natural topography had already defined the character of the site. Understanding these natural conditions is therefore essential to understanding why a shipyard developed at Abden and why its buildings, slipways and infrastructure occupied the positions that they did."/>
+                <para/>
+                <para/>
+                <ITEXT CH="Unlike many nineteenth-century industrial sites that were constructed on broad river floodplains or reclaimed estuarine mudflats, Abden occupied a naturally rugged stretch of the Fife coastline. The surviving landscape demonstrates that the builders adapted an existing geological setting rather than creating an entirely artificial one. The interaction between the natural landscape and nineteenth-century engineering therefore forms one of the principal themes of this investigation."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Location"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Abden lies immediately north of the historic burgh of Kinghorn on the northern shore of the Firth of Forth in Fife, Scotland. The site occupies a narrow coastal strip between the rising ground to the west and the open waters of the Firth to the east. Although geographically close to Kinghorn Harbour, the area possesses its own distinct topographical character and has long been recognised as a separate locality."/>
+                <para/>
+                <para/>
+                <ITEXT CH="Its position provided direct access to deep water while remaining within easy reach of the town, local roads and, later, the railway network. These characteristics made the site attractive for maritime industry while simultaneously presenting considerable engineering challenges."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Geological Setting"/>
+                <para/>
+                <para/>
+                <ITEXT CH="The coastline at Abden forms part of the Carboniferous geology that characterises much of the southern coast of Fife. The bedrock consists principally of sedimentary rocks, including sandstones, limestones and associated strata, which have been shaped over geological time by marine erosion."/>
+                <para/>
+                <para/>
+                <ITEXT CH="The resulting coastline is irregular, with rock outcrops, natural ledges and steep slopes descending towards the Firth of Forth. The character of the underlying rock strongly influenced both the natural shoreline and the methods by which later industrial development could be achieved."/>
+                <para/>
+                <para/>
+                <ITEXT CH="The surviving rock exposures visible today remain an important source of archaeological evidence, allowing modern observations to be compared with historical maps and photographs."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Natural Topography"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Historical cartographic evidence dating from the early nineteenth century consistently depicts the Abden coastline as a steep natural escarpment. Maps published in 1828 and again in 1838 show a pronounced coastal slope extending along the shoreline before the major development of the shipyard. Although these maps were not intended as engineering surveys, their agreement regarding the general form of the landscape provides persuasive evidence that the coastline was naturally rugged."/>
+                <para/>
+                <para/>
+                <ITEXT CH="The inland ground was similarly uneven. Contemporary mapping illustrates a landscape of small ridges, hollows and rising ground rather than an extensive level coastal terrace. These natural features would inevitably have influenced the placement of buildings, roads and slipways during the subsequent industrial development of the site."/>
+                <para/>
+                <para/>
+                <ITEXT CH="At present, no evidence has been identified to suggest that the entire shipyard platform was created through wholesale excavation of the coastal slope. Instead, the available evidence indicates that the builders adapted the existing terrain through a combination of local excavation, retaining walls and selective reclamation where additional working space was required. The extent of these engineering works forms an important subject of later chapters."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## The Coastline Before Industrial Development"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Before the construction of the shipyard, the coastline at Abden appears to have consisted primarily of rocky shore backed by steep ground. The irregular shoreline offered limited natural landing places but also provided firm bedrock upon which marine structures could later be founded."/>
+                <para/>
+                <para/>
+                <ITEXT CH="Comparison of early maps with later Ordnance Survey editions demonstrates the gradual transformation of this natural coastline into an industrial landscape. Slipways, retaining walls, workshops and reclaimed ground progressively altered the appearance of the shore while continuing to exploit the advantages offered by the underlying geology."/>
+                <para/>
+                <para/>
+                <ITEXT CH="The evidence presently available suggests that the industrial landscape evolved incrementally rather than through a single large-scale engineering project. This interpretation is supported by the progressive changes visible on successive maps and by surviving archaeological remains."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Why Abden Became a Shipbuilding Site"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Several geographical factors combined to make Abden suitable for shipbuilding."/>
+                <para/>
+                <para/>
+                <ITEXT CH="Its position on the sheltered northern shore of the Firth of Forth provided convenient access to navigable water while remaining close to the commercial and skilled workforce of Kinghorn. The availability of solid bedrock offered secure foundations for heavy structures, including slipways and workshops, while the surrounding land allowed gradual expansion of industrial facilities."/>
+                <para/>
+                <para/>
+                <ITEXT CH="The natural slope towards the sea also favoured the construction of launching slipways, reducing the amount of excavation required compared with flatter sites. Although engineering works were undoubtedly necessary to create usable working areas, the landscape itself provided many of the characteristics desirable for nineteenth-century shipbuilding."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Significance for the Reconstruction"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Understanding the original geography of Abden is fundamental to every subsequent stage of this reconstruction."/>
+                <para/>
+                <para/>
+                <ITEXT CH="The location of buildings, the orientation of slipways, the extent of reclaimed ground and the interpretation of surviving archaeological remains can only be understood within the context of the original landscape. The evidence indicates that the shipyard developed through adaptation of an existing coastal environment rather than its complete replacement."/>
+                <para/>
+                <para/>
+                <ITEXT CH="This distinction has important implications for both the historical interpretation presented in this volume and the three-dimensional digital reconstruction that will ultimately be derived from it. Wherever possible, the reconstructed model will therefore seek to preserve the relationship between the natural landscape and the engineering works that transformed Abden into one of Kinghorn's most significant industrial sites."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Chapter Summary"/>
+                <para/>
+                <para/>
+                <ITEXT CH="The available cartographic, geological and archaeological evidence indicates that Abden occupied a naturally rugged section of the Fife coastline before industrial development commenced. Early nineteenth-century mapping consistently depicts a steep coastal margin, while surviving bedrock and archaeological remains suggest that the shipyard was created by adapting this landscape through excavation, retaining structures and limited reclamation rather than by wholesale reconstruction of the shoreline."/>
+                <para/>
+                <para/>
+                <ITEXT CH="This physical setting formed the foundation upon which the subsequent development of the shipyard took place. The following chapter examines the historical development of Kinghorn itself, providing the social and economic context within which Abden Shipyard emerged."/>
+                <trail/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="2248.66941732283" OwnPage="3" ItemID="865497725" PTYPE="4" WIDTH="467.716535433071" HEIGHT="34.0157480314961" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_Status_Heading_4" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 34.0157 L0 34.0157 L0 0 Z" copath="M0 0 L467.717 0 L467.717 34.0157 L0 34.0157 L0 0 Z" gXpos="156.693913385827" gYpos="2248.66941732283" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="2248.66941732283" OwnPage="3" ItemID="2026548819" PTYPE="4" WIDTH="467.716535433071" HEIGHT="34.0157480314961" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_Status_Heading_4" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 34.0157 L0 34.0157 L0 0 Z" copath="M0 0 L467.717 0 L467.717 34.0157 L0 34.0157 L0 0 Z" gXpos="156.693913385827" gYpos="2248.66941732283" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Internal Chapter Status — remove or hide for publication"/>
                 <trail PARENT="Abden Heading 2"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="2296.85839370079" OwnPage="3" ItemID="865537709" PTYPE="4" WIDTH="127.55905511811" HEIGHT="184.251968503937" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_Status_Labels_4" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L127.559 0 L127.559 184.252 L0 184.252 L0 0 Z" copath="M0 0 L127.559 0 L127.559 184.252 L0 184.252 L0 0 Z" gXpos="156.693913385827" gYpos="2296.85839370079" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="2296.85839370079" OwnPage="3" ItemID="2046000147" PTYPE="4" WIDTH="127.55905511811" HEIGHT="184.251968503937" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_Status_Labels_4" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L127.559 0 L127.559 184.252 L0 184.252 L0 0 Z" copath="M0 0 L127.559 0 L127.559 184.252 L0 184.252 L0 0 Z" gXpos="156.693913385827" gYpos="2296.85839370079" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Status:"/>
@@ -528,7 +653,7 @@
                 <trail PARENT="Abden Research Status Label"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="298.426196850394" YPOS="2296.85839370079" OwnPage="3" ItemID="865563997" PTYPE="4" WIDTH="325.984251968504" HEIGHT="184.251968503937" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_Status_Values_4" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L325.984 0 L325.984 184.252 L0 184.252 L0 0 Z" copath="M0 0 L325.984 0 L325.984 184.252 L0 184.252 L0 0 Z" gXpos="298.426196850394" gYpos="2296.85839370079" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="298.426196850394" YPOS="2296.85839370079" OwnPage="3" ItemID="2035153315" PTYPE="4" WIDTH="325.984251968504" HEIGHT="184.251968503937" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Chapter_Status_Values_4" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L325.984 0 L325.984 184.252 L0 184.252 L0 0 Z" copath="M0 0 L325.984 0 L325.984 184.252 L0 184.252 L0 0 Z" gXpos="298.426196850394" gYpos="2296.85839370079" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Draft"/>
@@ -545,14 +670,14 @@
                 <trail PARENT="Abden Research Status"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="1880.16548031496" OwnPage="4" ItemID="865783197" PTYPE="4" WIDTH="467.716535433071" HEIGHT="62.3622047244095" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Heading_5" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" copath="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" gXpos="766.142732283465" gYpos="1880.16548031496" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="1880.16548031496" OwnPage="4" ItemID="2026305107" PTYPE="4" WIDTH="467.716535433071" HEIGHT="62.3622047244095" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Heading_5" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" copath="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" gXpos="766.142732283465" gYpos="1880.16548031496" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Preface"/>
                 <trail PARENT="Abden Heading 1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="1965.2048503937" OwnPage="4" ItemID="865734701" PTYPE="4" WIDTH="467.716535433071" HEIGHT="538.582677165354" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Body_5" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" copath="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" gXpos="766.142732283465" gYpos="1965.2048503937" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="1965.2048503937" OwnPage="4" ItemID="2044076643" PTYPE="4" WIDTH="467.716535433071" HEIGHT="538.582677165354" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Body_5" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" copath="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" gXpos="766.142732283465" gYpos="1965.2048503937" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="This preface will explain why the reconstruction project was begun, its intended public and academic value, and the author's relationship to the site."/>
@@ -571,14 +696,14 @@
                 <trail PARENT="Abden Body"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="2762.05824409449" OwnPage="5" ItemID="865932653" PTYPE="4" WIDTH="467.716535433071" HEIGHT="62.3622047244095" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Heading_6" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" copath="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" gXpos="156.693913385827" gYpos="2762.05824409449" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="2762.05824409449" OwnPage="5" ItemID="2022664947" PTYPE="4" WIDTH="467.716535433071" HEIGHT="62.3622047244095" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Heading_6" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" copath="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" gXpos="156.693913385827" gYpos="2762.05824409449" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Executive Summary"/>
                 <trail PARENT="Abden Heading 1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="2847.09761417323" OwnPage="5" ItemID="866026893" PTYPE="4" WIDTH="467.716535433071" HEIGHT="538.582677165354" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Body_6" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" copath="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" gXpos="156.693913385827" gYpos="2847.09761417323" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="2847.09761417323" OwnPage="5" ItemID="2038804691" PTYPE="4" WIDTH="467.716535433071" HEIGHT="538.582677165354" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Body_6" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" copath="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" gXpos="156.693913385827" gYpos="2847.09761417323" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="This section will provide academics, heritage organisations and potential collaborators with a concise account of the project's evidence, findings and intended outputs."/>
@@ -597,44 +722,211 @@
                 <trail PARENT="Abden Body"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="2762.05824409449" OwnPage="6" ItemID="866239197" PTYPE="4" WIDTH="467.716535433071" HEIGHT="62.3622047244095" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Heading_7" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" copath="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" gXpos="766.142732283465" gYpos="2762.05824409449" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="2762.05824409449" OwnPage="6" ItemID="2026317011" PTYPE="4" WIDTH="467.716535433071" HEIGHT="62.3622047244095" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Heading_7" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" copath="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" gXpos="766.142732283465" gYpos="2762.05824409449" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Research Methodology"/>
                 <trail PARENT="Abden Heading 1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="2847.09761417323" OwnPage="6" ItemID="866208557" PTYPE="4" WIDTH="467.716535433071" HEIGHT="538.582677165354" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Body_7" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" copath="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" gXpos="766.142732283465" gYpos="2847.09761417323" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="2847.09761417323" OwnPage="6" ItemID="2035587027" PTYPE="4" WIDTH="467.716535433071" HEIGHT="538.582677165354" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Body_7" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" copath="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" gXpos="766.142732283465" gYpos="2847.09761417323" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
-                <ITEXT CH="The reconstruction separates observation, interpretation and conjecture, and records the evidence and confidence attached to every significant conclusion."/>
-                <para PARENT="Abden Body First"/>
-                <ITEXT CH="Source collection"/>
-                <para PARENT="Abden Evidence Heading"/>
-                <ITEXT CH="Maps, photographs, documentary records, LiDAR and field observations."/>
+                <ITEXT CH="&lt;!-- ===================================================== --&gt;"/>
                 <para PARENT="Abden Body"/>
-                <ITEXT CH="Spatial analysis"/>
-                <para PARENT="Abden Evidence Heading"/>
-                <ITEXT CH="Georeferencing, digitisation and measurement in QGIS."/>
-                <para PARENT="Abden Body"/>
-                <ITEXT CH="Confidence system"/>
-                <para PARENT="Abden Evidence Heading"/>
-                <ITEXT CH="High, Moderate, Low and Unknown."/>
-                <para PARENT="Abden Body"/>
-                <ITEXT CH="Traceability"/>
-                <para PARENT="Abden Evidence Heading"/>
-                <ITEXT CH="Every feature links to controlled evidence-register entries."/>
-                <trail PARENT="Abden Body"/>
+                <ITEXT CH="&lt;!-- Volume I : Front Matter                               --&gt;"/>
+                <para/>
+                <ITEXT CH="&lt;!-- Section : Research Methodology                        --&gt;"/>
+                <para/>
+                <ITEXT CH="&lt;!-- Draft : 0.1                                           --&gt;"/>
+                <para/>
+                <ITEXT CH="&lt;!-- ===================================================== --&gt;"/>
+                <para/>
+                <para/>
+                <ITEXT CH="# Research Methodology"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Purpose of the Investigation"/>
+                <para/>
+                <para/>
+                <ITEXT CH="This volume presents an evidence-based reconstruction of the former Abden Shipyard at Kinghorn, Fife, Scotland. Its purpose is not merely to recount the history of the shipyard, but to reconstruct, as accurately as the surviving evidence permits, its physical layout, development and operation during the period in which it was active."/>
+                <para/>
+                <para/>
+                <ITEXT CH="The project brings together historical documents, cartographic sources, contemporary photographs, archaeological remains, field observations and modern spatial analysis within a single coherent framework. These diverse sources are examined collectively to produce a reconstruction that is transparent, reproducible and capable of independent scrutiny."/>
+                <para/>
+                <para/>
+                <ITEXT CH="Throughout this work every significant conclusion is supported by identified evidence. Where direct evidence is incomplete or absent, any interpretation is explicitly identified and assigned an appropriate confidence assessment."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Objectives"/>
+                <para/>
+                <para/>
+                <ITEXT CH="The principal objectives of this investigation are:"/>
+                <para/>
+                <para/>
+                <ITEXT CH="- To document the historical development of Abden Shipyard."/>
+                <para/>
+                <ITEXT CH="- To identify, record and preserve all significant surviving evidence relating to the site."/>
+                <para/>
+                <ITEXT CH="- To reconstruct the physical arrangement of the shipyard during its operational life."/>
+                <para/>
+                <ITEXT CH="- To distinguish clearly between observed evidence and informed interpretation."/>
+                <para/>
+                <ITEXT CH="- To provide a documented specification suitable for future three-dimensional digital reconstruction."/>
+                <para/>
+                <ITEXT CH="- To preserve the results of the investigation in a form suitable for future historical and academic research."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Principles"/>
+                <para/>
+                <para/>
+                <ITEXT CH="The investigation is founded upon four guiding principles."/>
+                <para/>
+                <para/>
+                <ITEXT CH="### Evidence First"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Wherever possible, conclusions are based upon primary evidence rather than later interpretation. Contemporary sources are preferred whenever they are available."/>
+                <para/>
+                <para/>
+                <ITEXT CH="### Transparency"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Every reconstruction presented within this volume is traceable to the evidence upon which it is based. Readers should be able to identify the reasoning that led to each significant conclusion."/>
+                <para/>
+                <para/>
+                <ITEXT CH="### Reproducibility"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Another researcher, working from the same evidence, should be able to understand the methods employed and repeat the analysis."/>
+                <para/>
+                <para/>
+                <ITEXT CH="### Revision"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Historical research is an evolving process. The reconstruction presented in this volume represents the current state of knowledge and may be refined should additional evidence become available."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Sources of Evidence"/>
+                <para/>
+                <para/>
+                <ITEXT CH="The reconstruction draws upon several independent categories of evidence."/>
+                <para/>
+                <para/>
+                <ITEXT CH="### Historical Maps"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Historical maps establish the spatial framework of the investigation. They provide information concerning the location of buildings, slipways, railways, boundaries and shoreline development, while comparison between maps from different periods illustrates the evolution of the site."/>
+                <para/>
+                <para/>
+                <ITEXT CH="### Historical Photographs"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Contemporary photographs provide evidence that cannot normally be obtained from maps alone. They reveal construction methods, building materials, roofing, windows, machinery, cranes, railway infrastructure and relationships between structures."/>
+                <para/>
+                <para/>
+                <ITEXT CH="### Documentary Sources"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Documentary evidence includes newspapers, trade directories, census returns, valuation rolls, harbour records, engineering publications and other contemporary documents that assist in understanding the operation and development of the shipyard."/>
+                <para/>
+                <para/>
+                <ITEXT CH="### Surviving Archaeology"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Surviving masonry, foundations, retaining walls, slipways, pier remains and other archaeological features provide direct physical evidence of the former shipyard. These remains frequently provide the highest level of confidence within the reconstruction."/>
+                <para/>
+                <para/>
+                <ITEXT CH="### Modern Survey"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Modern survey techniques, including field observation, aerial imagery and LiDAR, assist in identifying surviving features that may no longer be apparent from historical documentation alone."/>
+                <para/>
+                <para/>
+                <ITEXT CH="### Geographic Information System (QGIS)"/>
+                <para/>
+                <para/>
+                <ITEXT CH="A Geographic Information System forms the spatial framework of the investigation. Historical maps are georeferenced, archaeological features digitised and evidence from multiple periods compared within a common coordinate system. This enables measurements, spatial relationships and site development to be examined objectively and provides the geographical foundation for the reconstruction."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Evidence Assessment"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Not all evidence possesses equal reliability. Throughout this volume, reconstructed features are assigned one of four confidence levels."/>
+                <para/>
+                <para/>
+                <ITEXT CH="**High**"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Supported directly by multiple independent sources or by surviving physical evidence."/>
+                <para/>
+                <para/>
+                <ITEXT CH="**Moderate**"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Supported by one strong source or by several mutually consistent sources."/>
+                <para/>
+                <para/>
+                <ITEXT CH="**Low**"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Based upon limited supporting evidence but considered a reasonable interpretation."/>
+                <para/>
+                <para/>
+                <ITEXT CH="**Speculative**"/>
+                <para/>
+                <para/>
+                <ITEXT CH="Presented as a hypothesis where evidence is insufficient to support a stronger conclusion."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Reconstruction Philosophy"/>
+                <para/>
+                <para/>
+                <ITEXT CH="The objective of this reconstruction is not to eliminate uncertainty but to document it honestly. Every reconstructed feature is therefore presented together with the evidence upon which it is based and an assessment of the confidence that can reasonably be placed in that interpretation."/>
+                <para/>
+                <para/>
+                <ITEXT CH="The distinction between observation and interpretation is maintained throughout the investigation. Readers are therefore able to distinguish established fact from informed reconstruction."/>
+                <para/>
+                <para/>
+                <ITEXT CH="---"/>
+                <para/>
+                <para/>
+                <ITEXT CH="## Relationship to the Three-Dimensional Reconstruction"/>
+                <para/>
+                <para/>
+                <ITEXT CH="The written reconstruction presented in this volume constitutes the primary scholarly record of the project."/>
+                <para/>
+                <para/>
+                <ITEXT CH="Any future three-dimensional digital reconstruction should be regarded as a visual representation derived from the documented evidence presented herein rather than as evidence in its own right. Where the creation of a digital model requires assumptions beyond the surviving evidence, those assumptions should be recorded within the corresponding Feature Record so that the reasoning remains transparent and open to future review."/>
+                <para/>
+                <para/>
+                <ITEXT CH="The written record therefore remains the authoritative source from which all subsequent visual reconstructions are derived."/>
+                <para/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="3643.95100787402" OwnPage="7" ItemID="866519725" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Feature_Record_Heading" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="156.693913385827" gYpos="3643.95100787402" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="3643.95100787402" OwnPage="7" ItemID="2040653059" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Feature_Record_Heading" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="156.693913385827" gYpos="3643.95100787402" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Feature Record"/>
                 <trail PARENT="Abden Heading 1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="3711.98250393701" OwnPage="7" ItemID="866630285" PTYPE="4" WIDTH="130.393700787402" HEIGHT="192.755905511811" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Feature_Metadata_Labels" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L130.394 0 L130.394 192.756 L0 192.756 L0 0 Z" copath="M0 0 L130.394 0 L130.394 192.756 L0 192.756 L0 0 Z" gXpos="156.693913385827" gYpos="3711.98250393701" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="3711.98250393701" OwnPage="7" ItemID="2028642755" PTYPE="4" WIDTH="130.393700787402" HEIGHT="192.755905511811" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Feature_Metadata_Labels" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L130.394 0 L130.394 192.756 L0 192.756 L0 0 Z" copath="M0 0 L130.394 0 L130.394 192.756 L0 192.756 L0 0 Z" gXpos="156.693913385827" gYpos="3711.98250393701" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Feature ID:"/>
@@ -651,7 +943,7 @@
                 <trail PARENT="Abden Metadata Label"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="301.260842519685" YPOS="3711.98250393701" OwnPage="7" ItemID="866640301" PTYPE="4" WIDTH="323.149606299213" HEIGHT="192.755905511811" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Feature_Metadata_Values" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L323.15 0 L323.15 192.756 L0 192.756 L0 0 Z" copath="M0 0 L323.15 0 L323.15 192.756 L0 192.756 L0 0 Z" gXpos="301.260842519685" gYpos="3711.98250393701" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="301.260842519685" YPOS="3711.98250393701" OwnPage="7" ItemID="2030305507" PTYPE="4" WIDTH="323.149606299213" HEIGHT="192.755905511811" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Feature_Metadata_Values" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L323.15 0 L323.15 192.756 L0 192.756 L0 0 Z" copath="M0 0 L323.15 0 L323.15 192.756 L0 192.756 L0 0 Z" gXpos="301.260842519685" gYpos="3711.98250393701" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="[ID]"/>
@@ -668,7 +960,7 @@
                 <trail PARENT="Abden Metadata Value"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="3927.41557480315" OwnPage="7" ItemID="866840461" PTYPE="4" WIDTH="467.716535433071" HEIGHT="340.157480314961" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Feature_Record_Body" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 340.157 L0 340.157 L0 0 Z" copath="M0 0 L467.717 0 L467.717 340.157 L0 340.157 L0 0 Z" gXpos="156.693913385827" gYpos="3927.41557480315" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="3927.41557480315" OwnPage="7" ItemID="2025205027" PTYPE="4" WIDTH="467.716535433071" HEIGHT="340.157480314961" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Feature_Record_Body" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 340.157 L0 340.157 L0 0 Z" copath="M0 0 L467.717 0 L467.717 340.157 L0 340.157 L0 0 Z" gXpos="156.693913385827" gYpos="3927.41557480315" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Historical description"/>
@@ -697,14 +989,14 @@
                 <trail PARENT="Abden Outstanding Question"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="3643.95100787402" OwnPage="8" ItemID="867149565" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Heading_9" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="766.142732283465" gYpos="3643.95100787402" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="3643.95100787402" OwnPage="8" ItemID="2046608467" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Heading_9" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="766.142732283465" gYpos="3643.95100787402" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Historical Map Analysis"/>
                 <trail PARENT="Abden Heading 1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="3717.65179527559" OwnPage="8" ItemID="867115213" PTYPE="4" WIDTH="467.716535433071" HEIGHT="549.92125984252" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Body_9" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" copath="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" gXpos="766.142732283465" gYpos="3717.65179527559" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="3717.65179527559" OwnPage="8" ItemID="2030753683" PTYPE="4" WIDTH="467.716535433071" HEIGHT="549.92125984252" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Body_9" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" copath="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" gXpos="766.142732283465" gYpos="3717.65179527559" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Source identification"/>
@@ -729,14 +1021,14 @@
                 <trail PARENT="Abden Figure Reference"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="4525.84377165354" OwnPage="9" ItemID="867497501" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Heading_10" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="156.693913385827" gYpos="4525.84377165354" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="4525.84377165354" OwnPage="9" ItemID="2030602355" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Heading_10" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="156.693913385827" gYpos="4525.84377165354" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Photograph Analysis"/>
                 <trail PARENT="Abden Heading 1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="4599.54455905512" OwnPage="9" ItemID="867466621" PTYPE="4" WIDTH="467.716535433071" HEIGHT="549.92125984252" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Body_10" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" copath="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" gXpos="156.693913385827" gYpos="4599.54455905512" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="4599.54455905512" OwnPage="9" ItemID="2040607203" PTYPE="4" WIDTH="467.716535433071" HEIGHT="549.92125984252" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Body_10" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" copath="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" gXpos="156.693913385827" gYpos="4599.54455905512" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Source identification"/>
@@ -761,14 +1053,14 @@
                 <trail PARENT="Abden Figure Reference"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="4525.84377165354" OwnPage="10" ItemID="867772973" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Heading_11" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="766.142732283465" gYpos="4525.84377165354" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="4525.84377165354" OwnPage="10" ItemID="2000535091" PTYPE="4" WIDTH="467.716535433071" HEIGHT="51.0236220472441" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Heading_11" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" copath="M0 0 L467.717 0 L467.717 51.0236 L0 51.0236 L0 0 Z" gXpos="766.142732283465" gYpos="4525.84377165354" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="LiDAR and Terrain Analysis"/>
                 <trail PARENT="Abden Heading 1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="4599.54455905512" OwnPage="10" ItemID="867870109" PTYPE="4" WIDTH="467.716535433071" HEIGHT="549.92125984252" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Body_11" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" copath="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" gXpos="766.142732283465" gYpos="4599.54455905512" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="4599.54455905512" OwnPage="10" ItemID="2045480835" PTYPE="4" WIDTH="467.716535433071" HEIGHT="549.92125984252" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Analysis_Body_11" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" copath="M0 0 L467.717 0 L467.717 549.921 L0 549.921 L0 0 Z" gXpos="766.142732283465" gYpos="4599.54455905512" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Source identification"/>
@@ -793,14 +1085,14 @@
                 <trail PARENT="Abden Figure Reference"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="5407.73653543307" OwnPage="11" ItemID="868117197" PTYPE="4" WIDTH="467.716535433071" HEIGHT="62.3622047244095" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Heading_12" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" copath="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" gXpos="156.693913385827" gYpos="5407.73653543307" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="5407.73653543307" OwnPage="11" ItemID="2023430979" PTYPE="4" WIDTH="467.716535433071" HEIGHT="62.3622047244095" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Heading_12" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" copath="M0 0 L467.717 0 L467.717 62.3622 L0 62.3622 L0 0 Z" gXpos="156.693913385827" gYpos="5407.73653543307" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Blender Reconstruction Specification"/>
                 <trail PARENT="Abden Heading 1"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="156.693913385827" YPOS="5492.77590551181" OwnPage="11" ItemID="868217469" PTYPE="4" WIDTH="467.716535433071" HEIGHT="538.582677165354" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Body_12" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" copath="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" gXpos="156.693913385827" gYpos="5492.77590551181" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="156.693913385827" YPOS="5492.77590551181" OwnPage="11" ItemID="2026419219" PTYPE="4" WIDTH="467.716535433071" HEIGHT="538.582677165354" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Working_Body_12" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" copath="M0 0 L467.717 0 L467.717 538.583 L0 538.583 L0 0 Z" gXpos="156.693913385827" gYpos="5492.77590551181" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="This page converts the historical interpretation into a controlled modelling instruction while preserving the distinction between known and conjectural geometry."/>
@@ -827,7 +1119,7 @@
                 <trail PARENT="Abden Body"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="5430.4137007874" OwnPage="12" ItemID="868582189" PTYPE="4" WIDTH="467.716535433071" HEIGHT="107.716535433071" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Appendix_Heading" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 107.717 L0 107.717 L0 0 Z" copath="M0 0 L467.717 0 L467.717 107.717 L0 107.717 L0 0 Z" gXpos="766.142732283465" gYpos="5430.4137007874" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="5430.4137007874" OwnPage="12" ItemID="2039892739" PTYPE="4" WIDTH="467.716535433071" HEIGHT="107.716535433071" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Appendix_Heading" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 107.717 L0 107.717 L0 0 Z" copath="M0 0 L467.717 0 L467.717 107.717 L0 107.717 L0 0 Z" gXpos="766.142732283465" gYpos="5430.4137007874" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="Appendix A"/>
@@ -836,7 +1128,7 @@
                 <trail PARENT="Abden Appendix Heading"/>
             </StoryText>
         </PAGEOBJECT>
-        <PAGEOBJECT XPOS="766.142732283465" YPOS="5577.81527559055" OwnPage="12" ItemID="868576925" PTYPE="4" WIDTH="467.716535433071" HEIGHT="447.874015748032" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Appendix_Body" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 447.874 L0 447.874 L0 0 Z" copath="M0 0 L467.717 0 L467.717 447.874 L0 447.874 L0 0 Z" gXpos="766.142732283465" gYpos="5577.81527559055" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
+        <PAGEOBJECT XPOS="766.142732283465" YPOS="5577.81527559055" OwnPage="12" ItemID="2032583059" PTYPE="4" WIDTH="467.716535433071" HEIGHT="447.874015748032" FRTYPE="0" CLIPEDIT="0" PWIDTH="1" PLINEART="1" ANNAME="Appendix_Body" LOCALSCX="1" LOCALSCY="1" LOCALX="0" LOCALY="0" LOCALROT="0" PICART="1" SCALETYPE="1" RATIO="1" COLUMNS="1" COLGAP="0" AUTOTEXT="0" EXTRA="0" TEXTRA="0" BEXTRA="0" REXTRA="0" VAlign="0" FLOP="1" PLTSHOW="0" BASEOF="0" textPathType="0" textPathFlipped="0" path="M0 0 L467.717 0 L467.717 447.874 L0 447.874 L0 0 Z" copath="M0 0 L467.717 0 L467.717 447.874 L0 447.874 L0 0 Z" gXpos="766.142732283465" gYpos="5577.81527559055" gWidth="0" gHeight="0" LAYER="0" NEXTITEM="-1" BACKITEM="-1">
             <StoryText>
                 <DefaultStyle/>
                 <ITEXT CH="The Feature Register is the controlled index of every structure, landscape element and infrastructure component considered in the reconstruction."/>
